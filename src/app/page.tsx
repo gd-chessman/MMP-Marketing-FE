@@ -1,13 +1,26 @@
 'use client';
 
+import { useEffect, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useLang } from '@/lang';
-import React from 'react'
 
-export default function HomePage() {
+function HomeContent() {
+  const router = useRouter();
   const { t } = useLang();
+
+ 
+
   return (
     <div>
-      <h2 className='text-2xl font-bold text-green-600'>{t('home.title')}</h2>
+      đang chuyển hướng...
     </div>
-  )
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div></div>}>
+      <HomeContent />
+    </Suspense>
+  );
 }
