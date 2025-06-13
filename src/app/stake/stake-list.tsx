@@ -34,15 +34,14 @@ function StakeItem({
         <div>
             <div className="border-2 flex flex-grow border-blue-400/50 rounded-xl p-4 mb-4 bg-gradient-purple-cyan-0deg backdrop-blur-sm hover:border-blue-400/70 transition-all duration-300">
                 <div className="flex items-center w-[40px]"><ChevronDown className="w-4 h-4 text-neutral" /></div>
-                <div className="flex flex-1 flex-col mr-10">
-                    <p className="text-lg kati-font font-medium">Short-Term Stake 1</p>
-                    <p className="text-xs text-neutral mb-1 bg-green-700 flex items-center justify-center rounded-full px-2 py-1">2 Withdrawable Stakes</p>
+                <div className="flex flex-1 gap-2 flex-col mr-10">
+                    <p className="text-lg kati-font font-medium">Short-Term 2 Months</p>
+                    <p className="text-xs text-neutral bg-green-700 max-w-[200px] flex items-center justify-center rounded-full px-2 py-1 mb-0 p-0">2 Withdrawable Stakes</p>
                 </div>
-                
                 <div className=" flex-1 flex justify-between items-center">
                     <div className="flex flex-col">
-                        <p className="text-sm text-neutral mb-1">Amount</p>
-                        <p className="text-base kati-font font-medium">{overStaking.amount} MMP</p>
+                        <p className="text-sm text-neutral mb-1">All Amount</p>
+                        <p className="text-base kati-font font-medium text-neutral">{overStaking.amount} MMP</p>
                     </div>
                 </div>
                 <div className=" flex-1 flex justify-between items-center">
@@ -54,19 +53,9 @@ function StakeItem({
                 </div>
                 <div className=" flex-1 flex justify-between items-center">
                     <div className="flex flex-col">
-                        <p className="text-sm text-neutral mb-1">Received</p>
+                        <p className="text-sm text-neutral mb-1">All Received</p>
                         <p className="text-base kati-font font-medium text-green-600">+ {overStaking.Received} MMP</p>
                     </div>
-                </div>
-                <div className="flex-1 flex justify-between items-center">
-                    <div className="flex flex-col">
-                        <p className="text-sm text-neutral mb-1">Interest Rate</p>
-                        <p className="text-base kati-font font-medium">{overStaking["interest Rate"]}</p>
-                    </div>
-                </div>
-                <div className="flex justify-end flex-col">
-                    <p className="text-sm text-neutral mb-1">Remaining</p>
-                    <p className="text-base kati-font font-medium">{overStaking.Remaining}</p>
                 </div>
             </div>
             <div className="bg-black/50 rounded-lg p-5">
@@ -77,33 +66,33 @@ function StakeItem({
                 </div>
                 <div className="flex gap-16 ">
                     <div className="  flex justify-between items-center">
-                        <div className="flex flex-col">
+                        <div className="flex flex-col min-w-[100px]">
                             <p className="text-sm text-neutral mb-1">Amount</p>
                             <p className="text-base kati-font font-medium">{overStaking.amount}</p>
                         </div>
                     </div>
                     <div className="  flex justify-between items-center">
-                        <div className="flex flex-col">
+                        <div className="flex flex-col min-w-[100px]">
                             <p className="text-sm text-neutral mb-1">Term</p>
                             <p className="text-base kati-font font-medium">{overStaking.term}</p>
                         </div>
 
                     </div>
                     <div className="  flex justify-between items-center">
-                        <div className="flex flex-col">
+                        <div className="flex flex-col min-w-[100px]">
                             <p className="text-sm text-neutral mb-1">Received</p>
                             <p className="text-base kati-font font-medium text-green-600">+ {overStaking.Received} MMP</p>
                         </div>
                     </div>
                     <div className=" flex justify-between items-center">
-                        <div className="flex flex-col">
+                        <div className="flex flex-col min-w-[100px]">
                             <p className="text-sm text-neutral mb-1">Interest Rate</p>
                             <p className="text-base kati-font font-medium">{overStaking["interest Rate"]}</p>
                         </div>
                     </div>
 
                     <div className="flex flex-1 justify-end items-center">
-                        <Button size="sm" className="bg-gradient-violet-blue border-none hover:bg-cyan-600 text-white px-6 py-[2px] text-xs rounded-full">
+                        <Button size="sm" className="bg-gradient-violet-blue border-none hover:bg-cyan-600 text-white px-8 py-[2px] text-sm rounded-full">
                             Withdraw
                         </Button>
                     </div>

@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import Header from "@/components/Header";
 import VideoBackground from "@/components/bg-video";
+import { NotifyProvider } from "@/components/notify";
 
 const gothicA1 = Gothic_A1({
   subsets: ["latin"],
@@ -38,16 +39,18 @@ export default function RootLayout({
         <title>{process.env.NEXT_PUBLIC_APP_NAME}</title>
         <link rel="icon" href="/favicon.png" type="image/png" />
       </head>
-      <body className={`antialiased ${gothicA1.variable}`}>
+      <body className={`antialiased min-h-screen flex flex-col bg-white dark:bg-black overflow-x-hidden  ${gothicA1.variable}`}>
        
         <QueryClientProvider client={queryClient}>
           <LangProvider>
-            <div className="min-h-screen bg-[#747474] dark:bg-gray-950 transition-colors duration-300 font-gothic-a1">
-              <Header />
-              <VideoBackground />
-              <main className="h-[calc(100vh-64px)] relative z-40">{children}</main>
-            </div>
-            <ToastContainer theme="dark" />
+            <NotifyProvider>
+              <div className="min-h-screen bg-[#747474] dark:bg-gray-950 transition-colors duration-300 font-gothic-a1 flex flex-col">
+                <Header />
+                <VideoBackground />
+                <main className="overflow-x-hidden flex-1 z-20 relative container mx-auto w-full flex flex-col">{children}</main>
+              </div>
+              <ToastContainer theme="dark" />
+            </NotifyProvider>
           </LangProvider>
         </QueryClientProvider>
       </body>

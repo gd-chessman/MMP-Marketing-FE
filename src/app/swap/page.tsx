@@ -8,6 +8,10 @@ import { Card } from "@/app/ui/card"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/app/ui/dropdown-menu"
 import { useAuth } from "@/hooks/useAuth"
 import { ConnectWalletModal } from "@/components/ConnectWalletModal"
+import { useQuery } from "@tanstack/react-query"
+import { SwapService, TelegramWalletService } from "@/services/api"
+import { createSwapOrder } from "@/services/api/SwapService"
+import notify from "@/components/notify"
 
 // Mock data for swap history
 const swapHistory = [
@@ -39,13 +43,54 @@ export default function SwapInterface() {
   const [showHistory, setShowHistory] = useState(false)
   const [sellToken, setSellToken] = useState(tokens[0])
   const [buyToken, setBuyToken] = useState(tokens[1])
-  const [sellAmount, setSellAmount] = useState("0.00")
+  const [sellAmount, setSellAmount] = useState("0")
   const [buyAmount, setBuyAmount] = useState("0.00")
   const [activeTab, setActiveTab] = useState("swap")
   const [showConnectModal, setShowConnectModal] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const { isAuthenticated } = useAuth()
   const toggleHistory = () => {
     setShowHistory(!showHistory)
+  }
+
+  const { data: myWallet } = useQuery({
+    queryKey: ['myWallet'],
+    queryFn: () => TelegramWalletService.getmyWallet(),
+  })
+
+  const { data: solPrice } = useQuery({
+    queryKey: ['solPrice'],
+    queryFn: () => SwapService.gerSolPrice(),
+  })
+
+  // Calculate token price in USD
+  const getTokenPriceUSD = () => {
+    if (!solPrice) return 0
+
+    switch (sellToken.symbol) {
+      case "SOL":
+        return solPrice.price_usd || 0
+      case "USDT":
+      case "USDC":
+        return 1 // USDT and USDC are pegged to USD
+      default:
+        return 0
+    }
+  }
+
+  // Calculate USD value of sell amount
+  const getUSDValue = () => {
+    const tokenPrice = getTokenPriceUSD()
+    return Number(sellAmount) * tokenPrice
+  }
+
+  // Calculate MMP amount based on sell amount and token
+  const calculateMMPAmount = () => {
+    const usdValue = getUSDValue()
+    // 1 MMP = $0.001, so we convert USD value directly to MMP
+    const mmpAmount = usdValue / 0.001
+
+    return mmpAmount
   }
 
   const swapTokens = () => {
@@ -142,16 +187,16 @@ export default function SwapInterface() {
                   Guild members enjoy reduced fees, priority support, and exclusive trading opportunities.
                 </p>
                 <div className="mt-4 flex gap-2">
-                  <Button className="bg-gradient-violet-blue text-neutral cursor-pointer text-sm px-4 py-2">
+                  <Button className="bg-gradient-violet-blue text-neutral cursor-pointer text-sm px-4 py-2 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 active:scale-95">
                     Join Guild
                   </Button>
-                  <Button variant="outline" className="border-[#d7d7d7]/20 text-black cursor-pointer text-sm px-4 py-2">
+                  <Button variant="outline" className="border-[#d7d7d7]/20 text-black cursor-pointer text-sm px-4 py-2 transition-all duration-300 hover:scale-105 hover:bg-white/10 hover:border-purple-500/50 active:scale-95">
                     View Benefits
                   </Button>
                 </div>
               </div>
 
-             
+
               <img src="/swap-guide.png" alt="swap-guide" className="w-full h-auto" />
             </div>
           </div>
@@ -178,14 +223,123 @@ export default function SwapInterface() {
     }
   }
 
+  // Handle swap order submission
+  const handleSwapSubmit = async () => {
+    // Validate input
+    if (!sellAmount || Number(sellAmount) <= 0) {
+      notify({ message: "Please enter a valid amount swap", type: "error" })
+      return
+    }
+
+    if (!sellToken || !sellToken.symbol) {
+      notify({ message: "Please select a token to swap", type: "error" })
+      return
+    }
+
+    // // Check minimum amount (e.g., 0.001 for any token)
+    // const minAmount = 0.001
+    // if (Number(sellAmount) < minAmount) {
+    //   notify({ message: `Minimum swap amount is ${minAmount} ${sellToken.symbol}`, type: "error" })
+    //   return
+    // }
+
+    setIsSubmitting(true)
+
+    try {
+      const response = await createSwapOrder(sellToken.symbol, Number(sellAmount))
+
+      // Check if response has success status or specific status codes
+      if (response && (response.success || response.status === 200 || response.status === 201)) {
+        notify({
+          message: "Swap order created successfully! You will receive your MMP tokens shortly.",
+          type: "success"
+        })
+        // Reset form
+        setSellAmount("0")
+      } else {
+        notify({
+          message: response?.message || "Failed to create swap order. Please try again.",
+          type: "error"
+        })
+      }
+    } catch (error: any) {
+      console.error("Swap order error:", error)
+
+      // Handle different types of errors
+      if (error.response) {
+        // Server responded with error status
+        const status = error.response.status
+        const errorMessage = error.response.data?.message || error.response.data?.error
+
+        switch (status) {
+          case 400:
+            notify({
+              message: errorMessage || "Invalid request. Please check your input.",
+              type: "error"
+            })
+            break
+          case 401:
+            notify({
+              message: "Authentication required. Please connect your wallet.",
+              type: "error"
+            })
+            break
+          case 403:
+            notify({
+              message: "Insufficient balance or permission denied.",
+              type: "error"
+            })
+            break
+          case 404:
+            notify({
+              message: "Service not available. Please try again later.",
+              type: "error"
+            })
+            break
+          case 429:
+            notify({
+              message: "Too many requests. Please wait before trying again.",
+              type: "error"
+            })
+            break
+          case 500:
+            notify({
+              message: "Server error. Please try again later.",
+              type: "error"
+            })
+            break
+          default:
+            notify({
+              message: errorMessage || "An unexpected error occurred. Please try again.",
+              type: "error"
+            })
+        }
+      } else if (error.request) {
+        // Network error
+        notify({
+          message: "Network error. Please check your connection and try again.",
+          type: "error"
+        })
+      } else {
+        // Other errors
+        notify({
+          message: "An unexpected error occurred. Please try again.",
+          type: "error"
+        })
+      }
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
-    <div className="h-full flex items-center justify-center p-4 z-20">
+    <div className="flex-1 flex items-center justify-center p-4 z-20">
 
       <div className="relative flex items-center justify-center gap-8 w-full">
         {/* History Panel */}
-        <div className=" max-w-[800px] flex-1 flex flex-col gap-8 rounded-xl"
+        <div className=" flex-1 flex flex-col gap-8 rounded-xl"
         >
-          <Card className="w-full border-[#d7d7d7]/20 p-6 bg-black/60">
+          <Card className="w-full border-[#d7d7d7]/20 p-6 bg-black/60 min-h-[530px]">
             {/* Tab Content */}
             <AnimatePresence mode="wait">
               <motion.div
@@ -207,7 +361,7 @@ export default function SwapInterface() {
                 : "bg-transparent"
                 }`}
             >
-             
+
               Swap
             </button>
             <button
@@ -232,7 +386,7 @@ export default function SwapInterface() {
         </div>
 
         {/* Main Swap Interface */}
-        <Card className="w-[540px] bg-black/6060 flex flex-col gap-4" style={{ marginTop: '-5%' }}>
+        <Card className="w-[600px] bg-black/6060 flex flex-col gap-4" style={{ marginTop: '-5%' }}>
           <div className=" bg-black/60  p-6 border-[1px] border-solid  rounded-xl">
             {/* Header */}
             <div className="text-center mb-5">
@@ -240,23 +394,21 @@ export default function SwapInterface() {
               <h1 className="bg-gradient-purple-cyan bg-clip-text text-3xl font-bold leading-7 mt-2 kati-font">Instant Exchange</h1>
             </div>
 
+            <div className="text-neutral text-sm text-right leading-5">My Balance: {myWallet?.balance_sol} SOL</div>
             {/* Sell Section */}
-            <div className="space-y-3 mb-5">
+            <div className="space-y-3 mb-5 mt-2">
               <div className="bg-dark-100 rounded-xl p-4">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between mb-1">
                   <label className="text-[#fcfcfc] text-sm font-medium">From</label>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-[#fcfcfc]">{sellAmount}</div>
-                  </div>
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="flex items-start justify-between">
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild className="bg-transparent border-none text-sm text-neutral cursor-pointer py-2">
                       <button className="flex items-center gap-2 text-[#fcfcfc] hover:text-[#9747ff] transition-colors">
                         <div
                           className={`w-6 h-6 rounded-full flex items-center justify-center text-xs`}
                         >
-                          <img src={tokens[0].icon} alt={tokens[0].name} width={24} height={24} />
+                          <img src={sellToken.icon} alt={sellToken.name} width={24} height={24} />
                         </div>
                         <span className="font-medium">{sellToken.symbol}</span>
                         <ChevronDown className="w-4 h-4" />
@@ -279,7 +431,17 @@ export default function SwapInterface() {
                       ))}
                     </DropdownMenuContent>
                   </DropdownMenu>
-                  <div className="text-right text-[#d7d7d7] text-sm">~ 0.00 USD</div>
+                  <div className="text-right flex flex-col gap-2">
+                    <input
+                      type="number"
+                      value={sellAmount}
+                      onChange={(e) => setSellAmount(e.target.value)}
+                      placeholder="0"
+                      className="text-2xl font-bold text-[#fcfcfc] bg-transparent pr-1 border-none outline-none w-32 rounded-full min-w-[100px] text-right appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                    />
+                    <div className="text-right text-[#d7d7d7] text-sm">~ {getUSDValue().toFixed(2)} USD</div>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -299,9 +461,7 @@ export default function SwapInterface() {
               <div className="bg-dark-100 rounded-xl p-4">
                 <div className="flex items-center justify-between mb-2">
                   <label className="text-[#fcfcfc] text-sm font-medium">To</label>
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-[#fcfcfc]">{buyAmount}</div>
-                  </div>
+
                 </div>
                 <div className="flex items-center justify-between">
                   <button className="flex items-center bg-transparent border-none gap-2 text-[#fcfcfc] hover:text-[#9747ff] transition-colors">
@@ -311,27 +471,40 @@ export default function SwapInterface() {
                       <img src={"/mmp-logo.png"} alt={"mmp"} width={24} height={24} />
                     </div>
                     <span className="font-medium">MMP</span>
-                  
+
                   </button>
-                  <div className="text-right text-[#d7d7d7] text-sm">~ 0.00 USD</div>
+                  <div className="text-right">
+                    <div className="text-2xl font-bold text-[#fcfcfc]">{calculateMMPAmount().toFixed(2)}</div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           {/* Swap Button */}
           <div className="flex flex-col gap-4 bg-black/60 rounded-xl p-4">
-           {isAuthenticated ? (
-            <Button className="w-full bg-gradient-violet-blue cursor-pointer   text-white font-bold py-3 text-base kati-font">
-              SWAP
-            </Button>
-           ) : (
-            <Button 
-              onClick={() => setShowConnectModal(true)}
-              className="w-full bg-gradient-violet-blue cursor-pointer text-white font-bold py-3 text-base kati-font "
-            >
-              Connect Wallet
-            </Button>
-           )}
+            {isAuthenticated ? (
+              <Button
+                onClick={handleSwapSubmit}
+                disabled={isSubmitting}
+                className="w-full bg-gradient-violet-blue cursor-pointer rounded-full border-none text-white font-bold py-3 text-base kati-font transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+              >
+                {isSubmitting ? (
+                  <div className="flex items-center justify-center gap-2">
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Processing...
+                  </div>
+                ) : (
+                  "SWAP"
+                )}
+              </Button>
+            ) : (
+              <Button
+                onClick={() => setShowConnectModal(true)}
+                className="w-full bg-gradient-violet-blue cursor-pointer rounded-full text-white font-bold py-3 text-base kati-font transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 active:scale-95"
+              >
+                Connect Wallet
+              </Button>
+            )}
 
             {/* Transaction Info */}
             <div className="bg-black/60 rounded-xl flex items-center justify-between  space-y-2">
@@ -346,11 +519,11 @@ export default function SwapInterface() {
                     </linearGradient>
                   </defs>
                 </svg>
-                <span className="text-[#d7d7d7]">0.001 SOL</span>
+                <span className="text-[#d7d7d7]">0.001 USD</span>
               </div>
               <div className="flex justify-between text-sm gap-2">
                 <span className="text-[#d7d7d7]">FEE</span>
-                <span className="text-[#d7d7d7]">~ 2 USD</span>
+                <span className="text-[#d7d7d7]">~ 1 USD</span>
               </div>
             </div>
           </div>
@@ -367,9 +540,9 @@ export default function SwapInterface() {
       </div>
 
       {/* Connect Wallet Modal */}
-      <ConnectWalletModal 
-        open={showConnectModal} 
-        onOpenChange={setShowConnectModal} 
+      <ConnectWalletModal
+        open={showConnectModal}
+        onOpenChange={setShowConnectModal}
       />
     </div>
   )
