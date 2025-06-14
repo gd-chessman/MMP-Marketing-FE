@@ -8,11 +8,13 @@ function HomeContent() {
   const router = useRouter();
   const { t } = useLang();
 
- 
+ useEffect(() => {
+  router.push('/swap');
+ }, []);
 
   return (
     <div>
-      đang chuyển hướng...
+      {t('home.redirecting')}
     </div>
   );
 }

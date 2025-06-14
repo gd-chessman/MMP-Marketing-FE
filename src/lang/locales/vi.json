@@ -1,5 +1,103 @@
 {
     "home": {
-        "title": "Trang chủ"
+        "title": "Trang chủ",
+        "redirecting": "Đang chuyển hướng..."
+    },
+    "lang": {
+        "en": "Tiếng Anh",
+        "vi": "Tiếng Việt",
+        "jp": "Tiếng Nhật", 
+        "kr": "Tiếng Hàn"
+    },
+    "header": {
+        "overview": "Tổng quan",
+        "swap": "Hoán đổi",
+        "stake": "Đặt cọc",
+        "referral": "Giới thiệu",
+        "joinUs": "Tham gia cùng chúng tôi",
+        "telegramLogin": "Đăng nhập Telegram",
+        "googleLogin": "Đăng nhập Google",
+        "phantomLogin": "Đăng nhập Phantom",
+        "unknownLogin": "Không xác định",
+        "walletAddress": "Địa chỉ ví:",
+        "logout": "Đăng xuất",
+        "language": "Ngôn ngữ",
+        "selectLanguage": "Chọn ngôn ngữ",
+        "deposit": "Nạp"
+    },
+    "connectWalletModal": {
+        "title": "Kết nối Ví",
+        "description": "Kết nối với chúng tôi thông qua nhiều phương thức đăng nhập linh hoạt",
+        "telegram": "Telegram",
+        "phantom": "Phantom",
+        "google": "Google",
+        "connecting": "Đang kết nối...",
+        "connectError": "Lỗi kết nối",
+        "phantomNotInstalled": "Ví Phantom chưa được cài đặt. Vui lòng cài đặt trước.",
+        "phantomConnectionFailed": "Không thể kết nối với ví Phantom",
+        "phantomSignatureFailed": "Không thể ký tin nhắn với ví Phantom",
+        "phantomAuthFailed": "Không thể xác thực với ví Phantom"
+    },
+    "tglogin": {
+        "title": "Hoàn thành Hồ sơ",
+        "nickname": "Biệt danh",
+        "nicknameRequired": "Biệt danh là bắt buộc",
+        "nicknamePlaceholder": "Nhập biệt danh của bạn",
+        "country": "Quốc gia",
+        "countryRequired": "Quốc gia là bắt buộc",
+        "submit": "Gửi"
+    },
+    "deposit": {
+        "title": "Nạp MMP",
+        "connectWalletToDeposit": "Kết nối Ví để Nạp",
+        "connectWallet": "Kết nối Ví",
+        "myWalletAddress": "Địa chỉ Ví của tôi",
+        "noAddressAvailable": "Không có địa chỉ khả dụng",
+        "downloadQRCode": "Tải xuống Mã QR",
+        "addressCopied": "Đã sao chép địa chỉ vào clipboard!",
+        "failedToCopyAddress": "Không thể sao chép địa chỉ",
+        "loading": "Đang tải..."
+    },
+    "swap": {
+        "swapHistory": "Lịch sử Swap",
+        "swapGuide": "Hướng dẫn Swap",
+        "policy": "Chính sách",
+        "guild": "Guild",
+        "freeSwap": "Swap Miễn phí",
+        "instantExchange": "Trao đổi Tức thì",
+        "myBalance": "Số dư của tôi",
+        "from": "Từ",
+        "to": "Đến",
+        "swap": "SWAP",
+        "connectWallet": "Kết nối Ví",
+        "processing": "Đang xử lý...",
+        "time": "Thời gian",
+        "sell": "Bán",
+        "buy": "Mua",
+        "guildMembership": "Thành viên Guild",
+        "guildDescription": "Tham gia hệ thống guild độc quyền của chúng tôi để mở khóa các tính năng cao cấp, kiếm phần thưởng và kết nối với các nhà giao dịch khác. Thành viên guild được hưởng phí giảm, hỗ trợ ưu tiên và cơ hội giao dịch độc quyền.",
+        "joinGuild": "Tham gia Guild",
+        "viewBenefits": "Xem Lợi ích",
+        "policyItems": [
+            "Người dùng có thể chuyển SOL, USDT hoặc USDC trực tiếp từ ví cá nhân (Phantom) vào ví giao dịch của họ.",
+            "Họ có thể sử dụng SOL, USDT hoặc USDC để swap lấy token MMP với giá IDO $0.001.",
+            "Người dùng có thể stake MMP để kiếm phần thưởng định kỳ (chi tiết phần thưởng đang được cập nhật).",
+            "Nếu họ chọn không stake, họ có thể rút MMP/MPB từ ví giao dịch về ví cá nhân, chỉ phải trả phí mạng.",
+            "Khi rút SOL, USDT hoặc USDC từ ví giao dịch về ví cá nhân, sẽ áp dụng phí rút phẳng $1."
+        ],
+        "errors": {
+            "enterValidAmount": "Vui lòng nhập số lượng swap hợp lệ",
+            "selectToken": "Vui lòng chọn token để swap",
+            "swapSuccess": "Tạo lệnh swap thành công! Bạn sẽ nhận được token MMP trong thời gian ngắn.",
+            "swapFailed": "Tạo lệnh swap thất bại. Vui lòng thử lại.",
+            "invalidRequest": "Yêu cầu không hợp lệ. Vui lòng kiểm tra đầu vào của bạn.",
+            "authenticationRequired": "Yêu cầu xác thực. Vui lòng kết nối ví của bạn.",
+            "insufficientBalance": "Số dư không đủ hoặc bị từ chối quyền.",
+            "serviceUnavailable": "Dịch vụ không khả dụng. Vui lòng thử lại sau.",
+            "tooManyRequests": "Quá nhiều yêu cầu. Vui lòng chờ trước khi thử lại.",
+            "serverError": "Lỗi máy chủ. Vui lòng thử lại sau.",
+            "networkError": "Lỗi mạng. Vui lòng kiểm tra kết nối và thử lại.",
+            "unexpectedError": "Đã xảy ra lỗi không mong muốn. Vui lòng thử lại."
+        }
     }
 }

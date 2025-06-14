@@ -11,7 +11,17 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
     }
     try {
       const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
+      if (!item) {
+        return initialValue;
+      }
+      
+      // Try to parse as JSON first, if it fails, treat as string
+      try {
+        return JSON.parse(item);
+      } catch {
+        // If JSON parsing fails, return the raw string
+        return item as T;
+      }
     } catch (error) {
       console.log(error);
       return initialValue;
@@ -26,21 +36,17 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
       const valueToStore = value instanceof Function ? value(storedValue) : value;
       setStoredValue(valueToStore);
       if (typeof window !== "undefined") {
-        window.localStorage.setItem(key, JSON.stringify(valueToStore));
+        // If the value is a string, store it directly, otherwise stringify it
+        if (typeof valueToStore === 'string') {
+          window.localStorage.setItem(key, valueToStore);
+        } else {
+          window.localStorage.setItem(key, JSON.stringify(valueToStore));
+        }
       }
     } catch (error) {
       console.log(error);
     }
   }, [key, storedValue]);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const item = window.localStorage.getItem(key);
-      if (item) {
-        setStoredValue(JSON.parse(item));
-      }
-    }
-  }, [key]);
 
   return [storedValue, setValue] as const;
 } 

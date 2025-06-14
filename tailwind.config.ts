@@ -32,6 +32,7 @@ const config: Config = {
         },
         purple: {
           DEFAULT: '#5558FF',
+          secondary: '#8833EE',
         },
         cyan: {
           DEFAULT: '#00C0FF',
@@ -41,6 +42,9 @@ const config: Config = {
         },
         blue: {
           DEFAULT: '#00B8F4',
+        },
+        navy: {
+          DEFAULT: '#112D60',
         },
         'purple-solid': 'rgba(85, 88, 255, 1)',
         'cyan-solid': 'rgba(0, 192, 255, 1)',
@@ -53,6 +57,7 @@ const config: Config = {
         "gradient-violet-blue": "linear-gradient(90deg, #712AFF 0%, #00B8F4 100%)",
         "gradient-purple-cyan-0deg": "linear-gradient(0deg, rgba(85, 88, 255, 0.40) 0%, rgba(0, 192, 255, 0.40) 100%)",
         "gradient-purple-cyan-solid": "linear-gradient(0deg, rgba(85, 88, 255, 1) 0%, rgba(0, 192, 255, 1) 100%)",
+        "gradient-navy-purple": "linear-gradient(93deg, rgba(17, 45, 96, 0.70) 2.14%, rgba(136, 51, 238, 0.70) 98.03%)",
       },
     },
   },

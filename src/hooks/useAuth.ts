@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { jwtDecode } from "jwt-decode";
 
-type LoginMethod = 'telegram' | 'google' | null;
+type LoginMethod = 'telegram' | 'google' | 'phantom' | null;
 
 const useAuthStore = create((set: any) => {
   const isLoggedIn =

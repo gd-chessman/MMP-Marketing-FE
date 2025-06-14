@@ -1,5 +1,103 @@
 {
     "home": {
-        "title": "Home Page"
+        "title": "Home Page",
+        "redirecting": "Redirecting..."
+    },
+    "lang": {
+        "en": "English",
+        "vi": "Vietnamese", 
+        "jp": "Japanese",
+        "kr": "Korean"
+    },
+    "header": {
+        "overview": "Overview",
+        "swap": "Swap",
+        "stake": "Stake",
+        "referral": "Referral",
+        "joinUs": "Join us",
+        "telegramLogin": "Telegram Login",
+        "googleLogin": "Google Login",
+        "phantomLogin": "Phantom Login",
+        "unknownLogin": "Unknown",
+        "walletAddress": "Wallet Address:",
+        "logout": "Logout",
+        "language": "Language",
+        "selectLanguage": "Select Language",
+        "deposit": "Deposit"
+    },
+    "connectWalletModal": {
+        "title": "Connect Wallet",
+        "description": "Connect with us through multiple flexible login methods",
+        "telegram": "Telegram",
+        "phantom": "Phantom",
+        "google": "Google",
+        "connecting": "Connecting...",
+        "connectError": "Connection error",
+        "phantomNotInstalled": "Phantom wallet is not installed. Please install it first.",
+        "phantomConnectionFailed": "Failed to connect to Phantom wallet",
+        "phantomSignatureFailed": "Failed to sign message with Phantom wallet",
+        "phantomAuthFailed": "Failed to authenticate with Phantom wallet"
+    },
+    "tglogin": {
+        "title": "Complete Your Profile",
+        "nickname": "Nickname",
+        "nicknameRequired": "Nickname is required",
+        "nicknamePlaceholder": "Enter your nickname",
+        "country": "Country",
+        "countryRequired": "Country is required",
+        "submit": "Submit"
+    },
+    "deposit": {
+        "title": "Deposit MMP",
+        "connectWalletToDeposit": "Connect Wallet to Deposit",
+        "connectWallet": "Connect Wallet",
+        "myWalletAddress": "My Wallet Address",
+        "noAddressAvailable": "No address available",
+        "downloadQRCode": "Download QR Code",
+        "addressCopied": "Address copied to clipboard!",
+        "failedToCopyAddress": "Failed to copy address",
+        "loading": "Loading..."
+    },
+    "swap": {
+        "swapHistory": "Swap History",
+        "swapGuide": "Swap Guide",
+        "policy": "Policy",
+        "guild": "Guild",
+        "freeSwap": "Free Swap",
+        "instantExchange": "Instant Exchange",
+        "myBalance": "My Balance",
+        "from": "From",
+        "to": "To",
+        "swap": "SWAP",
+        "connectWallet": "Connect Wallet",
+        "processing": "Processing...",
+        "time": "Time",
+        "sell": "Sell",
+        "buy": "Buy",
+        "guildMembership": "Guild Membership",
+        "guildDescription": "Join our exclusive guild system to unlock premium features, earn rewards, and connect with other traders. Guild members enjoy reduced fees, priority support, and exclusive trading opportunities.",
+        "joinGuild": "Join Guild",
+        "viewBenefits": "View Benefits",
+        "policyItems": [
+            "Users can transfer SOL, USDT, or USDC directly from their personal wallets (Phantom) into their exchange wallet.",
+            "They can use SOL, USDT, or USDC to swap for MMP tokens at the IDO price of $0.001.",
+            "Users may stake MMP to earn periodic rewards (reward details are currently being updated).",
+            "If they choose not to stake, they can withdraw MMP/MPB from their exchange wallet back to their personal wallet, paying only the network fee.",
+            "When withdrawing SOL, USDT, or USDC from the exchange wallet to a personal wallet, a flat $1 withdrawal fee applies."
+        ],
+        "errors": {
+            "enterValidAmount": "Please enter a valid amount swap",
+            "selectToken": "Please select a token to swap",
+            "swapSuccess": "Swap order created successfully! You will receive your MMP tokens shortly.",
+            "swapFailed": "Failed to create swap order. Please try again.",
+            "invalidRequest": "Invalid request. Please check your input.",
+            "authenticationRequired": "Authentication required. Please connect your wallet.",
+            "insufficientBalance": "Insufficient balance or permission denied.",
+            "serviceUnavailable": "Service not available. Please try again later.",
+            "tooManyRequests": "Too many requests. Please wait before trying again.",
+            "serverError": "Server error. Please try again later.",
+            "networkError": "Network error. Please check your connection and try again.",
+            "unexpectedError": "An unexpected error occurred. Please try again."
+        }
     }
 }

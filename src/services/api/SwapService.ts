@@ -9,6 +9,15 @@ export const createSwapOrder = async (input_token: string, input_amount: number)
     }
 }
 
+export const getSwapOrder = async () => {
+    try {
+        const temp = await axiosClient.get(`/swap-orders`);
+        return temp.data;
+    } catch (e) {
+        throw e;
+    }
+}
+
 export const gerSolPrice = async () => {
     try {
         const temp = await axiosClient.get(`/swap-orders/sol-price`);

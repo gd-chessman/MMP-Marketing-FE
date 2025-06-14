@@ -8,7 +8,7 @@ import { LangProvider } from '@/lang/LangProvider';
 export type LangCodes = 'en' | 'vi' | 'kr' | 'jp';
 
 // Định nghĩa kiểu dữ liệu có thể chứa object lồng nhau
-type Translations = { [key: string]: string | Translations };
+type Translations = { [key: string]: string | string[] | Translations };
 
 export const langConfig: { 
   listLangs: { id: number; name: string; code: LangCodes }[];

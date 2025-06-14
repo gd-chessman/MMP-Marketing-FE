@@ -18,3 +18,12 @@ export const getmyWallet = async () => {
         throw new Error("Error Get My Wallet")
     }
 }
+
+export const logout = async () => {
+    try {
+        const temp = await axiosClient.post(`/auth/logout`);
+        return temp.data;
+    } catch (e) {
+        throw e;
+    }
+}

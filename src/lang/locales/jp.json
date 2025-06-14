@@ -1,5 +1,103 @@
 {
     "home": {
-        "title": "ホームページ"
+        "title": "ホームページ",
+        "redirecting": "リダイレクト中..."
+    },
+    "lang": {
+        "en": "英語",
+        "vi": "ベトナム語",
+        "jp": "日本語",
+        "kr": "韓国語"
+    },
+    "header": {
+        "overview": "概要",
+        "swap": "スワップ",
+        "stake": "ステーク",
+        "referral": "紹介",
+        "joinUs": "参加する",
+        "telegramLogin": "Telegramログイン",
+        "googleLogin": "Googleログイン",
+        "phantomLogin": "Phantomログイン",
+        "unknownLogin": "不明",
+        "walletAddress": "ウォレットアドレス:",
+        "logout": "ログアウト",
+        "language": "言語",
+        "selectLanguage": "言語を選択",
+        "deposit": "入金"
+    },
+    "connectWalletModal": {
+        "title": "ウォレット接続",
+        "description": "複数の柔軟なログイン方法で私たちと接続してください",
+        "telegram": "Telegram",
+        "phantom": "Phantom",
+        "google": "Google",
+        "connecting": "接続中...",
+        "connectError": "接続エラー",
+        "phantomNotInstalled": "Phantomウォレットがインストールされていません。先にインストールしてください。",
+        "phantomConnectionFailed": "Phantomウォレットへの接続に失敗しました",
+        "phantomSignatureFailed": "Phantomウォレットでのメッセージ署名に失敗しました",
+        "phantomAuthFailed": "Phantomウォレットでの認証に失敗しました"
+    },
+    "tglogin": {
+        "title": "プロフィールを完成させる",
+        "nickname": "ニックネーム",
+        "nicknameRequired": "ニックネームは必須です",
+        "nicknamePlaceholder": "ニックネームを入力してください",
+        "country": "国",
+        "countryRequired": "国は必須です",
+        "submit": "送信"
+    },
+    "deposit": {
+        "title": "MMP入金",
+        "connectWalletToDeposit": "入金するためにウォレットを接続",
+        "connectWallet": "ウォレット接続",
+        "myWalletAddress": "私のウォレットアドレス",
+        "noAddressAvailable": "利用可能なアドレスがありません",
+        "downloadQRCode": "QRコードをダウンロード",
+        "addressCopied": "アドレスをクリップボードにコピーしました！",
+        "failedToCopyAddress": "アドレスのコピーに失敗しました",
+        "loading": "読み込み中..."
+    },
+    "swap": {
+        "swapHistory": "スワップ履歴",
+        "swapGuide": "スワップガイド",
+        "policy": "ポリシー",
+        "guild": "ギルド",
+        "freeSwap": "無料スワップ",
+        "instantExchange": "即座交換",
+        "myBalance": "残高",
+        "from": "から",
+        "to": "へ",
+        "swap": "スワップ",
+        "connectWallet": "ウォレット接続",
+        "processing": "処理中...",
+        "time": "時間",
+        "sell": "売却",
+        "buy": "購入",
+        "guildMembership": "ギルドメンバーシップ",
+        "guildDescription": "プレミアム機能のアンロック、報酬の獲得、他のトレーダーとの接続のための独占的なギルドシステムに参加してください。ギルドメンバーは手数料の削減、優先サポート、独占的な取引機会を享受できます。",
+        "joinGuild": "ギルドに参加",
+        "viewBenefits": "メリットを表示",
+        "policyItems": [
+            "ユーザーは個人ウォレット（Phantom）からSOL、USDT、またはUSDCを直接取引ウォレットに転送できます。",
+            "SOL、USDT、またはUSDCを使用してIDO価格$0.001でMMPトークンとスワップできます。",
+            "ユーザーはMMPをステークして定期的な報酬を獲得できます（報酬の詳細は現在更新中です）。",
+            "ステークしない場合、MMP/MPBを取引ウォレットから個人ウォレットに引き出し、ネットワーク手数料のみを支払うことができます。",
+            "SOL、USDT、またはUSDCを取引ウォレットから個人ウォレットに引き出す場合、一律$1の引き出し手数料が適用されます。"
+        ],
+        "errors": {
+            "enterValidAmount": "有効なスワップ金額を入力してください",
+            "selectToken": "スワップするトークンを選択してください",
+            "swapSuccess": "スワップ注文が正常に作成されました！まもなくMMPトークンを受け取ります。",
+            "swapFailed": "スワップ注文の作成に失敗しました。もう一度お試しください。",
+            "invalidRequest": "無効なリクエストです。入力を確認してください。",
+            "authenticationRequired": "認証が必要です。ウォレットを接続してください。",
+            "insufficientBalance": "残高不足または権限が拒否されました。",
+            "serviceUnavailable": "サービスが利用できません。後でもう一度お試しください。",
+            "tooManyRequests": "リクエストが多すぎます。再試行する前にしばらくお待ちください。",
+            "serverError": "サーバーエラーです。後でもう一度お試しください。",
+            "networkError": "ネットワークエラーです。接続を確認して再試行してください。",
+            "unexpectedError": "予期しないエラーが発生しました。もう一度お試しください。"
+        }
     }
 }
