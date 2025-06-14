@@ -25,6 +25,9 @@ axiosClient.interceptors.response.use(
       //   window.location.href = "/login";
       //   localStorage.removeItem('user')
       // }
+      // localStorage.removeItem("auth_token")
+      // localStorage.removeItem("login_method")
+      // localStorage.removeItem("publicKey")
     }else if(error.code === "ERR_NETWORK"){
       console.warn("Máy chủ đang gặp sự cố !");
     }

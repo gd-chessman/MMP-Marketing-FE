@@ -29,6 +29,7 @@ const Header = () => {
     // { id: 'stake', href: '/stake', label: t('header.stake'), icon: '🔒' },
     // { id: 'referral', href: '/referral', label: t('header.referral'), icon: '👥' },
   ]
+
   
   const { data: myWallet } = useQuery({
     queryKey: ['myWallet'],
@@ -46,6 +47,7 @@ const Header = () => {
     TelegramWalletService.logout()
     setShowDropdown(false)
     setShowMobileMenu(false)
+    loginMethod == "phantom" && localStorage.removeItem("publicKey")
   }
 
   const handlePhantomSignIn = async () => {
