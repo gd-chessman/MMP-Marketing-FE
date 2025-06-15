@@ -18,13 +18,19 @@ import { useLang } from "@/lang/useLang"
 const tokens = [
   { symbol: "SOL", name: "Solana", color: "bg-green-500", icon: "/solana.png" },
   { symbol: "USDT", name: "Tether", color: "bg-green-600", icon: "/USDT.png" },
-  { symbol: "USDC", name: "USDC", color: "bg-blue-500", icon: "/usdc.png" },
+  { symbol: "USDC", name: "USDC", color: "bg-blue-500", icon: "/USDC.png" },
+]
+
+const tokenSwap = [
+  { symbol: "MMP", name: "MMP", color: "bg-green-500", icon: "/mmp.png" },
+  { symbol: "MPB", name: "MP", color: "bg-green-600", icon: "/mpb.png" },
 ]
 
 export default function SwapInterface() {
   const { t } = useLang()
   const [showHistory, setShowHistory] = useState(false)
   const [sellToken, setSellToken] = useState(tokens[0])
+  const [sellTokenSwap, setSellTokenSwap] = useState(tokenSwap[0])
   const [buyToken, setBuyToken] = useState(tokens[1])
   const [sellAmount, setSellAmount] = useState("0")
   const [buyAmount, setBuyAmount] = useState("0.00")
@@ -55,17 +61,17 @@ export default function SwapInterface() {
   // Format swap order history data for display
   const formatSwapHistory = () => {
     if (!swapOrderHistory || !Array.isArray(swapOrderHistory)) return []
-    
+
     return swapOrderHistory.map(order => ({
       time: new Date(order.created_at).toLocaleString('vi-VN', {
         day: '2-digit',
-        month: '2-digit', 
+        month: '2-digit',
         year: 'numeric',
         hour: '2-digit',
         minute: '2-digit'
       }),
-      sell: `${order.input_amount} ${order.input_token}`,
-      buy: `${order.mmp_received} MMP`,
+      sell: `${Number(order.input_amount).toFixed(6).replace(/\.?0+$/, '')} ${order.input_token}`,
+      buy: `${Number(order.mmp_received ?? order.mpb_received).toFixed(4).replace(/\.?0+$/, '')} ${order.output_token ?? "MMP"}`,
       status: order.status,
       swap_rate: order.swap_rate,
       tx_hash_ref: order.tx_hash_ref,
@@ -73,8 +79,8 @@ export default function SwapInterface() {
     }))
   }
 
-  const swapHistoryData = formatSwapHistory()
-
+  const swapHistoryData2 = formatSwapHistory()
+  const swapHistoryData = [...swapHistoryData2, ...swapHistoryData2]
   // Calculate token price in USD
   const getTokenPriceUSD = () => {
     if (!solPrice) return 0
@@ -141,41 +147,47 @@ export default function SwapInterface() {
     switch (activeTab) {
       case "swap":
         return (
-          <div className="space-y-3 lg:space-y-4">
+          <div className="flex flex-col gap-3 lg:gap-4 justify-between h-full">
             <h2 className="bg-gradient-purple-cyan bg-clip-text text-xl lg:text-3xl font-bold leading-7 kati-font text-center mb-3 lg:mb-4">{t("swap.swapHistory")}</h2>
 
-            <div className="overflow-hidden rounded-lg">
+            <div className="overflow-hidden rounded-lg flex-1 flex flex-col">
               {/* Table Header */}
-              <div className="px-2 lg:px-4 py-2 lg:py-3 grid grid-cols-3 gap-2 lg:gap-4">
+              <div className="px-2 lg:px-4 py-2 lg:py-3 grid grid-cols-3 gap-2 lg:gap-4 bg-black/20">
                 <div className="text-neutral font-medium text-xs lg:text-sm flex items-center gap-1">
                   {t("swap.time")}
                   <ChevronDown className="w-2 h-2 lg:w-3 lg:h-3" />
                 </div>
-                <div className="text-neutral font-medium text-xs lg:text-sm flex items-center gap-1">
+                <div className="text-neutral font-medium text-xs lg:text-sm flex justify-center items-center gap-1">
                   {t("swap.sell")}
                   <ChevronDown className="w-2 h-2 lg:w-3 lg:h-3" />
                 </div>
-                <div className="text-neutral font-medium text-xs lg:text-sm flex items-center gap-1">
+                <div className="text-neutral font-medium text-xs lg:text-sm flex justify-center items-center gap-1 text-right">
                   {t("swap.buy")}
                   <ChevronDown className="w-2 h-2 lg:w-3 lg:h-3" />
                 </div>
               </div>
 
               {/* Table Body */}
-              <div className="h-[300px] lg:h-[500px] overflow-y-auto custom-scroll">
-                {swapHistoryData.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    className=" hover:bg-[#d7d7d7]/5 px-2 lg:px-4 py-2 lg:py-3 grid grid-cols-3 gap-2 lg:gap-4 border-b border-[#d7d7d7]/10 transition-colors"
-                  >
-                    <div className="text-[#fcfcfc] text-xs lg:text-sm">{item.time}</div>
-                    <div className="text-[#fcfcfc] text-xs lg:text-sm">{item.sell}</div>
-                    <div className="text-[#fcfcfc] text-xs lg:text-sm">{item.buy}</div>
-                  </motion.div>
-                ))}
+              <div className="flex-1 overflow-y-auto custom-scroll min-h-0 max-h-[54.5vh]">
+                {swapHistoryData.length > 0 ? (
+                  swapHistoryData.map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      className="hover:bg-[#d7d7d7]/5 px-2 lg:px-4 py-2 lg:py-3 grid grid-cols-3 gap-2 lg:gap-4 border-b border-[#d7d7d7]/10 transition-colors"
+                    >
+                      <div className="text-[#fcfcfc] text-xs lg:text-sm">{item.time}</div>
+                      <div className="text-[#fcfcfc] text-xs lg:text-sm flex justify-center">{item.sell}</div>
+                      <div className="text-[#fcfcfc] text-xs lg:text-sm flex justify-center">{item.buy}</div>
+                    </motion.div>
+                  ))
+                ) : (
+                  <div className="flex items-center justify-center h-full text-[#d7d7d7] text-sm lg:text-base">
+                    {t("swap.noSwapHistory") || "No swap history available"}
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -183,40 +195,35 @@ export default function SwapInterface() {
 
       case "guild":
         return (
-          <div className="space-y-4 lg:space-y-6">
-            <h2 className="bg-gradient-purple-cyan bg-clip-text text-xl lg:text-3xl font-bold leading-7 kati-font text-center mb-4 lg:mb-6">{t("swap.swapGuide")}</h2>
+          <div className="flex-col justify-between h-full">
+            <h2 className="bg-gradient-purple-cyan bg-clip-text text-xl lg:text-3xl font-bold leading-7 kati-font text-center mb-1">{t("swap.swapGuide")}</h2>
 
-            <div className="space-y-3 lg:space-y-4">
-              <div className=" rounded-xl p-4 lg:p-6">
-                <div className="flex items-center gap-2 lg:gap-3 mb-3 lg:mb-4">
+            <div className="flex-1">
+              <div className=" rounded-xl pb-3 px-4 lg:pb-6">
+                <div className="flex items-center gap-2 lg:gap-3 mb-2 lg:mb-3">
                   <div className="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-violet-blue rounded-full flex items-center justify-center">
                     <Users className="w-4 h-4 lg:w-5 lg:h-5 text-neutral bg-gradient-purple-cyan bg-clip-text" />
                   </div>
                   <h3 className="text-neutral text-lg lg:text-xl font-bold">{t("swap.guildMembership")}</h3>
                 </div>
-                <p className="text-neutral text-xs lg:text-sm leading-relaxed">
+                <p className="text-neutral text-xs lg:text-xs leading-relaxed">
                   {t("swap.guildDescription")}
                 </p>
-                <div className="mt-3 lg:mt-4 flex gap-2">
-                  <Button className="bg-gradient-violet-blue text-neutral cursor-pointer text-xs lg:text-sm px-3 lg:px-4 py-2 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25 hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 active:scale-95">
-                    {t("swap.joinGuild")}
-                  </Button>
-                  <Button variant="outline" className="border-[#d7d7d7]/20 text-black cursor-pointer text-xs lg:text-sm px-3 lg:px-4 py-2 transition-all duration-300 hover:scale-105 hover:bg-white/10 hover:border-purple-500/50 active:scale-95">
-                    {t("swap.viewBenefits")}
-                  </Button>
-                </div>
+              
               </div>
 
 
-              <img src="/swap-guide.png" alt="swap-guide" className="w-full h-auto" />
+              <div className="flex-1">
+                <img src="/swap-guide.png" alt="swap-guide" className="w-full h-auto " />
+              </div>
             </div>
           </div>
         )
 
       case "policy":
         return (
-          <div className="space-y-4 lg:space-y-6">
-            <h2 className="bg-gradient-purple-cyan bg-clip-text text-xl lg:text-3xl font-bold leading-7 kati-font text-center mb-6 lg:mb-8">{t("swap.policy")}</h2>
+          <div className="flex flex-col h-full gap-3 min-h-[67.4vh]">
+            <h2 className="bg-gradient-purple-cyan bg-clip-text text-xl lg:text-3xl font-bold leading-7 kati-font text-center mb-4">{t("swap.policy")}</h2>
 
             <ul className="space-y-3 lg:space-y-4 leading-6 flex flex-col gap-3 lg:gap-4 pb-3 lg:pb-5">
               {listPolicy.map((item, index) => (
@@ -267,8 +274,8 @@ export default function SwapInterface() {
 
   // Handle traditional wallet swap
   const handleTraditionalSwap = async () => {
-    const response = await createSwapOrder(sellToken.symbol, Number(sellAmount))
-    
+    const response = await createSwapOrder(sellToken.symbol, Number(sellAmount), sellTokenSwap.symbol)
+
     notify({
       message: t("swap.errors.swapSuccess"),
       type: "success"
@@ -283,13 +290,13 @@ export default function SwapInterface() {
   const handleWeb3Swap = async () => {
     try {
       const { solana } = window as any;
-      
+
       if (!solana || !solana.isPhantom) {
         throw new Error('Phantom wallet is not installed');
       }
 
       // Get connected account
-      const publicKey = localStorage.getItem('publicKey');
+      const publicKey = myWallet?.sol_address;
       if (!publicKey) {
         throw new Error('Please connect your Phantom wallet');
       }
@@ -298,7 +305,8 @@ export default function SwapInterface() {
       const { orderId, serializedTx } = await Web3WalletService.initWeb3Swap(
         publicKey,
         sellToken.symbol,
-        Number(sellAmount)
+        Number(sellAmount),
+        sellTokenSwap.symbol
       );
 
       setWeb3OrderId(orderId);
@@ -416,7 +424,7 @@ export default function SwapInterface() {
   // Get balance for specific token
   const getTokenBalance = (tokenSymbol: string) => {
     if (!myWallet) return 0;
-    
+
     switch (tokenSymbol) {
       case "SOL":
         return myWallet.balance_sol || 0;
@@ -441,17 +449,18 @@ export default function SwapInterface() {
   }, [loginMethod, isAuthenticated]);
 
   return (
-    <div className="flex-1 flex items-center justify-center p-4 md:p-4 p-2 z-20">
+    <div className="flex-1 flex items-center justify-center p-4 md:p-4 z-20">
 
       <div className="relative flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 w-full">
         {/* History Panel */}
         <div className="w-full lg:flex-1 flex flex-col gap-4 lg:gap-8 rounded-xl order-2 lg:order-1"
         >
-          <Card className="w-full border-[#d7d7d7]/20 p-3 md:p-6 bg-black/60 min-h-[400px] lg:min-h-[760px]">
+          <Card className="w-full border-[#d7d7d7]/20 p-3 md:p-6 bg-black/60 min-h-[400px] lg:min-h-[70.5vh]">
             {/* Tab Content */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTab}
+                className="h-full"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -462,7 +471,7 @@ export default function SwapInterface() {
             </AnimatePresence>
           </Card>
           <div className="flex mb-4 lg:mb-6 border-b max-w-[300px] lg:max-w-[400px] mx-auto bg-black/60 rounded-full border-[#d7d7d7]/20">
-            
+
             <button
               onClick={() => setActiveTab("guild")}
               className={`flex min-w-[80px] lg:min-w-[100px] items-center cursor-pointer border-none text-neutral gap-1 lg:gap-2 px-2 lg:px-4 py-2 lg:py-3 justify-center text-xs lg:text-sm font-medium transition-colors ${activeTab === "guild"
@@ -525,23 +534,23 @@ export default function SwapInterface() {
                         >
                           <img src={sellToken.icon} alt={sellToken.name} width={20} height={20} className="lg:w-6 lg:h-6" />
                         </div>
-                        <span className="font-medium text-xs lg:text-sm">{sellToken.symbol}</span>
+                        <span className="font-medium text-xs lg:text-sm gothi-font">{sellToken.symbol}</span>
                         <ChevronDown className="w-3 h-3 lg:w-4 lg:h-4" />
                       </button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent className="bg-dark-100 border-[#d7d7d7]/20">
+                    <DropdownMenuContent className="bg-dark-100 border-[#d7d7d7]/20 max-w-[150px] p-0">
                       {tokens.map((token) => (
                         <DropdownMenuItem
                           key={`${token.symbol}-${token.name}`}
                           onClick={() => setSellToken(token)}
-                          className="text-[#fcfcfc] hover:bg-[#d7d7d7]/10 focus:bg-[#d7d7d7]/10 w-fit p-2"
+                          className="text-[#fcfcfc] hover:bg-[#d7d7d7]/10 focus:bg-[#d7d7d7]/10 w-full p-2 hover:bg-gradient-violet-blue flex items-center gap-3 px-3"
                         >
                           <div
                             className={`w-4 h-5 rounded-full flex items-center justify-center text-xs mr-2`}
                           >
                             <img src={token.icon} alt={token.name} width={24} height={24} />
                           </div>
-                          <span>{token.symbol}</span>
+                          <span className="text-xs lg:text-sm gothi-font">{token.symbol}</span>
                         </DropdownMenuItem>
                       ))}
                     </DropdownMenuContent>
@@ -569,15 +578,35 @@ export default function SwapInterface() {
 
                 </div>
                 <div className="flex items-center justify-between">
-                  <button className="flex items-center bg-transparent border-none gap-1 lg:gap-2 text-[#fcfcfc] hover:text-[#9747ff] transition-colors">
-                    <div
-                      className={`w-5 h-5 lg:w-6 lg:h-6 rounded-full bg-black/60 flex items-center justify-center text-xs`}
-                    >
-                      <img src={"/mmp-logo.png"} alt={"mmp"} width={20} height={20} className="lg:w-6 lg:h-6" />
-                    </div>
-                    <span className="font-medium text-xs lg:text-sm">MMP</span>
-
-                  </button>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild className="bg-transparent border-none text-xs lg:text-sm text-neutral cursor-pointer py-1 lg:py-2">
+                      <button className="flex items-center gap-1 lg:gap-2 text-[#fcfcfc] hover:text-[#9747ff] transition-colors">
+                        <div
+                          className={`w-5 h-5 lg:w-6 lg:h-6 rounded-full flex items-center justify-center text-xs`}
+                        >
+                          <img src={sellTokenSwap.icon} alt={sellTokenSwap.name} width={30} height={30} className="lg:w-6 lg:h-6 rounded-full" />
+                        </div>
+                        <span className="font-medium text-xs lg:text-sm gothi-font">{sellTokenSwap.symbol}</span>
+                        <ChevronDown className="w-3 h-3 lg:w-4 lg:h-4" />
+                      </button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="bg-dark-100 border-[#d7d7d7]/20 max-w-[150px] p-0">
+                      {tokenSwap.map((token) => (
+                        <DropdownMenuItem
+                          key={`${token.symbol}-${token.name}`}
+                          onClick={() => setSellTokenSwap(token)}
+                          className="text-[#fcfcfc] hover:bg-[#d7d7d7]/10 focus:bg-[#d7d7d7]/10 w-full p-2 hover:bg-gradient-violet-blue flex items-center gap-3 px-3"
+                        >
+                          <div
+                            className={`w-4 h-5 rounded-full flex items-center justify-center text-xs mr-2`}
+                          >
+                            <img src={token.icon} alt={token.name} width={30} height={30} className="lg:w-6 lg:h-6 rounded-full" />
+                          </div>
+                          <span className="text-xs lg:text-sm gothi-font">{token.symbol}</span>
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                   <div className="text-right">
                     <div className="text-lg lg:text-2xl font-bold text-[#fcfcfc]">{calculateMMPAmount().toFixed(2)}</div>
                   </div>
@@ -599,7 +628,7 @@ export default function SwapInterface() {
                     <span className="text-xs lg:text-sm">{loginMethod === 'phantom' ? 'Signing Transaction...' : t("swap.processing")}</span>
                   </div>
                 ) : (
-                  t("swap.swap") 
+                  t("swap.swap")
                 )}
               </Button>
             ) : (
@@ -614,7 +643,7 @@ export default function SwapInterface() {
             {/* Transaction Info */}
             <div className="bg-black/60 rounded-xl flex  items-center justify-between space-y-1  lg:space-y-2">
               <div className="flex  text-xs lg:text-sm gap-2 ">
-                <span className="text-[#d7d7d7]">1 MMP</span>
+                <span className="text-[#d7d7d7]">1 MMP/ MPB</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" className="lg:w-4 lg:h-4" viewBox="0 0 14 15" fill="none">
                   <path fillRule="evenodd" clipRule="evenodd" d="M1.74998 3.99992C1.67243 3.99842 1.59535 4.0124 1.52327 4.04104C1.45119 4.06968 1.38554 4.1124 1.33016 4.16672C1.27479 4.22103 1.2308 4.28584 1.20077 4.35735C1.17074 4.42887 1.15527 4.50566 1.15527 4.58322C1.15527 4.66079 1.17074 4.73757 1.20077 4.80909C1.2308 4.8806 1.27479 4.94541 1.33016 4.99973C1.38554 5.05404 1.45119 5.09676 1.52327 5.1254C1.59535 5.15404 1.67243 5.16802 1.74998 5.16652H10.8441L9.46748 6.44402C9.41277 6.49824 9.36935 6.56276 9.33972 6.63385C9.31009 6.70494 9.29483 6.7812 9.29483 6.85822C9.29483 6.93524 9.31009 7.0115 9.33972 7.08259C9.36935 7.15369 9.41277 7.2182 9.46748 7.27242C9.52171 7.32707 9.58622 7.37044 9.65729 7.40003C9.72836 7.42963 9.80458 7.44487 9.88157 7.44487C9.95856 7.44487 10.0348 7.42963 10.1059 7.40003C10.1769 7.37044 10.2414 7.32707 10.2957 7.27242L12.6291 4.93902C12.6779 4.88914 12.7157 4.82964 12.74 4.76402C12.7627 4.70649 12.7745 4.64524 12.775 4.58333V4.54833C12.7811 4.49989 12.7811 4.45087 12.775 4.40242C12.7782 4.38309 12.7782 4.36335 12.775 4.34402C12.7488 4.27953 12.7112 4.22026 12.6641 4.16902L10.3307 1.83583C10.2763 1.78145 10.2117 1.73831 10.1407 1.70888C10.0696 1.67945 9.99347 1.66431 9.91657 1.66431C9.83967 1.66431 9.76351 1.67945 9.69246 1.70888C9.62141 1.73831 9.55686 1.78145 9.50248 1.83583C9.4481 1.89021 9.40496 1.95477 9.37553 2.02582C9.3461 2.09687 9.33095 2.17302 9.33095 2.24992C9.33095 2.32683 9.3461 2.40298 9.37553 2.47403C9.40496 2.54508 9.4481 2.60964 9.50248 2.66402L10.8441 3.99992H1.74998ZM3.15566 9.83333H12.25C12.4027 9.83629 12.5482 9.89904 12.6552 10.0081C12.7622 10.1172 12.8221 10.2639 12.8221 10.4166C12.8221 10.5694 12.7622 10.7161 12.6552 10.8251C12.5482 10.9342 12.4027 10.997 12.25 10.9999H3.15566L4.50316 12.2774C4.55787 12.3316 4.60129 12.3962 4.63092 12.4673C4.66055 12.5383 4.67581 12.6146 4.67581 12.6916C4.67581 12.7686 4.66055 12.8449 4.63092 12.916C4.60129 12.9871 4.55787 13.0516 4.50316 13.1058C4.44895 13.1605 4.38444 13.2039 4.31337 13.2335C4.2423 13.2631 4.16607 13.2784 4.08907 13.2784C4.01208 13.2784 3.93584 13.2631 3.86477 13.2335C3.7937 13.2039 3.72919 13.1605 3.67498 13.1058L1.34157 10.7724C1.2927 10.7225 1.2549 10.6629 1.23066 10.5974C1.2078 10.5398 1.19593 10.4785 1.19566 10.4165V10.3815C1.19916 10.3319 1.20901 10.2831 1.22498 10.2358C1.2217 10.2165 1.2217 10.1968 1.22498 10.1774C1.25123 10.1129 1.28863 10.0536 1.33566 10.0024L3.66907 7.66902C3.72323 7.61356 3.78785 7.56941 3.8592 7.53912C3.93055 7.50882 4.00719 7.49299 4.08471 7.49253C4.16222 7.49207 4.23905 7.507 4.31075 7.53645C4.38244 7.5659 4.44759 7.60929 4.5024 7.6641C4.5572 7.71891 4.60059 7.78405 4.63004 7.85575C4.65949 7.92745 4.67442 8.00428 4.67397 8.08179C4.67351 8.1593 4.65767 8.23595 4.62738 8.30729C4.59708 8.37864 4.55293 8.44327 4.49748 8.49742L3.15566 9.83333Z" fill="url(#paint0_linear_86_186)" />
                   <defs>

@@ -156,7 +156,7 @@ const DepositPage = () => {
                             <div className="flex items-center gap-2 px-2 sm:px-3 py-2 bg-gray-800/50 rounded-lg border border-gray-600/30">
                                 <Wallet className="w-3 h-3 sm:w-4 sm:h-4 text-neutral flex-shrink-0" />
                                 <code className="text-xs sm:text-sm text-neutral flex-1 break-all kati-font">
-                                    {truncateString(address, window.innerWidth < 640 ? 8 : 12) || t('deposit.noAddressAvailable')}
+                                    {address || t('deposit.noAddressAvailable')}
                                 </code>
                                 <Button
                                     onClick={handleCopyAddress}

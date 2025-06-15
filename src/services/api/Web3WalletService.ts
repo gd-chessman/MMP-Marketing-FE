@@ -21,12 +21,13 @@ export class Web3WalletService {
   }
 
   // Initialize Web3 swap
-  static async initWeb3Swap(publicKey: string, inputToken: string, inputAmount: number) {
+  static async initWeb3Swap(publicKey: string, inputToken: string, inputAmount: number, outputToken: string) {
     try {
       const response = await axiosClient.post('/swap-orders/web3-wallet', {
         publicKey: publicKey,
         inputToken: inputToken,
-        inputAmount: inputAmount
+        inputAmount: inputAmount,
+        outputToken: outputToken
       });
       
       return response.data;

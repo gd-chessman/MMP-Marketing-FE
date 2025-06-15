@@ -280,7 +280,7 @@ const Header = () => {
 
             {/* Mobile Navigation Tabs */}
             <div className="px-4 py-2">
-              <div className="text-xs text-gray-500 mb-2">{t('header.navigation')}</div>
+              {/* <div className="text-xs text-gray-500 mb-2">{t('header.navigation')}</div> */}
               <div className="flex flex-col gap-1">
                 {tabs.map((tab) => (
                   <Link 
