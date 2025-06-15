@@ -20,7 +20,7 @@ const useAuthStore = create((set: any) => {
     },
 
     logout: () => {
-      localStorage.setItem("auth_token", "false");
+      localStorage.removeItem("auth_token");
       localStorage.removeItem("login_method");
       set({ isAuthenticated: false, loginMethod: null });
     },
