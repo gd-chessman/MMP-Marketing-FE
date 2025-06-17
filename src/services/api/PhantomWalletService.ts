@@ -1,4 +1,6 @@
 import axiosClient from "@/utils/axiosClient";
+import { createLocalizedError, SERVICE_ERROR_KEYS } from '@/utils/errorMessages';
+import { getCurrentLang } from '@/utils/getCurrentLang';
 
 export const login = async ({ signature, public_key, message }: { signature: number[], public_key: string, message: string }) => {
     try {
@@ -29,28 +31,32 @@ export const isPhantomInstalled = () => {
 // Helper function to connect to Phantom wallet
 export const connectPhantomWallet = async () => {
     if (!isPhantomInstalled()) {
-        throw new Error('Phantom wallet is not installed. Please install it from https://phantom.app/');
+        const currentLang = getCurrentLang();
+        throw createLocalizedError(currentLang, SERVICE_ERROR_KEYS.PHANTOM_NOT_INSTALLED_WITH_LINK);
     }
 
     try {
         const response = await window.solana!.connect();
         return response.publicKey.toString();
     } catch (error: any) {
+        const currentLang = getCurrentLang();
         if (error.code === 4001) {
-            throw new Error('User rejected the connection request');
+            throw createLocalizedError(currentLang, SERVICE_ERROR_KEYS.PHANTOM_CONNECTION_REJECTED);
         }
-        throw new Error('Failed to connect to Phantom wallet: ' + (error.message || 'Unknown error'));
+        throw createLocalizedError(currentLang, SERVICE_ERROR_KEYS.PHANTOM_CONNECTION_FAILED, 'Failed to connect to Phantom wallet: ' + (error.message || 'Unknown error'));
     }
 };
 
 // Helper function to sign a message with Phantom wallet
 export const signMessageWithPhantom = async (message: string) => {
     if (!isPhantomInstalled()) {
-        throw new Error('Phantom wallet is not installed. Please install it from https://phantom.app/');
+        const currentLang = getCurrentLang();
+        throw createLocalizedError(currentLang, SERVICE_ERROR_KEYS.PHANTOM_NOT_INSTALLED_WITH_LINK);
     }
 
     if (!window.solana!.publicKey) {
-        throw new Error('Phantom wallet is not connected. Please connect first.');
+        const currentLang = getCurrentLang();
+        throw createLocalizedError(currentLang, SERVICE_ERROR_KEYS.PHANTOM_NOT_CONNECTED);
     }
 
     try {
@@ -60,10 +66,11 @@ export const signMessageWithPhantom = async (message: string) => {
             signature: Array.from(signedMessage.signature)
         };
     } catch (error: any) {
+        const currentLang = getCurrentLang();
         if (error.code === 4001) {
-            throw new Error('User rejected the signature request');
+            throw createLocalizedError(currentLang, SERVICE_ERROR_KEYS.PHANTOM_SIGNATURE_REJECTED);
         }
-        throw new Error('Failed to sign message with Phantom wallet: ' + (error.message || 'Unknown error'));
+        throw createLocalizedError(currentLang, SERVICE_ERROR_KEYS.PHANTOM_SIGNATURE_FAILED, 'Failed to sign message with Phantom wallet: ' + (error.message || 'Unknown error'));
     }
 };
 

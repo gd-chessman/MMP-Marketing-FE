@@ -13,6 +13,7 @@ const config: Config = {
       fontFamily: {
         'gothic': ['var(--font-gothic-a1)', 'sans-serif'],
         'sans': ['var(--font-gothic-a1)', 'Switzer', 'MiSans', '"Microsoft YaHei"', 'sans-serif'],
+        'tektur': ['var(--font-tektur)', 'sans-serif'],
       },
       colors: {
         primary: {

@@ -59,45 +59,196 @@
         "loading": "Đang tải..."
     },
     "swap": {
-        "swapHistory": "Lịch sử Swap",
-        "swapGuide": "Hướng dẫn Swap",
+        "swapHistory": "Lịch sử hoán đổi",
+        "swapGuide": "Hướng dẫn hoán đổi",
         "policy": "Chính sách",
         "guild": "Guild",
-        "freeSwap": "Swap Miễn phí",
-        "instantExchange": "Trao đổi Tức thì",
+        "freeSwap": "Hoán đổi miễn phí",
+        "instantExchange": "Trao đổi tức thì",
         "myBalance": "Số dư của tôi",
         "from": "Từ",
         "to": "Đến",
-        "swap": "SWAP",
-        "connectWallet": "Kết nối Ví",
+        "swap": "HOÁN ĐỔI",
+        "connectWallet": "Kết nối ví",
         "processing": "Đang xử lý...",
         "time": "Thời gian",
         "sell": "Bán",
         "buy": "Mua",
+        "noSwapHistory": "Không có lịch sử hoán đổi",
         "guildMembership": "Thành viên Guild",
         "guildDescription": "Tham gia hệ thống guild độc quyền của chúng tôi để mở khóa các tính năng cao cấp, kiếm phần thưởng và kết nối với các nhà giao dịch khác. Thành viên guild được hưởng phí giảm, hỗ trợ ưu tiên và cơ hội giao dịch độc quyền.",
         "joinGuild": "Tham gia Guild",
-        "viewBenefits": "Xem Lợi ích",
+        "viewBenefits": "Xem lợi ích",
+        "mmpTab": "MMP",
+        "mpbTab": "MPB",
         "policyItems": [
-            "Người dùng có thể chuyển SOL, USDT hoặc USDC trực tiếp từ ví cá nhân (Phantom) vào ví giao dịch của họ.",
-            "Họ có thể sử dụng SOL, USDT hoặc USDC để swap lấy token MMP với giá IDO $0.001.",
+            "Người dùng có thể chuyển SOL, USDT hoặc USDC trực tiếp từ ví cá nhân (Phantom) vào ví giao dịch.",
+            "Họ có thể sử dụng SOL, USDT hoặc USDC để hoán đổi lấy token MMP với giá IDO $0.001.",
             "Người dùng có thể stake MMP để kiếm phần thưởng định kỳ (chi tiết phần thưởng đang được cập nhật).",
-            "Nếu họ chọn không stake, họ có thể rút MMP/MPB từ ví giao dịch về ví cá nhân, chỉ phải trả phí mạng.",
-            "Khi rút SOL, USDT hoặc USDC từ ví giao dịch về ví cá nhân, sẽ áp dụng phí rút phẳng $1."
+            "Nếu họ chọn không stake, họ có thể rút MMP/MPB từ ví giao dịch về ví cá nhân, chỉ trả phí mạng.",
+            "Khi rút SOL, USDT hoặc USDC từ ví giao dịch về ví cá nhân, sẽ áp dụng phí rút tiền cố định $1."
         ],
         "errors": {
-            "enterValidAmount": "Vui lòng nhập số lượng swap hợp lệ",
-            "selectToken": "Vui lòng chọn token để swap",
-            "swapSuccess": "Tạo lệnh swap thành công! Bạn sẽ nhận được token MMP trong thời gian ngắn.",
-            "swapFailed": "Tạo lệnh swap thất bại. Vui lòng thử lại.",
+            "enterValidAmount": "Vui lòng nhập số tiền hợp lệ để hoán đổi",
+            "selectToken": "Vui lòng chọn token để hoán đổi",
+            "swapSuccess": "Đơn hàng hoán đổi được tạo thành công! Bạn sẽ nhận được token MMP trong thời gian ngắn.",
+            "swapFailed": "Tạo đơn hàng hoán đổi thất bại. Vui lòng thử lại.",
             "invalidRequest": "Yêu cầu không hợp lệ. Vui lòng kiểm tra đầu vào của bạn.",
             "authenticationRequired": "Yêu cầu xác thực. Vui lòng kết nối ví của bạn.",
-            "insufficientBalance": "Số dư không đủ hoặc bị từ chối quyền.",
+            "insufficientBalance": "Số dư không đủ hoặc quyền bị từ chối.",
+            "insufficientSolBalance": "Số dư SOL không đủ. Vui lòng kiểm tra số dư ví của bạn.",
+            "ataCreationFee": "Phí tạo ATA là 0.0025 SOL. Vui lòng đảm bảo bạn có đủ SOL cho giao dịch.",
             "serviceUnavailable": "Dịch vụ không khả dụng. Vui lòng thử lại sau.",
             "tooManyRequests": "Quá nhiều yêu cầu. Vui lòng chờ trước khi thử lại.",
             "serverError": "Lỗi máy chủ. Vui lòng thử lại sau.",
             "networkError": "Lỗi mạng. Vui lòng kiểm tra kết nối và thử lại.",
             "unexpectedError": "Đã xảy ra lỗi không mong muốn. Vui lòng thử lại."
+        },
+        "policyContent": {
+            "seedRound": {
+                "title": "Vòng gọi vốn seed (6%): 6 tỷ token được phân phối trong vòng seed, chủ yếu được sử dụng cho phát triển nền tảng và hoạt động đầu tư ban đầu.",
+                "content": ""
+            },
+            "communityRewards": {
+                "title": "Phần thưởng cộng đồng (55%): 55 tỷ token, chiếm 55% tổng phát hành, được phân phối cho cộng đồng thông qua Airdrop, khuyến mãi và hoạt động thưởng cho người tham gia.",
+                "content": ""
+            },
+            "liquidityFund": {
+                "title": "Quỹ thanh khoản và mô phỏng đầu tư (18%): 18 tỷ token được sử dụng để cung cấp thanh khoản và phát triển chiến lược đầu tư thông qua hợp tác với Pump.fun.",
+                "content": ""
+            },
+            "marketingPartnership": {
+                "title": "Tiếp thị và đối tác (10%): 10 tỷ token được sử dụng cho chiến lược tiếp thị và phát triển đối tác.",
+                "content": ""
+            },
+            "operationalCosts": {
+                "title": "Chi phí vận hành / Đội ngũ (5%): 5 tỷ token được phân bổ cho chi phí vận hành của đội phát triển, với thời gian nắm giữ 2 năm.",
+                "content": ""
+            },
+            "reserveFund": {
+                "title": "Quỹ dự trữ (6%): 6 tỷ token được duy trì như quỹ dự trữ cho hoạt động DAO (Tổ chức tự trị phi tập trung). Điều này đảm bảo tính linh hoạt và bền vững của nền tảng.",
+                "content": ""
+            },
+            "goalsLaunch": {
+                "title": "Mục tiêu và Kế hoạch Ra mắt",
+                "content": "Mục tiêu của dự án này là đạt được 10 triệu người dùng vào tháng 7 năm 2027. Ngoài ra, dự án nhắm đến việc ra mắt toàn diện vào tháng 7 năm 2025, và hiện đang ở giai đoạn beta, nhận được sự quan tâm lớn từ cộng đồng."
+            },
+            "whyChooseMMP": {
+                "title": "Tại sao nên chọn MMP Coin?",
+                "content": "Tiềm năng thị trường<br/> MMP sẽ tối đa hóa tiềm năng của thị trường tiền điện tử, đặc biệt là thị trường phần thưởng cộng đồng. Đến năm 2025, thị trường này dự kiến sẽ chiếm 55% tổng giá trị giao dịch, và MemePump sẽ đóng vai trò quan trọng ở trung tâm của sự tăng trưởng này. MMP sẽ cung cấp một hệ sinh thái Web3 đầy hứa hẹn cho người dùng tham gia."
+            },
+            "strongGrowth": {
+                "title": "Tiềm năng tăng trưởng mạnh mẽ",
+                "content": "Giá trị của MMP có tiềm năng tăng từ 0.001 USD/token lên 0.328 USD/token, mang lại cơ hội lợi nhuận tuyệt vời cho các nhà đầu tư. Theo dự báo, khi khối lượng giao dịch hàng ngày đạt từ 10 triệu đến 300 triệu đô la, giá trị của MMP có thể tăng 328 lần."
+            },
+            "beginnerFriendly": {
+                "title": "Thân thiện với người mới bắt đầu",
+                "content": "MMP được thiết kế với giao diện thân thiện với người dùng, phù hợp ngay cả với những người mới tham gia thị trường tiền điện tử. Thông qua các công cụ như TradingView và tích hợp hệ sinh thái Solana, người dùng có thể dễ dàng tham gia và có trải nghiệm mượt mà."
+            },
+            "investmentBenefits": {
+                "title": "Lợi ích khi đầu tư vào MMP",
+                "content": "MMP không chỉ là cơ hội đầu tư mà còn mang lại lợi ích lâu dài:<br/> Đầu tư linh hoạt: MMP có thể được mua với số lượng bất kỳ ở mức 0.001 USD/token, mang lại cơ hội lý tưởng cho các nhà đầu tư nhỏ muốn tham gia vào thị trường tiền điện tử với số tiền nhỏ."
+            },
+            "flexibleInvestment": {
+                "title": "Đầu tư linh hoạt",
+                "content": "MMP có thể được mua với số lượng bất kỳ ở mức 0.001 USD/token, mang lại cơ hội lý tưởng cho các nhà đầu tư nhỏ muốn tham gia vào thị trường tiền điện tử với số tiền nhỏ."
+            },
+            "highGrowthPotential": {
+                "title": "Tiềm năng tăng trưởng cao",
+                "content": "Khi MMP đạt được khối lượng giao dịch hàng ngày 300 triệu đô la, giá trị của nó có thể tăng lên 0.328 USD/token, mang lại lợi nhuận gấp 328 lần so với giá ban đầu."
+            },
+            "airdropBenefits": {
+                "title": "Lợi ích Airdrop",
+                "content": "Những người nắm giữ MPB (MemePump Bonus) có thể nhận được lợi ích Airdrop 18% hàng năm và 1.5% hàng tháng trong 2 năm."
+            },
+            "limitedOpportunity": {
+                "title": "Cơ hội đầu tư có hạn",
+                "content": "Đợt bán đầu tiên đến ngày 31 tháng 7 năm 2025 với giá 0.001 đô la. Đợt bán thứ hai chưa xác định, tối thiểu 0.002 đô la bắt đầu~ <br/> Vòng gọi vốn seed 3 triệu đô la sẽ kết thúc, mang lại cơ hội lớn cho các nhà đầu tư sớm."
+            },
+            "tokenValueAppreciation": {
+                "title": "Tiềm năng tăng giá trị token",
+                "content": "Áp dụng hệ thống nhân MPB, giá trị của MMP có thể tăng từ 0.001 USD/token lên 0.328 USD/token, tăng 328 lần. Điều này mang lại cơ hội đầu tư vào tiền điện tử mới và kỳ vọng lợi nhuận lớn."
+            },
+            "mmpInvestmentAdvantage": {
+                "title": "Lợi thế đầu tư MMP",
+                "content": "Chỉ với 1.000 USD đầu tư, bạn có thể mua 1 triệu token, và khi doanh thu bán token của MMP đạt 300 triệu đô la, bạn có thể đạt được lợi nhuận khổng lồ."
+            },
+            "visionConclusion": {
+                "title": "Tầm nhìn và Kết luận",
+                "content": "MMP không chỉ là một loại tiền điện tử đơn giản mà là một phần quan trọng của hệ sinh thái meme coin và Web3. Thông qua tăng trưởng bền vững và chiến lược đầu tư rõ ràng,<br /> MMP dự kiến sẽ đạt giá trị 3,28 tỷ đô la vào năm 2028. Đầu tư vào MMP mang lại cơ hội kiếm lợi từ tăng trưởng thị trường đồng thời tham gia vào một cộng đồng đang phát triển nhanh chóng."
+            },
+            "callToAction": {
+                "title": "Tham gia MemePump ngay bây giờ và đừng bỏ lỡ cơ hội tăng giá trị 328 lần!",
+                "content": ""
+            }
+        },
+        "mpbPolicyContent": {
+            "projectOverview": {
+                "title": "Tổng quan dự án",
+                "content": "Tên dự án: MemePump (MPB Coin) <br/> Giá trị dự án: 10 triệu đô la <br/> Tỷ lệ phát hành: 30% (3 triệu đô la cho cổ tức nhà đầu tư) <br/> Token đã phát hành: 1 tỷ token MPB (30% cho nhà đầu tư, 70% cho quỹ phát triển nền tảng) <br/> Mục tiêu đầu tư: 3 triệu đô la <br/> Lịch trình ra mắt: Dự kiến ra mắt chính thức vào tháng 7 năm 2025 (hiện đang ở phiên bản beta)"
+            },
+            "marketPotential": {
+                "title": "Tiềm năng thị trường",
+                "content": "MemePump không phải là một dự án tiền điện tử đơn giản mà là một nền tảng Web3 phi tập trung dựa trên công nghệ blockchain mạnh mẽ của Solana. Dự án này nhắm đến 300 triệu đô la doanh thu vào năm 2028, và MPB Coin sẽ đóng vai trò quan trọng trong nền tảng, mang lại lợi nhuận mạnh mẽ cho các nhà đầu tư."
+            },
+            "investmentBenefits": {
+                "title": "Lợi ích đầu tư",
+                "content": "MemePump cung cấp cơ hội đầu tư độc đáo với lợi nhuận cao: <br/> Phần thưởng cổ tức dự kiến (Đang bỏ phiếu): Dựa trên lượng coin nắm giữ (số tiền nắm giữ), thông qua bỏ phiếu về doanh thu công ty, hàng năm 1% ~ lên đến 300 triệu đô la đạt được doanh thu có thể dẫn đến 2.190% lợi nhuận trên đầu tư. <br/> Đầu tư linh hoạt: Bắt đầu với tối thiểu 1 đô la và tăng dần số tiền đầu tư. <br/> Airdrop MMP Coin: Bằng cách nắm giữ MPB Coin, bạn có thể nhận được cơ hội airdrop MMP Coin cung cấp lãi suất hàng tháng 1,5% và tiền thưởng hàng năm 18%."
+            },
+            "growthOpportunities": {
+                "title": "Tăng trưởng và cơ hội",
+                "content": "MemePump nhắm đến phát triển bền vững, lên kế hoạch đạt 300 triệu đô la doanh thu vào năm 2028. Ngoài ra, MPB Coin cung cấp các cơ hội sau: <br/> Giá trị token MPB dự kiến sẽ tăng từ 0,001 đô la lên 0,3285 đô la, đại diện cho tiềm năng tăng trưởng khoảng 328 lần. <br/> Doanh thu dự kiến: Tăng từ 100.000 đô la vào năm 2025 lên 300 triệu đô la vào năm 2028. Thanh khoản cao: MPB Coin có thể được giao dịch dễ dàng trên các nền tảng blockchain, cho phép các nhà đầu tư dễ dàng rút tiền khi cần thiết."
+            },
+            "investmentHolding": {
+                "title": "Đầu tư (Nắm giữ coin)",
+                "content": "MemePump cung cấp cơ hội cho mọi người từ nhà đầu tư nhỏ đến nhà đầu tư lớn. Dự án này với lợi nhuận cao và tiềm năng tăng trưởng mạnh mẽ đáng để tham gia ngay bây giờ.<br/> Đầu tư linh hoạt: Bắt đầu với tối thiểu 1 đô la và tăng dần số tiền đầu tư.<br/> Cơ hội lợi nhuận hấp dẫn: Với phần thưởng cổ tức 2.190% và cơ hội airdrop, người nắm giữ MPB Coin có thể đạt được lợi nhuận đáng kể.<br/> Tiềm năng tăng trưởng dài hạn: MemePump nhắm đến tăng trưởng đáng kể vào năm 2028, và giá trị MPB Coin sẽ tăng mạnh. <br> Đầu tư vào MemePump (MPB) ngay bây giờ và đừng bỏ lỡ cơ hội đầu tư tốt nhất năm 2025! Tham gia vào sự chuyển đổi hệ sinh thái Web3 với MemePump và trở thành nhà đầu tư thành công của tương lai!"
+            },
+            "limitedInvestmentOpportunity": {
+                "title": "Cơ hội đầu tư có hạn",
+                "content": "Bán lần đầu cho đến ngày 31 tháng 7 năm 2025 với giá 0,001 đô la. Bán lần hai chưa xác định, tối thiểu 0,002 đô la bắt đầu~ <br/>Vòng seed 3 triệu đô la kết thúc, cung cấp cơ hội lớn cho các nhà đầu tư sớm."
+            },
+            "riskWarning": {
+                "title": "Cảnh báo rủi ro",
+                "content": "Trong khi tự hào về lợi nhuận cao, cũng có rủi ro khi đầu tư vào MemePump. Điều quan trọng là các nhà đầu tư nên tìm kiếm lời khuyên chuyên môn trước khi đưa ra quyết định. Cổ tức có thể thay đổi dựa trên chi phí vận hành nền tảng và tỷ suất lợi nhuận, và không có bảo đảm lợi nhuận hoặc bảo vệ vốn gốc."
+            }
+        },
+        "projectDescriptions": {
+            "mmpProjectIntro": "MemePump (MMP) là một dự án sáng tạo cung cấp token thanh khoản mới trong thế giới tiền điện tử, đặc biệt là trong Web3 và các nền tảng phi tập trung. MMP không chỉ là một loại tiền điện tử đơn giản mà còn là công cụ tạo ra giá trị và cơ hội cho cộng đồng, nhằm xây dựng một hệ sinh thái mạnh mẽ và bền vững. Được xây dựng trên mạng Solana được xây dựng trên nền tảng mạng lưới, MemePump hướng đến mục tiêu thay đổi cách người dùng tương tác và tham gia vào không gian tiền điện tử.",
+            "mmpProjectOverview": "Tổng quan dự án MemePump (MMP) <br/> MMP được thiết kế như một token thanh khoản cho nền tảng MemePump, với tổng phát hành 100 tỷ token. MMP không chỉ là một meme coin mà còn được sử dụng như token thanh khoản cho phần thưởng cộng đồng và giao dịch trong hệ sinh thái này. Việc phát hành và phân phối token được thực hiện theo các chiến lược rõ ràng và minh bạch để mang lại lợi ích tối đa cho cộng đồng và các nhà đầu tư.",
+            "mmpTokenDistribution": "Cấu trúc phân phối token MMP",
+            "mpbProjectIntro": "Giới thiệu dự án MemePump (MPB)",
+            "mpbProjectDescription": "**MemePump (MPB)** là một dự án sáng tạo trong hệ sinh thái Web3 phi tập trung dựa trên nền tảng Solana. Dự án này cung cấp lợi nhuận cao cho các nhà đầu tư, và trong tương lai, thông qua MPB Coin, một đồng coin có tiềm năng tăng trưởng mạnh mẽ, sẽ cung cấp cổ tức và lợi nhuận, mang lại lợi ích dài hạn cho các nhà đầu tư."
+        },
+        "holdingBenefits": {
+            "title": "Lợi ích nắm giữ MMP/MPB",
+            "synergyProject": "Khi dự án đồng bộ được thực hiện",
+            "airdropDistribution": "5% khối lượng airdrop sẽ được phân phối cho người nắm giữ",
+            "earlyParticipants": "Người tham gia sớm nhận được phần thưởng lớn hơn"
+        },
+        "networkFee": {
+            "message": "Phí mạng Solana ({fee}) sẽ được tính khi thực hiện giao dịch. <br /> Chúng tôi khuyến nghị mua trực tiếp bằng SOL.",
+            "recommendation": "Chúng tôi khuyến nghị mua trực tiếp bằng SOL.",
+            "firstTimeFee": "Đối với lần mua IDO đầu tiên, cần phí mạng khoảng 0.0025 SOL để tạo ATA. <br />Đối với các lần mua tiếp theo, phí mạng cho mỗi lần hoán đổi sẽ giảm xuống khoảng 0.00005 SOL."
+        },
+        "specialOpportunity": {
+            "title": "Cơ hội đặc biệt",
+            "message": "Đợt bán đầu tiên MMP/MPB đang diễn ra <br/> Đợt bán đầu tiên: 0.001 SOL (Đến ngày 31 tháng 7) <br/> Đợt bán thứ hai: 0.002 SOL (Lịch trình sẽ được thông báo)"
+        }
+    },
+    "services": {
+        "errors": {
+            "phantomNotInstalled": "Ví Phantom chưa được cài đặt",
+            "phantomNotInstalledWithLink": "Ví Phantom chưa được cài đặt. Vui lòng cài đặt từ https://phantom.app/",
+            "phantomNotConnected": "Ví Phantom chưa được kết nối. Vui lòng kết nối trước.",
+            "phantomConnectionRejected": "Người dùng đã từ chối yêu cầu kết nối",
+            "phantomConnectionFailed": "Không thể kết nối với ví Phantom",
+            "phantomSignatureRejected": "Người dùng đã từ chối yêu cầu ký",
+            "phantomSignatureFailed": "Không thể ký tin nhắn với ví Phantom",
+            "phantomTransactionRejected": "Người dùng đã từ chối yêu cầu giao dịch",
+            "phantomAuthFailed": "Không thể xác thực với ví Phantom",
+            "failedToCreateTokenAccount": "Không thể tạo tài khoản token",
+            "errorGetMyWallet": "Lỗi lấy thông tin ví của tôi",
+            "errorGetGoogleUserInfo": "Lỗi lấy thông tin người dùng Google"
         }
     }
 }

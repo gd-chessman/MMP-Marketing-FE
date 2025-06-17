@@ -4,10 +4,10 @@ import { getmyWallet } from '@/services/api/TelegramWalletService'
 import { useQuery } from '@tanstack/react-query'
 import React, { useState } from 'react'
 import { QRCodeSVG } from 'qrcode.react'
-import { Card, CardContent, CardHeader, CardTitle } from '@/app/ui/card'
-import { Button } from '@/app/ui/button'
-import { Input } from '@/app/ui/input'
-import { Label } from '@/app/ui/label'
+import { Card, CardContent, CardHeader, CardTitle } from '@/ui/card'
+import { Button } from '@/ui/button'
+import { Input } from '@/ui/input'
+import { Label } from '@/ui/label'
 import { Copy, Download, Wallet, QrCode, Check } from 'lucide-react'
 import { toast } from 'react-toastify'
 import { useLang } from '@/lang/useLang'
@@ -156,7 +156,7 @@ const DepositPage = () => {
                             <div className="flex items-center gap-2 px-2 sm:px-3 py-2 bg-gray-800/50 rounded-lg border border-gray-600/30">
                                 <Wallet className="w-3 h-3 sm:w-4 sm:h-4 text-neutral flex-shrink-0" />
                                 <code className="text-xs sm:text-sm text-neutral flex-1 break-all kati-font">
-                                    {truncateString(address, window.innerWidth < 640 ? 8 : 12) || t('deposit.noAddressAvailable')}
+                                    {address || t('deposit.noAddressAvailable')}
                                 </code>
                                 <Button
                                     onClick={handleCopyAddress}

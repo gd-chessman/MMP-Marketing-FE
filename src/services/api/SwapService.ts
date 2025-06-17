@@ -1,8 +1,8 @@
 import axiosClient from "@/utils/axiosClient";
 
-export const createSwapOrder = async (input_token: string, input_amount: number) => {
+export const createSwapOrder = async (input_token: string, input_amount: number, output_token: string) => {
     try {
-        const temp = await axiosClient.post(`/swap-orders`, { input_token, input_amount },);
+        const temp = await axiosClient.post(`/swap-orders`, { input_token, input_amount, output_token },);
         return temp.data;
     } catch (e) {
         throw e;

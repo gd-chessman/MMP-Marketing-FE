@@ -74,10 +74,13 @@
         "time": "Time",
         "sell": "Sell",
         "buy": "Buy",
+        "noSwapHistory": "No swap history available",
         "guildMembership": "Guild Membership",
         "guildDescription": "Join our exclusive guild system to unlock premium features, earn rewards, and connect with other traders. Guild members enjoy reduced fees, priority support, and exclusive trading opportunities.",
         "joinGuild": "Join Guild",
         "viewBenefits": "View Benefits",
+        "mmpTab": "MMP",
+        "mpbTab": "MPB",
         "policyItems": [
             "Users can transfer SOL, USDT, or USDC directly from their personal wallets (Phantom) into their exchange wallet.",
             "They can use SOL, USDT, or USDC to swap for MMP tokens at the IDO price of $0.001.",
@@ -93,11 +96,159 @@
             "invalidRequest": "Invalid request. Please check your input.",
             "authenticationRequired": "Authentication required. Please connect your wallet.",
             "insufficientBalance": "Insufficient balance or permission denied.",
+            "insufficientSolBalance": "Insufficient SOL balance. Please check your wallet balance.",
+            "ataCreationFee": "ATA creation fee is 0.0025 SOL. Please ensure you have enough SOL for the transaction.",
             "serviceUnavailable": "Service not available. Please try again later.",
             "tooManyRequests": "Too many requests. Please wait before trying again.",
             "serverError": "Server error. Please try again later.",
             "networkError": "Network error. Please check your connection and try again.",
             "unexpectedError": "An unexpected error occurred. Please try again."
+        },
+        "policyContent": {
+            "seedRound": {
+                "title": "Seed Round (6%): 6 billion tokens are distributed in the seed round, primarily used for platform development and initial investment activities.",
+                "content": ""
+            },
+            "communityRewards": {
+                "title": "Community Rewards (55%): 55 billion tokens, representing 55% of the total issuance, are distributed to the community through Airdrop, promotions, and participant reward activities.",
+                "content": ""
+            },
+            "liquidityFund": {
+                "title": "Liquidity and Investment Simulation Fund (18%): 18 billion tokens are used for liquidity provision and investment strategy development through partnership with Pump.fun.",
+                "content": ""
+            },
+            "marketingPartnership": {
+                "title": "Marketing and Partnerships (10%): 10 billion tokens are used for marketing strategies and partnership development.",
+                "content": ""
+            },
+            "operationalCosts": {
+                "title": "Operational Costs / Team (5%): 5 billion tokens are allocated for operational expenses for the development team, with a 2-year holding period set.",
+                "content": ""
+            },
+            "reserveFund": {
+                "title": "Reserve Fund (6%): 6 billion tokens are maintained as a reserve fund for DAO (Decentralized Autonomous Organization) activities. This ensures platform flexibility and sustainability.",
+                "content": ""
+            },
+            "goalsLaunch": {
+                "title": "Goals and Launch Plan",
+                "content": "This project aims to acquire 10 million users by July 2027. Additionally, it targets a full launch in July 2025, and is currently in beta stage, receiving great interest from the community."
+            },
+            "whyChooseMMP": {
+                "title": "Why Choose MMP Coin?",
+                "content": "Market Potential<br/> MMP will maximize the potential of the cryptocurrency market, especially the community rewards market. By 2025, this market is expected to account for 55% of total trading value, and MemePump will play a crucial role at the center of this growth. MMP will provide a promising Web3 ecosystem for users to participate in."
+            },
+            "strongGrowth": {
+                "title": "Strong Growth Potential",
+                "content": "MMP's value has the potential to rise from 0.001 USD/token to 0.328 USD/token, providing excellent profit opportunities for investors. According to projections, when daily trading volume reaches between 10 million and 300 million dollars, MMP's value can increase by 328 times."
+            },
+            "beginnerFriendly": {
+                "title": "Beginner-Friendly",
+                "content": "MMP is designed with a user-friendly interface, suitable even for users new to the cryptocurrency market. Through tools like TradingView and Solana ecosystem integration, users can easily participate and have a seamless experience."
+            },
+            "investmentBenefits": {
+                "title": "Benefits of Investing in MMP",
+                "content": "MMP is not just an investment opportunity but also provides long-term benefits:<br/> Flexible Investment: MMP can be purchased in any amount at 0.001 USD/token, providing an ideal opportunity for small investors who want to participate in the cryptocurrency market with small amounts."
+            },
+            "flexibleInvestment": {
+                "title": "Flexible Investment",
+                "content": "MMP can be purchased in any amount at 0.001 USD/token, providing an ideal opportunity for small investors who want to participate in the cryptocurrency market with small amounts."
+            },
+            "highGrowthPotential": {
+                "title": "High Growth Potential",
+                "content": "When MMP achieves 300 million dollars in daily trading volume, its value can rise to 0.328 USD/token, bringing 328 times profit compared to the initial price."
+            },
+            "airdropBenefits": {
+                "title": "Airdrop Benefits",
+                "content": "Those holding MPB (MemePump Bonus) can receive 18% annually and 1.5% monthly Airdrop benefits for 2 years."
+            },
+            "limitedOpportunity": {
+                "title": "Limited Investment Opportunity",
+                "content": "First sale until July 31, 2025 at price 0.001 dollars. Second sale undetermined, minimum 0.002 dollars starting~<br/> A 3 million dollar seed round closes, providing great opportunities for early investors."
+            },
+            "tokenValueAppreciation": {
+                "title": "Token Value Appreciation Potential",
+                "content": "Applying the MPB multiplier system, MMP's value can increase from 0.001 USD/token to 0.328 USD/token, a 328-fold increase. This provides an opportunity to invest in new cryptocurrencies and expect significant returns."
+            },
+            "mmpInvestmentAdvantage": {
+                "title": "MMP Investment Advantage",
+                "content": "With just 1,000 USD investment, you can purchase 1 million tokens, and when MMP's token sales revenue reaches 300 million dollars, you can achieve massive profits."
+            },
+            "visionConclusion": {
+                "title": "Vision and Conclusion",
+                "content": "MMP is not just a simple cryptocurrency but an important part of the meme coin and Web3 ecosystem. Through sustainable growth and clear investment strategy,<br/> MMP is expected to achieve 3.28 billion dollars in value by 2028. Investing in MMP provides an opportunity to profit from market growth while participating in a rapidly growing community."
+            },
+            "callToAction": {
+                "title": "Join MemePump now and don't miss the 328-fold value appreciation opportunity!",
+                "content": ""
+            }
+        },
+        "projectDescriptions": {
+            "mmpProjectIntro": "MemePump (MMP) is an innovative project providing new liquidity tokens in the cryptocurrency world, especially in Web3 and decentralized platforms. MMP is not just a simple cryptocurrency but a tool that creates value and opportunities for the community, aiming to build a strong and sustainable ecosystem. Built on the Solana network built on a network, MemePump aims to change the way users interact and engage in the cryptocurrency space.",
+            "mmpProjectOverview": "MemePump (MMP) Project Overview <br/> MMP is designed as a liquidity token for the MemePump platform, with a total issuance of 100 billion tokens. MMP is not just a meme coin but is used as a liquidity token for community rewards and trading within this ecosystem. Token issuance and distribution are carried out according to clear and transparent strategies to provide maximum benefits to the community and investors.",
+            "mmpTokenDistribution": "MMP Token Distribution Structure",
+            "mpbProjectIntro": "MemePump (MPB) Project Introduction",
+            "mpbProjectDescription": "**MemePump (MPB)** is an innovative project within a decentralized Web3 ecosystem based on the Solana platform. This project provides high returns to investors, and in the future, through MPB Coin, a coin with strong growth potential, it will provide dividends and profits, offering long-term benefits to investors."
+        },
+        "mpbPolicyContent": {
+            "projectOverview": {
+                "title": "Project Overview",
+                "content": "Project Name: MemePump (MPB Coin) <br/> Project Value: 10 million dollars <br/> Issuance Ratio: 30% (3 million dollars for investor dividends) <br/> Issued Tokens: 1 billion MPB tokens (30% for investors, 70% for platform development fund) <br/> Investment Target: 3 million dollars <br/> Launch Schedule: Official launch expected in July 2025 (currently in beta version)"
+            },
+            "marketPotential": {
+                "title": "Market Potential",
+                "content": "MemePump is not a simple cryptocurrency project but a decentralized Web3 platform based on Solana's powerful blockchain technology. This project aims for 300 million dollars in revenue by 2028, and MPB Coin will play an important role within the platform, providing strong returns to investors."
+            },
+            "investmentBenefits": {
+                "title": "Investment Benefits",
+                "content": "MemePump offers unique investment opportunities with high returns: <br/> Expected Dividend Rewards (Voting in Progress): Based on coin holdings (amount held), through voting on company revenue, annual 1% ~ up to 300 million dollars in revenue achievement can lead to 2,190% return on investment. <br/> Flexible Investment: Start with minimum 1 dollar and gradually increase investment amount. <br/> MMP Coin Airdrop: By holding MPB Coin, you can get MMP Coin airdrop opportunities providing 1.5% monthly interest and 18% annual bonus."
+            },
+            "growthOpportunities": {
+                "title": "Growth and Opportunities",
+                "content": "MemePump aims for sustainable development, planning to achieve 300 million dollars in revenue by 2028. Additionally, MPB Coin offers the following opportunities: <br/> MPB token value is expected to rise from 0.001 dollars to 0.3285 dollars, representing approximately 328-fold growth potential. <br/> Expected Revenue: Growing from 100,000 dollars in 2025 to 300 million dollars in 2028. High Liquidity: MPB Coin can be easily traded on blockchain platforms, allowing investors to easily withdraw funds when needed."
+            },
+            "investmentHolding": {
+                "title": "Investment (Coin Holding)",
+                "content": "MemePump offers opportunities for everyone from small investors to large investors. This project with high returns and strong growth potential is worth participating in right now.<br/> Flexible Investment: Start with minimum 1 dollar and gradually increase investment amount.<br/> Attractive Profit Opportunities: With 2,190% dividend rewards and airdrop opportunities, MPB Coin holders can achieve substantial returns.<br/> Long-term Growth Potential: MemePump aims for significant growth by 2028, and MPB Coin value will greatly increase. <br> Invest in MemePump (MPB) now and don't miss 2025's best investment opportunity! Join the Web3 ecosystem transformation with MemePump and become a successful investor of the future!"
+            },
+            "limitedInvestmentOpportunity": {
+                "title": "Limited Investment Opportunity",
+                "content": "First sale until July 31, 2025 at price 0.001 dollars. Second sale undetermined, minimum 0.002 dollars starting~ <br/>A 3 million dollar seed round closes, providing great opportunities for early investors."
+            },
+            "riskWarning": {
+                "title": "Risk Warning",
+                "content": "While boasting high returns, there are also risks in investing in MemePump. It's important for investors to seek professional advice before making decisions. Dividends may vary based on platform operating costs and profit margins, and there is no profit guarantee or principal protection."
+            }
+        },
+        "holdingBenefits": {
+            "title": "MMP/MPB Holding Benefits",
+            "synergyProject": "When synergy project is executed",
+            "airdropDistribution": "5% of airdrop volume will be distributed to holders",
+            "earlyParticipants": "Early participants receive greater rewards"
+        },
+        "networkFee": {
+            "message": "Solana network fee ({fee}) will be charged when swapping. <br /> We recommend purchasing directly with SOL.",
+            "recommendation": "We recommend purchasing directly with SOL.",
+            "firstTimeFee": "For first-time IDO purchase, a network fee of approximately 0.0025 SOL is required for ATA creation. <br />For subsequent purchases, the network fee per swap will be reduced to approximately 0.00005 SOL."
+        },
+        "specialOpportunity": {
+            "title": "Special Opportunity",
+            "message": "MMP/MPB Initial Sale in Progress <br/> First Sale: 0.001 SOL (Until July 31st) <br/> Second Sale: 0.002 SOL (Schedule to be announced)"
+        }
+    },
+    "services": {
+        "errors": {
+            "phantomNotInstalled": "Phantom wallet is not installed",
+            "phantomNotInstalledWithLink": "Phantom wallet is not installed. Please install it from https://phantom.app/",
+            "phantomNotConnected": "Phantom wallet is not connected. Please connect first.",
+            "phantomConnectionRejected": "User rejected the connection request",
+            "phantomConnectionFailed": "Failed to connect to Phantom wallet",
+            "phantomSignatureRejected": "User rejected the signature request",
+            "phantomSignatureFailed": "Failed to sign message with Phantom wallet",
+            "phantomTransactionRejected": "User rejected the transaction request",
+            "phantomAuthFailed": "Failed to authenticate with Phantom wallet",
+            "failedToCreateTokenAccount": "Failed to create token account",
+            "errorGetMyWallet": "Error Get My Wallet",
+            "errorGetGoogleUserInfo": "Error Get Google User Info"
         }
     }
 }

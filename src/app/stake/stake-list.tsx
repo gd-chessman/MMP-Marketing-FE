@@ -1,4 +1,4 @@
-import { Button } from "@/app/ui/button"
+import { Button } from "@/ui/button"
 import { ArrowRight, ChevronDown } from "lucide-react"
 
 interface StakeItemProps {
@@ -35,9 +35,9 @@ function StakeGroup({
                 <div className="flex items-center w-[40px]"><ChevronDown className="w-4 h-4 text-neutral" /></div>
                 <div className="flex flex-1 gap-2 flex-col mr-10">
                     <p className="text-lg kati-font font-medium">Stake - Term {stakeName}</p>
-                    {withdrawableCount > 0 && (
-                        <p className="text-xs text-neutral bg-green-700 max-w-[200px] flex items-center justify-center rounded-full px-2 py-1 mb-0 p-0">
-                            {withdrawableCount} Withdrawable Stakes
+                    {stakes?.length > 0 && (
+                        <p className="text-xs text-neutral bg-green-700 max-w-[120px] flex items-center justify-center rounded-full px-2 py-1 mb-0 p-0">
+                            {stakes?.length} Stakes
                         </p>
                     )}
                 </div>
@@ -48,6 +48,7 @@ function StakeGroup({
                     </div>
                 </div>
                 <div className=" flex-1 flex justify-between items-center">
+
                     <div className="flex flex-col">
                         <p className="text-sm text-neutral mb-1">Term</p>
                         <p className="text-base kati-font font-medium">{term}</p>

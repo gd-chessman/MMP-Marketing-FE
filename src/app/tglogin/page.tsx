@@ -5,11 +5,11 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, Suspense, useState } from 'react'
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
-import { Input } from '@/app/ui/input';
-import { Label } from '@/app/ui/label';
-import { Button } from '@/app/ui/button';
-import { Card, CardContent, CardHeader } from '@/app/ui/card';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/app/ui/select';
+import { Input } from '@/ui/input';
+import { Label } from '@/ui/label';
+import { Button } from '@/ui/button';
+import { Card, CardContent, CardHeader } from '@/ui/card';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/ui/select';
 import { langList } from '@/common';
 import { useLang } from '@/lang';
 

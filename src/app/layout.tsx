@@ -1,7 +1,7 @@
 "use client";
 import type React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Gothic_A1 } from "next/font/google";
+import { Gothic_A1, Tektur } from "next/font/google";
 import "@/styles/globals.scss";
 import { LangProvider } from "@/lang";
 import { ToastContainer } from "react-toastify";
@@ -16,6 +16,13 @@ const gothicA1 = Gothic_A1({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   display: "swap",
   variable: "--font-gothic-a1",
+});
+
+const tektur = Tektur({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
+  variable: "--font-tektur",
 });
 
 export default function RootLayout({
@@ -39,7 +46,7 @@ export default function RootLayout({
         <title>{process.env.NEXT_PUBLIC_APP_NAME}</title>
         <link rel="icon" href="/favicon.png" type="image/png" />
       </head>
-      <body className={`antialiased min-h-screen flex flex-col bg-white dark:bg-black overflow-x-hidden  ${gothicA1.variable}`}>
+      <body className={`antialiased min-h-screen flex flex-col bg-white dark:bg-black overflow-x-hidden  ${gothicA1.variable} ${tektur.variable}`}>
        
         <QueryClientProvider client={queryClient}>
           <LangProvider>

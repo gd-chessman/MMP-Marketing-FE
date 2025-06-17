@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/app/ui/dialog"
-import { Button } from "@/app/ui/button"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/ui/dialog"
+import { Button } from "@/ui/button"
 import { useAuth } from "@/hooks/useAuth"
 import { useLang } from "@/lang/useLang"
 import { PhantomWalletService } from "@/services/api"
@@ -95,14 +95,14 @@ export function ConnectWalletModal({ open, onOpenChange }: ConnectWalletModalPro
           </button>
 
           {/* Phantom Connect Button */}
-          {/* <button
+          <button
             onClick={handlePhantomConnect}
             disabled={isConnecting}
             className="bg-transparent group mt-0 cursor-pointer flex-col border-none font-medium py-4 text-base kati-font flex items-center justify-between  gap-3"
           >
             <img src="/phantom.png" alt="Phantom" className="w-10 h-10 p-1" />
             <span className="text-white group-hover:text-primary">{t("connectWalletModal.phantom")}</span>
-          </button> */}
+          </button>
 
           {/* Google Connect Button */}
           <button

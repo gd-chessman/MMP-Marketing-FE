@@ -27,15 +27,9 @@ function GoogleLoginContent() {
         try {
             // Gọi API để xác thực Google code
             const response = await GoogleAuthService.login({ code });
-            
-            if (response.success) {
-                login('google');
-                window.location.href = '/swap';
-            } else {
-                toast.error("Google authentication failed!");
-                window.location.href = '/';
-            }
-            
+            login('google');
+            window.location.href = '/swap';
+
         } catch (error: any) {
             console.log(error);
             toast.error("Google authentication failed!");

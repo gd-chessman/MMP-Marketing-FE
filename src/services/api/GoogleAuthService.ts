@@ -1,4 +1,6 @@
 import axiosClient from "@/utils/axiosClient";
+import { createLocalizedError, SERVICE_ERROR_KEYS } from '@/utils/errorMessages';
+import { getCurrentLang } from '@/utils/getCurrentLang';
 
 export const login = async (item: any) => {
     try {
@@ -15,6 +17,7 @@ export const getGoogleUserInfo = async () => {
         return temp.data;
     } catch (e) {
         console.log(e)
-        throw new Error("Error Get Google User Info")
+        const currentLang = getCurrentLang();
+        throw createLocalizedError(currentLang, SERVICE_ERROR_KEYS.ERROR_GET_GOOGLE_USER_INFO);
     }
 } 
