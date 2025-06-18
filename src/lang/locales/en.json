@@ -250,5 +250,37 @@
             "errorGetMyWallet": "Error Get My Wallet",
             "errorGetGoogleUserInfo": "Error Get Google User Info"
         }
+    },
+    "referral": {
+        "yourReferralLink": "Your Referral Link",
+        "totalReferrals": "Total Referrals",
+        "totalEarnings": "Total Earnings",
+        "activeReferrals": "Active Referrals",
+        "withdraw": "Withdraw",
+        "referralStructure": "Referral Structure",
+        "hide": "Hide",
+        "yourReferrals": "Your Referrals",
+        "referredUsers": "Referred Users",
+        "levelReferral": "Level Referral",
+        "user": "User",
+        "joinDate": "Join Date",
+        "level": "Level",
+        "earnings": "Earnings",
+        "noReferredUsers": "No referred users at this level.",
+        "referralCount": "Referral Count",
+        "claimableVolume": "Claimable Volume",
+        "lifetimeVolume": "Lifetime Volume",
+        "levelReferralText": "Level Referral",
+        "copied": "Copied!",
+        "levels": {
+            "all": "All",
+            "level1": "Level 1",
+            "level2": "Level 2",
+            "level3": "Level 3",
+            "level4": "Level 4",
+            "level5": "Level 5",
+            "level6": "Level 6",
+            "level7": "Level 7"
+        }
     }
 }

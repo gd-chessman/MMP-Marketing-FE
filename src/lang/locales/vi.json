@@ -250,5 +250,37 @@
             "errorGetMyWallet": "Lỗi lấy thông tin ví của tôi",
             "errorGetGoogleUserInfo": "Lỗi lấy thông tin người dùng Google"
         }
+    },
+    "referral": {
+        "yourReferralLink": "Liên kết giới thiệu của bạn",
+        "totalReferrals": "Tổng số giới thiệu",
+        "totalEarnings": "Tổng thu nhập",
+        "activeReferrals": "Giới thiệu hoạt động",
+        "withdraw": "Rút tiền",
+        "referralStructure": "Cấu trúc giới thiệu",
+        "hide": "Ẩn",
+        "yourReferrals": "Giới thiệu của bạn",
+        "referredUsers": "Người dùng được giới thiệu",
+        "levelReferral": "Giới thiệu cấp độ",
+        "user": "Người dùng",
+        "joinDate": "Ngày tham gia",
+        "level": "Cấp độ",
+        "earnings": "Thu nhập",
+        "noReferredUsers": "Không có người dùng được giới thiệu ở cấp độ này.",
+        "referralCount": "Số lượng giới thiệu",
+        "claimableVolume": "Khối lượng có thể rút",
+        "lifetimeVolume": "Khối lượng trọn đời",
+        "levelReferralText": "Giới thiệu cấp độ",
+        "copied": "Đã sao chép!",
+        "levels": {
+            "all": "Tất cả",
+            "level1": "Cấp độ 1",
+            "level2": "Cấp độ 2",
+            "level3": "Cấp độ 3",
+            "level4": "Cấp độ 4",
+            "level5": "Cấp độ 5",
+            "level6": "Cấp độ 6",
+            "level7": "Cấp độ 7"
+        }
     }
 }

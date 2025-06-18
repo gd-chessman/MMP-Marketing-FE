@@ -338,7 +338,7 @@ export default function SwapInterface() {
                     </motion.div>
                   ))
                 ) : (
-                  <div className="flex items-center justify-center h-full text-[#d7d7d7] text-sm lg:text-base">
+                  <div className="flex items-center justify-center h-full text-[#d7d7d7] text-sm lg:text-base mt-10">
                     {t("swap.noSwapHistory") || "No swap history available"}
                   </div>
                 )}

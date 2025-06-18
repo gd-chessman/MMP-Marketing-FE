@@ -254,5 +254,37 @@
             "errorGetMyWallet": "내 지갑 정보 가져오기 오류",
             "errorGetGoogleUserInfo": "Google 사용자 정보 가져오기 오류"
         }
+    },
+    "referral": {
+        "yourReferralLink": "당신의 추천 링크",
+        "totalReferrals": "총 추천 수",
+        "totalEarnings": "총 수익",
+        "activeReferrals": "활성 추천",
+        "withdraw": "출금",
+        "referralStructure": "추천 구조",
+        "hide": "숨기기",
+        "yourReferrals": "당신의 추천",
+        "referredUsers": "추천된 사용자",
+        "levelReferral": "레벨 추천",
+        "user": "사용자",
+        "joinDate": "가입일",
+        "level": "레벨",
+        "earnings": "수익",
+        "noReferredUsers": "이 레벨에는 추천된 사용자가 없습니다.",
+        "referralCount": "추천 수",
+        "claimableVolume": "청구 가능한 볼륨",
+        "lifetimeVolume": "평생 볼륨",
+        "levelReferralText": "레벨 추천",
+        "copied": "복사되었습니다!",
+        "levels": {
+            "all": "전체",
+            "level1": "레벨 1",
+            "level2": "레벨 2",
+            "level3": "레벨 3",
+            "level4": "레벨 4",
+            "level5": "레벨 5",
+            "level6": "레벨 6",
+            "level7": "레벨 7"
+        }
     }
 }

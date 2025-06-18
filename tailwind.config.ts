@@ -19,6 +19,7 @@ const config: Config = {
         primary: {
           DEFAULT: '#0086D4',
           light: '#51BFFF',
+          "100": '#15DFFD',
         },
         neutral: {
           DEFAULT: '#FCFCFC',
@@ -27,6 +28,12 @@ const config: Config = {
         dark: {
           DEFAULT: '#09041B',
           '100': '#191A1A',
+          '200': '#0F0F0F',
+        },
+        green: {
+          DEFAULT: '#076225',
+          light: '#00FF22',
+          '100': '#1AFF0D',
         },
         overlay: {
           DEFAULT: 'rgba(0, 0, 0, 0.18)', // #0000002E 18%
@@ -43,9 +50,15 @@ const config: Config = {
         },
         blue: {
           DEFAULT: '#00B8F4',
+          '100': '#028FBE',
         },
         navy: {
           DEFAULT: '#112D60',
+        },
+        gray: {
+          DEFAULT: '#D7D7D74D',
+          '100': '#A9A9A9',
+          '200': '#b2b0b0',
         },
         'purple-solid': 'rgba(85, 88, 255, 1)',
         'cyan-solid': 'rgba(0, 192, 255, 1)',
@@ -58,6 +71,7 @@ const config: Config = {
         "gradient-violet-blue": "linear-gradient(90deg, #712AFF 0%, #00B8F4 100%)",
         "gradient-purple-cyan-0deg": "linear-gradient(0deg, rgba(85, 88, 255, 0.40) 0%, rgba(0, 192, 255, 0.40) 100%)",
         "gradient-purple-cyan-solid": "linear-gradient(0deg, rgba(85, 88, 255, 1) 0%, rgba(0, 192, 255, 1) 100%)",
+        "gradient-purple-cyan-60": "linear-gradient(0deg, rgba(85, 88, 255, 0.60) 0%, rgba(0, 192, 255, 0.60) 100%)",
         "gradient-navy-purple": "linear-gradient(93deg, rgba(17, 45, 96, 0.70) 2.14%, rgba(136, 51, 238, 0.70) 98.03%)",
       },
     },

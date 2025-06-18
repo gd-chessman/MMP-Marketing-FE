@@ -250,5 +250,37 @@
             "errorGetMyWallet": "マイウォレット情報取得エラー",
             "errorGetGoogleUserInfo": "Googleユーザー情報取得エラー"
         }
+    },
+    "referral": {
+        "yourReferralLink": "あなたの紹介リンク",
+        "totalReferrals": "総紹介数",
+        "totalEarnings": "総収益",
+        "activeReferrals": "アクティブな紹介",
+        "withdraw": "引き出し",
+        "referralStructure": "紹介構造",
+        "hide": "非表示",
+        "yourReferrals": "あなたの紹介",
+        "referredUsers": "紹介されたユーザー",
+        "levelReferral": "レベル紹介",
+        "user": "ユーザー",
+        "joinDate": "参加日",
+        "level": "レベル",
+        "earnings": "収益",
+        "noReferredUsers": "このレベルには紹介されたユーザーがいません。",
+        "referralCount": "紹介数",
+        "claimableVolume": "請求可能なボリューム",
+        "lifetimeVolume": "生涯ボリューム",
+        "levelReferralText": "レベル紹介",
+        "copied": "コピーしました！",
+        "levels": {
+            "all": "すべて",
+            "level1": "レベル1",
+            "level2": "レベル2",
+            "level3": "レベル3",
+            "level4": "レベル4",
+            "level5": "レベル5",
+            "level6": "レベル6",
+            "level7": "レベル7"
+        }
     }
 }
