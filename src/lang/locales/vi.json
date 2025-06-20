@@ -23,7 +23,50 @@
         "logout": "Đăng xuất",
         "language": "Ngôn ngữ",
         "selectLanguage": "Chọn ngôn ngữ",
-        "deposit": "Nạp"
+        "deposit": "Nạp",
+        "withdraw": "Rút"
+    },
+    "referral": {
+        "structure": {
+            "your_reward": "Phần thưởng cho bạn",
+            "total_commission": "Tổng hoa hồng",
+            "paid_in": "thanh toán bằng"
+        }
+    },
+    "withdraw_page": {
+        "withdraw_successful": "Rút tiền thành công!",
+        "withdraw_failed": "Rút tiền thất bại. Vui lòng thử lại.",
+        "enter_amount_to_send": "Nhập số tiền cần gửi",
+        "available_balance": "Số dư có thể chuyển",
+        "recipient_wallet_address": "Địa chỉ ví người nhận",
+        "enter_recipient_wallet_address": "Nhập địa chỉ ví người nhận...",
+        "send": "Gửi",
+        "loading": "Đang tải...",
+        "no_withdrawal_history": "Không có lịch sử rút tiền",
+        "table": {
+            "time": "Thời gian",
+            "type": "Loại",
+            "status": "Trạng thái",
+            "amount": "Số tiền",
+            "from_address": "Địa chỉ gửi",
+            "to_address": "Địa chỉ nhận",
+            "tx_id": "ID Giao dịch",
+            "withdraw": "Rút",
+            "deposit": "Nạp",
+            "pending": "Đang chờ xử lý",
+            "completed": "Hoàn thành",
+            "failed": "Thất bại"
+        }
+    },
+    "universal_account": {
+        "send": "Gửi",
+        "sending": "Đang gửi...",
+        "amount_cannot_exceed_balance": "Số tiền không được vượt quá số dư {balance} của bạn",
+        "minimum_withdrawal_amount": "Số tiền rút tối thiểu là {amount}",
+        "maximum_withdrawal_amount": "Số tiền rút tối đa là {amount}",
+        "minimum_withdrawal_amount_in_usd": "Số tiền rút tối thiểu là {amount} {symbol} (~${usd_value})",
+        "amount_must_be_positive": "Số tiền phải lớn hơn 0",
+        "recipient_address_required": "Địa chỉ ví người nhận là bắt buộc."
     },
     "connectWalletModal": {
         "title": "Kết nối Ví",
@@ -252,35 +295,52 @@
         }
     },
     "referral": {
+        "title": "Bảng điều khiển giới thiệu",
         "yourReferralLink": "Liên kết giới thiệu của bạn",
-        "totalReferrals": "Tổng số giới thiệu",
+        "copied": "Đã sao chép vào clipboard!",
+        "totalReferrals": "Tổng số lượt giới thiệu",
         "totalEarnings": "Tổng thu nhập",
-        "activeReferrals": "Giới thiệu hoạt động",
-        "withdraw": "Rút tiền",
+        "activeReferrals": "Lượt giới thiệu đang hoạt động",
+        "bjReferrals": "Lượt giới thiệu BJ",
+        "normalReferrals": "Lượt giới thiệu thường",
+        "withdraw": "Rút",
         "referralStructure": "Cấu trúc giới thiệu",
-        "hide": "Ẩn",
-        "yourReferrals": "Giới thiệu của bạn",
+        "yourReferrals": "Lượt giới thiệu của bạn",
         "referredUsers": "Người dùng được giới thiệu",
-        "levelReferral": "Giới thiệu cấp độ",
+        "levelReferral": "Giới thiệu theo cấp độ",
+        "normal": "Thường",
+        "bj": "BJ",
         "user": "Người dùng",
         "joinDate": "Ngày tham gia",
         "level": "Cấp độ",
         "earnings": "Thu nhập",
-        "noReferredUsers": "Không có người dùng được giới thiệu ở cấp độ này.",
-        "referralCount": "Số lượng giới thiệu",
-        "claimableVolume": "Khối lượng có thể rút",
-        "lifetimeVolume": "Khối lượng trọn đời",
-        "levelReferralText": "Giới thiệu cấp độ",
-        "copied": "Đã sao chép!",
+        "hide": "Ẩn",
+        "show": "Hiện",
+        "type": "Loại",
         "levels": {
             "all": "Tất cả",
-            "level1": "Cấp độ 1",
-            "level2": "Cấp độ 2",
-            "level3": "Cấp độ 3",
-            "level4": "Cấp độ 4",
-            "level5": "Cấp độ 5",
-            "level6": "Cấp độ 6",
-            "level7": "Cấp độ 7"
+            "level1": "Cấp 1",
+            "level2": "Cấp 2",
+            "level3": "Cấp 3",
+            "level4": "Cấp 4",
+            "level5": "Cấp 5",
+            "level6": "Cấp 6",
+            "level7": "Cấp 7"
+        },
+        "structure": {
+            "regular_customer": "Khách hàng thông thường",
+            "bj_influencer": "BJ / Người có ảnh hưởng",
+            "total_commission": "Tổng hoa hồng",
+            "paid_in": "trả bằng"
+        },
+        "noReferredUsers": "Chưa có người dùng nào được giới thiệu.",
+        "structure": {
+            "your_reward": "Phần thưởng cho bạn",
+            "total_commission": "Tổng hoa hồng",
+            "paid_in": "thanh toán bằng"
         }
+    },
+    "referral_page": {
+        "title": "Referral"
     }
 }

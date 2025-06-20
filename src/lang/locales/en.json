@@ -23,7 +23,48 @@
         "logout": "Logout",
         "language": "Language",
         "selectLanguage": "Select Language",
-        "deposit": "Deposit"
+        "deposit": "Deposit",
+        "withdraw": "Withdraw"
+    },
+    "referral": {
+        "structure": {
+            "your_reward": "Your Reward",
+            "total_commission": "Total Commission",
+            "paid_in": "paid in"
+        }
+    },
+    "withdraw_page": {
+        "withdraw_successful": "Withdrawal successful!",
+        "withdraw_failed": "Withdrawal failed. Please try again.",
+        "enter_amount_to_send": "Enter amount to send",
+        "available_balance": "Available balance for transfer",
+        "recipient_wallet_address": "Recipient wallet address",
+        "enter_recipient_wallet_address": "Enter recipient wallet address...",
+        "send": "Send",
+        "loading": "Loading...",
+        "no_withdrawal_history": "No withdrawal history",
+        "table": {
+            "time": "Time",
+            "type": "Type",
+            "status": "Status",
+            "amount": "Amount",
+            "from_address": "From Address",
+            "to_address": "To Address",
+            "tx_id": "Transaction ID",
+            "withdraw": "Withdraw",
+            "deposit": "Deposit",
+            "completed": "Completed"        
+        }
+    },
+    "universal_account": {
+        "send": "Send",
+        "sending": "Sending...",
+        "amount_cannot_exceed_balance": "Amount cannot exceed your balance of {balance}",
+        "minimum_withdrawal_amount": "Minimum withdrawal amount is {amount}",
+        "maximum_withdrawal_amount": "Maximum withdrawal amount is {amount}",
+        "minimum_withdrawal_amount_in_usd": "Minimum withdrawal amount is {amount} {symbol} (~${usd_value})",
+        "amount_must_be_positive": "Amount must be greater than 0",
+        "recipient_address_required": "Recipient wallet address is required."
     },
     "connectWalletModal": {
         "title": "Connect Wallet",
@@ -213,52 +254,33 @@
             "limitedInvestmentOpportunity": {
                 "title": "Limited Investment Opportunity",
                 "content": "First sale until July 31, 2025 at price 0.001 dollars. Second sale undetermined, minimum 0.002 dollars starting~ <br/>A 3 million dollar seed round closes, providing great opportunities for early investors."
-            },
-            "riskWarning": {
-                "title": "Risk Warning",
-                "content": "While boasting high returns, there are also risks in investing in MemePump. It's important for investors to seek professional advice before making decisions. Dividends may vary based on platform operating costs and profit margins, and there is no profit guarantee or principal protection."
             }
-        },
-        "holdingBenefits": {
-            "title": "MMP/MPB Holding Benefits",
-            "synergyProject": "When synergy project is executed",
-            "airdropDistribution": "5% of airdrop volume will be distributed to holders",
-            "earlyParticipants": "Early participants receive greater rewards"
-        },
-        "networkFee": {
-            "message": "Solana network fee ({fee}) will be charged when swapping. <br /> We recommend purchasing directly with SOL.",
-            "recommendation": "We recommend purchasing directly with SOL.",
-            "firstTimeFee": "For first-time IDO purchase, a network fee of approximately 0.0025 SOL is required for ATA creation. <br />For subsequent purchases, the network fee per swap will be reduced to approximately 0.00005 SOL."
-        },
-        "specialOpportunity": {
-            "title": "Special Opportunity",
-            "message": "MMP/MPB Initial Sale in Progress <br/> First Sale: 0.001 SOL (Until July 31st) <br/> Second Sale: 0.002 SOL (Schedule to be announced)"
         }
     },
-    "services": {
-        "errors": {
-            "phantomNotInstalled": "Phantom wallet is not installed",
-            "phantomNotInstalledWithLink": "Phantom wallet is not installed. Please install it from https://phantom.app/",
-            "phantomNotConnected": "Phantom wallet is not connected. Please connect first.",
-            "phantomConnectionRejected": "User rejected the connection request",
-            "phantomConnectionFailed": "Failed to connect to Phantom wallet",
-            "phantomSignatureRejected": "User rejected the signature request",
-            "phantomSignatureFailed": "Failed to sign message with Phantom wallet",
-            "phantomTransactionRejected": "User rejected the transaction request",
-            "phantomAuthFailed": "Failed to authenticate with Phantom wallet",
-            "failedToCreateTokenAccount": "Failed to create token account",
-            "errorGetMyWallet": "Error Get My Wallet",
-            "errorGetGoogleUserInfo": "Error Get Google User Info"
-        }
+    "stake": {
+        "title": "Stake MMP",
+        "comingSoon": "Staking is coming soon!",
+        "description": "Stake your MMP tokens to earn rewards. The longer you stake, the more you earn.",
+        "totalStaked": "Total Staked",
+        "myStaked": "My Staked",
+        "rewards": "Rewards",
+        "stakeNow": "Stake Now",
+        "unStake": "Unstake",
+        "claimRewards": "Claim Rewards",
+        "enterAmount": "Enter amount to stake",
+        "balance": "Balance"
     },
     "referral": {
+        "title": "Referral Dashboard",
         "yourReferralLink": "Your Referral Link",
+        "copied": "Copied to clipboard!",
         "totalReferrals": "Total Referrals",
         "totalEarnings": "Total Earnings",
         "activeReferrals": "Active Referrals",
+        "bjReferrals": "BJ Referrals",
+        "normalReferrals": "Normal Referrals",
         "withdraw": "Withdraw",
         "referralStructure": "Referral Structure",
-        "hide": "Hide",
         "yourReferrals": "Your Referrals",
         "referredUsers": "Referred Users",
         "levelReferral": "Level Referral",
@@ -266,12 +288,11 @@
         "joinDate": "Join Date",
         "level": "Level",
         "earnings": "Earnings",
-        "noReferredUsers": "No referred users at this level.",
-        "referralCount": "Referral Count",
-        "claimableVolume": "Claimable Volume",
-        "lifetimeVolume": "Lifetime Volume",
-        "levelReferralText": "Level Referral",
-        "copied": "Copied!",
+        "hide": "Hide",
+        "show": "Show",
+        "type": "Type",
+        "normal": "Normal",
+        "bj": "BJ",
         "levels": {
             "all": "All",
             "level1": "Level 1",
@@ -281,6 +302,14 @@
             "level5": "Level 5",
             "level6": "Level 6",
             "level7": "Level 7"
-        }
+        },
+        "structure": {
+            "regular_customer": "Regular Customer",
+            "bj_influencer": "BJ / Influencer",
+            "total_commission": "Total Commission",
+            "paid_in": "paid in",
+            "your_reward": "Your Reward"
+        },
+        "noReferredUsers": "No referred users yet."
     }
 }

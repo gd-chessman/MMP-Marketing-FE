@@ -54,7 +54,7 @@ export default function RootLayout({
               <div className="min-h-screen bg-[#747474] dark:bg-gray-950 transition-colors duration-300 font-gothic-a1 flex flex-col">
                 <Header />
                 <VideoBackground />
-                <main className="overflow-x-hidden flex-1 z-20 relative container mx-auto w-full flex flex-col">{children}</main>
+                <main className="overflow-x-hidden flex-1 z-30 relative container mx-auto w-full flex flex-col">{children}</main>
               </div>
               <ToastContainer theme="dark" />
             </NotifyProvider>

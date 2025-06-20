@@ -24,10 +24,11 @@ const Header = () => {
 
   const tabs = [
     // { id: 'overview', href: '/', label: t('header.overview'), icon: '📊' },
-    { id: 'swap', href: '/swap', label: t('header.swap'), icon: <ArrowDownUp className='w-3 h-3 sm:w-4 sm:h-4' /> },
-    { id: 'deposit', href: '/deposit', label: t('header.deposit'), icon: '💰' },
+    { id: 'swap', href: '/swap', label: t('header.swap'), icon: <ArrowDownUp className='w-3 h-3 sm:w-4 sm:h-4' />, isActive: true },
+    { id: 'deposit', href: '/deposit', label: t('header.deposit'), icon: '💰', isActive: isAuthenticated },
+    { id: 'withdraw', href: '/withdraw', label: t('header.withdraw'), icon: '💰', isActive: isAuthenticated },
     // { id: 'stake', href: '/stake', label: t('header.stake'), icon: '🔒' },
-    // { id: 'referral', href: '/referral', label: t('header.referral'), icon: '👥' },
+    { id: 'referral', href: '/referral', label: t('header.referral'), icon: '👥', isActive: isAuthenticated },
   ]
 
   
@@ -145,7 +146,7 @@ const Header = () => {
 
           {/* Desktop Navigation Tabs */}
           <nav className="hidden md:flex flex-1 gap-4 lg:gap-8 xl:gap-[100px] justify-center items-center">
-            {tabs.map((tab) => (
+            {tabs.filter((tab) => tab.isActive).map((tab) => (
               <Link 
                 className={cn(
                   'text-xs sm:text-sm text-neutral font-medium cursor-pointer hover:opacity-80 transition-opacity rounded-lg px-2 py-1', 

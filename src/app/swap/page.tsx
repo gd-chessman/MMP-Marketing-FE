@@ -364,8 +364,8 @@ export default function SwapInterface() {
                 </ul>
 
               </div>
-              <div className="">
-                <img src="/swap-guide.png" alt="swap-guide" className="w-full h-auto " />
+              <div className="rounded-xl overflow-hidden">
+                <img src="/ido.jpg" alt="swap-guide" className="w-full h-auto " />
               </div>
             </div>
           </div>

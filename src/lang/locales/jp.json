@@ -23,7 +23,42 @@
         "logout": "ログアウト",
         "language": "言語",
         "selectLanguage": "言語を選択",
-        "deposit": "入金"
+        "deposit": "預金",
+        "withdraw": "出金"
+    },
+    "withdraw_page": {
+        "enter_amount_to_send": "送信する金額を入力してください",
+        "available_balance": "利用可能残高",
+        "recipient_wallet_address": "受取人のウォレットアドレス",
+        "enter_recipient_wallet_address": "受取人のウォレットアドレスを入力してください",
+        "send": "送信",
+        "withdraw_successful": "出金に成功しました！",
+        "withdraw_failed": "出金に失敗しました。もう一度お試しください。",
+        "loading": "読み込み中...",
+        "no_withdrawal_history": "出金履歴はありません",
+        "table": {
+            "time": "時間",
+            "type": "タイプ",
+            "status": "ステータス",
+            "amount": "金額",
+            "from_address": "送信元アドレス",
+            "to_address": "宛先アドレス",
+            "tx_id": "取引ID",
+            "withdraw": "出金",
+            "deposit": "入金",
+            "pending": "保留中",
+            "completed": "完了",
+            "failed": "失敗"
+        }
+    },
+    "universal_account": {
+        "amount_cannot_exceed_balance": "金額が残高（{balance}）を超えることはできません",
+        "minimum_withdrawal_amount": "最低出金額は{amount}です",
+        "maximum_withdrawal_amount": "最大出金額は{amount}です",
+        "minimum_withdrawal_amount_in_usd": "最低出金額は{amount} {symbol}（〜${usd_value}）です",
+        "amount_must_be_positive": "金額は0より大きくなければなりません",
+        "sending": "送信中...",
+        "recipient_address_required": "受取人のウォレットアドレスは必須です。"
     },
     "connectWalletModal": {
         "title": "ウォレット接続",
@@ -252,13 +287,16 @@
         }
     },
     "referral": {
+        "title": "紹介ダッシュボード",
         "yourReferralLink": "あなたの紹介リンク",
+        "copied": "クリップボードにコピーしました！",
         "totalReferrals": "総紹介数",
         "totalEarnings": "総収益",
         "activeReferrals": "アクティブな紹介",
-        "withdraw": "引き出し",
+        "bjReferrals": "BJ紹介",
+        "normalReferrals": "通常、リファラー",
+        "withdraw": "出金",
         "referralStructure": "紹介構造",
-        "hide": "非表示",
         "yourReferrals": "あなたの紹介",
         "referredUsers": "紹介されたユーザー",
         "levelReferral": "レベル紹介",
@@ -266,12 +304,11 @@
         "joinDate": "参加日",
         "level": "レベル",
         "earnings": "収益",
-        "noReferredUsers": "このレベルには紹介されたユーザーがいません。",
-        "referralCount": "紹介数",
-        "claimableVolume": "請求可能なボリューム",
-        "lifetimeVolume": "生涯ボリューム",
-        "levelReferralText": "レベル紹介",
-        "copied": "コピーしました！",
+        "hide": "隠す",
+        "show": "表示",
+        "type": "タイプ",
+        "normal": "普通",
+        "BJ": "有名人",
         "levels": {
             "all": "すべて",
             "level1": "レベル1",
@@ -281,6 +318,17 @@
             "level5": "レベル5",
             "level6": "レベル6",
             "level7": "レベル7"
-        }
+        },
+        "structure": {
+            "regular_customer": "一般顧客",
+            "bj_influencer": "BJ / インフルエンサー",
+            "total_commission": "総手数料",
+            "paid_in": "で支払われる",
+            "your_reward": "あなたの報酬"
+        },
+        "noReferredUsers": "まだ紹介されたユーザーがいません。"
+    },
+    "referral_page": {
+        "title": "Referral"
     }
 }

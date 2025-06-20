@@ -1,6 +1,7 @@
 "use client"
 import { useAuth } from '@/hooks/useAuth';
 import { GoogleAuthService } from '@/services/api';
+import Cookies from 'js-cookie';
 import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, Suspense } from 'react'
 import { toast } from 'react-toastify';
@@ -26,7 +27,7 @@ function GoogleLoginContent() {
     const handleGoogleLogin = async () => {
         try {
             // Gọi API để xác thực Google code
-            const response = await GoogleAuthService.login({ code });
+            const response = await GoogleAuthService.login({ code, ref_code: Cookies.get("ref") || "" });
             login('google');
             window.location.href = '/swap';
 
