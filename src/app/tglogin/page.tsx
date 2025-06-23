@@ -12,6 +12,7 @@ import { Card, CardContent, CardHeader } from '@/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/ui/select';
 import { langList } from '@/common';
 import { useLang } from '@/lang';
+import Cookies from 'js-cookie';
 
 type FormData = {
     nickname: string;
@@ -45,7 +46,7 @@ function TelegramLoginContent() {
 
     const handleLogin = async() =>{
         try {
-            const data = {id: telegramId, code : code}
+            const data = {id: telegramId, code : code, ref_code: Cookies.get("ref") || ""}
             const res = await TelegramWalletService.login(data);
             if(res.success){
                 login('telegram');
@@ -55,6 +56,10 @@ function TelegramLoginContent() {
         } catch (error: any) {
             console.log(error)
             toast.warn("Invalid authentication !")
+           const timeout = setTimeout(() => {
+                window.location.href = '/';
+            }, 3000);
+            return () => clearTimeout(timeout);
         }
     }
 

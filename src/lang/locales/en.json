@@ -5,7 +5,7 @@
     },
     "lang": {
         "en": "English",
-        "vi": "Vietnamese", 
+        "vi": "Vietnamese",
         "jp": "Japanese",
         "kr": "Korean"
     },
@@ -23,7 +23,50 @@
         "logout": "Logout",
         "language": "Language",
         "selectLanguage": "Select Language",
-        "deposit": "Deposit"
+        "deposit": "Deposit",
+        "withdraw": "Withdraw",
+        "whitePaper": "White Paper"
+    },
+    "referral": {
+        "structure": {
+            "your_reward": "Your Reward",
+            "total_commission": "Total Commission",
+            "paid_in": "paid in",
+            "note": "Note: You need to perform a swap of MMP tokens with a minimum of $5 to be eligible for rewards. When you haven't performed the swap, your reward amount will be in pending status."
+        }
+    },
+    "withdraw_page": {
+        "withdraw_successful": "Withdrawal successful!",
+        "withdraw_failed": "Withdrawal failed. Please try again.",
+        "enter_amount_to_send": "Enter amount to send",
+        "available_balance": "Available balance for transfer",
+        "recipient_wallet_address": "Recipient wallet address",
+        "enter_recipient_wallet_address": "Enter recipient wallet address...",
+        "send": "Send",
+        "loading": "Loading...",
+        "no_withdrawal_history": "No withdrawal history",
+        "table": {
+            "time": "Time",
+            "type": "Type",
+            "status": "Status",
+            "amount": "Amount",
+            "from_address": "From Address",
+            "to_address": "To Address",
+            "tx_id": "Transaction ID",
+            "withdraw": "Withdraw",
+            "deposit": "Deposit",
+            "completed": "Completed"
+        }
+    },
+    "universal_account": {
+        "send": "Send",
+        "sending": "Sending...",
+        "amount_cannot_exceed_balance": "Amount cannot exceed your balance of {balance}",
+        "minimum_withdrawal_amount": "Minimum withdrawal amount is {amount}",
+        "maximum_withdrawal_amount": "Maximum withdrawal amount is {amount}",
+        "minimum_withdrawal_amount_in_usd": "Minimum withdrawal amount is {amount} {symbol} (~${usd_value})",
+        "amount_must_be_positive": "Amount must be greater than 0",
+        "recipient_address_required": "Recipient wallet address is required."
     },
     "connectWalletModal": {
         "title": "Connect Wallet",
@@ -213,52 +256,33 @@
             "limitedInvestmentOpportunity": {
                 "title": "Limited Investment Opportunity",
                 "content": "First sale until July 31, 2025 at price 0.001 dollars. Second sale undetermined, minimum 0.002 dollars starting~ <br/>A 3 million dollar seed round closes, providing great opportunities for early investors."
-            },
-            "riskWarning": {
-                "title": "Risk Warning",
-                "content": "While boasting high returns, there are also risks in investing in MemePump. It's important for investors to seek professional advice before making decisions. Dividends may vary based on platform operating costs and profit margins, and there is no profit guarantee or principal protection."
             }
-        },
-        "holdingBenefits": {
-            "title": "MMP/MPB Holding Benefits",
-            "synergyProject": "When synergy project is executed",
-            "airdropDistribution": "5% of airdrop volume will be distributed to holders",
-            "earlyParticipants": "Early participants receive greater rewards"
-        },
-        "networkFee": {
-            "message": "Solana network fee ({fee}) will be charged when swapping. <br /> We recommend purchasing directly with SOL.",
-            "recommendation": "We recommend purchasing directly with SOL.",
-            "firstTimeFee": "For first-time IDO purchase, a network fee of approximately 0.0025 SOL is required for ATA creation. <br />For subsequent purchases, the network fee per swap will be reduced to approximately 0.00005 SOL."
-        },
-        "specialOpportunity": {
-            "title": "Special Opportunity",
-            "message": "MMP/MPB Initial Sale in Progress <br/> First Sale: 0.001 SOL (Until July 31st) <br/> Second Sale: 0.002 SOL (Schedule to be announced)"
         }
     },
-    "services": {
-        "errors": {
-            "phantomNotInstalled": "Phantom wallet is not installed",
-            "phantomNotInstalledWithLink": "Phantom wallet is not installed. Please install it from https://phantom.app/",
-            "phantomNotConnected": "Phantom wallet is not connected. Please connect first.",
-            "phantomConnectionRejected": "User rejected the connection request",
-            "phantomConnectionFailed": "Failed to connect to Phantom wallet",
-            "phantomSignatureRejected": "User rejected the signature request",
-            "phantomSignatureFailed": "Failed to sign message with Phantom wallet",
-            "phantomTransactionRejected": "User rejected the transaction request",
-            "phantomAuthFailed": "Failed to authenticate with Phantom wallet",
-            "failedToCreateTokenAccount": "Failed to create token account",
-            "errorGetMyWallet": "Error Get My Wallet",
-            "errorGetGoogleUserInfo": "Error Get Google User Info"
-        }
+    "stake": {
+        "title": "Stake MMP",
+        "comingSoon": "Staking is coming soon!",
+        "description": "Stake your MMP tokens to earn rewards. The longer you stake, the more you earn.",
+        "totalStaked": "Total Staked",
+        "myStaked": "My Staked",
+        "rewards": "Rewards",
+        "stakeNow": "Stake Now",
+        "unStake": "Unstake",
+        "claimRewards": "Claim Rewards",
+        "enterAmount": "Enter amount to stake",
+        "balance": "Balance"
     },
     "referral": {
+        "title": "Referral Dashboard",
         "yourReferralLink": "Your Referral Link",
+        "copied": "Copied to clipboard!",
         "totalReferrals": "Total Referrals",
         "totalEarnings": "Total Earnings",
         "activeReferrals": "Active Referrals",
+        "bjReferrals": "BJ Referrals",
+        "normalReferrals": "Normal Referrals",
         "withdraw": "Withdraw",
         "referralStructure": "Referral Structure",
-        "hide": "Hide",
         "yourReferrals": "Your Referrals",
         "referredUsers": "Referred Users",
         "levelReferral": "Level Referral",
@@ -266,12 +290,11 @@
         "joinDate": "Join Date",
         "level": "Level",
         "earnings": "Earnings",
-        "noReferredUsers": "No referred users at this level.",
-        "referralCount": "Referral Count",
-        "claimableVolume": "Claimable Volume",
-        "lifetimeVolume": "Lifetime Volume",
-        "levelReferralText": "Level Referral",
-        "copied": "Copied!",
+        "hide": "Hide",
+        "show": "Show",
+        "type": "Type",
+        "normal": "Normal",
+        "bj": "BJ",
         "levels": {
             "all": "All",
             "level1": "Level 1",
@@ -281,6 +304,671 @@
             "level5": "Level 5",
             "level6": "Level 6",
             "level7": "Level 7"
+        },
+        "structure": {
+            "regular_customer": "Regular Customer",
+            "bj_influencer": "BJ / Influencer",
+            "total_commission": "Total Commission",
+            "paid_in": "paid in",
+            "your_reward": "Your Reward"
+        },
+        "noReferredUsers": "No referred users yet."
+    },
+    "whitePaper": {
+        "title": "MEMEPUMP Whitepaper",
+        "sections": {
+            "introduction": {
+                "title": "1. Introduction: What is MEMEPUMP?",
+                "description": "MEMEPUMP is a next-generation community-driven meme coin platform built on the Solana blockchain, born to revolutionize how users trade, generate profits, and participate in meme-based cryptocurrencies. Unlike existing meme projects lacking utility, MEMEPUMP integrates DeFi incentives, simulation trading ecosystem, and decentralized governance to provide all participants with a sustainable and rewarding experience.",
+                "problems": {
+                    "title": "Problems: Challenges in the Meme Coin Market",
+                    "description": "The meme coin market is suffering from the following issues:",
+                    "items": [
+                        "High volatility and fraud risk – Many projects lack transparency and operate through pump and dump schemes.",
+                        "Low user rewards – Most platforms prioritize whales over the community.",
+                        "Lack of long-term utility – Most meme coins disappear after the initial hype."
+                    ]
+                },
+                "solutions": {
+                    "title": "MEMEPUMP's Solutions",
+                    "description": "We solve these problems in the following ways:",
+                    "items": [
+                        "55% Community Rewards Allocation – The largest token ratio is distributed to users, rewarding trading incentives, staking, and platform participation.",
+                        "Hybrid DeFi + Simulation Trading – Provides an innovative ecosystem combining real trading with risk-free simulation markets.",
+                        "DAO-based Governance Preparation – Allocates some tokens as reserves for future decentralized decision-making.",
+                        "Global Expansion Strategy – Drives long-term growth through aggressive marketing and partnerships."
+                    ]
+                }
+            },
+            "problems": {
+                "title": "2. Problems: Confusion in the Meme Coin Investment Market",
+                "description": "While the meme coin market is experiencing explosive popularity, it still resembles a high-risk, high-reward gambling den where most investors lose money. Why?",
+                "subsections": {
+                    "rugPull": {
+                        "title": "2.1. Fraud and Rug Pull",
+                        "items": [
+                            "Over 90% of new meme coins disappear or are fraudulent projects immediately after launch.",
+                            "Investors are exposed to irresponsible risks such as fake liquidity, insider dumping, and rug pulls."
+                        ]
+                    },
+                    "unfairDistribution": {
+                        "title": "2.2. Unfair Distribution Structure",
+                        "items": [
+                            "Most meme coins are designed to favor whales and insiders, with regular investors receiving only small allocations.",
+                            "Pump and dump schemes are dominant, making sustainable growth potential very low."
+                        ]
+                    },
+                    "lackOfUtility": {
+                        "title": "2.3. Lack of Practical Utility",
+                        "items": [
+                            "Many meme coins are merely speculative targets with no real purpose or functionality.",
+                            "There is only volatility dependent on over-hyped advertising without ecosystem or reward systems."
+                        ]
+                    },
+                    "informationOverload": {
+                        "title": "2.4. Information Overload and Misinformation",
+                        "items": [
+                            "New meme coins are launched every minute, making it impossible to identify legitimate projects.",
+                            "Fake influencers promote fraudulent projects, leading investors down the wrong path."
+                        ]
+                    },
+                    "entryBarriers": {
+                        "title": "2.5. Entry Barriers for Safe Trading",
+                        "items": [
+                            "Most meme coin trading occurs through unverified DEXs with insufficient security.",
+                            "There are no safety measures like scam detection, smart contract verification, or whale tracking."
+                        ]
+                    },
+                    "memepumpSolutions": {
+                        "title": "2.6. MEMEPUMP's Solutions",
+                        "items": [
+                            "Community-First Rewards – 55% of total tokens are distributed directly to users, not insiders.",
+                            "Rug Pull Prevention – Only verified tokens are listed, ensuring safe launch with multi-signature vaults.",
+                            "Simulation Trading + Real Trading DeFi – Learn in a risk-free environment before real trading.",
+                            "Transparent Global Operations – Achieves fair and decentralized decision-making through DAO governance."
+                        ]
+                    }
+                }
+            },
+            "aiSolutions": {
+                "title": "3. Solutions: AI Makes It Possible",
+                "dataInsights": {
+                    "title": "3.1 Gaining Insights from Data",
+                    "description": "The meme coin market moves based on viral trends, community enthusiasm, and real-time sentiment. However, without structured data, investors get lost in information noise. MEMEPUMP solves this by integrating multi-chain analysis, social sentiment analysis, and on-chain behavior to provide practical insights.",
+                    "whyNewParadigm": {
+                        "title": "Why Do Meme Coins Need a New Data Paradigm?",
+                        "description": "Most platforms treat meme coins like regular assets, overlooking their unique characteristics:",
+                        "items": [
+                            "Ultra-high volatility: Prices can skyrocket or crash by 1000% in just hours, moving based on tweets, memes, and influencer impact.",
+                            "Low transparency: There are almost no tools to track rug pulls, liquidity changes, and whale dumping in real-time.",
+                            "Community-centric: Success depends more on participation metrics like Telegram/Discord activity and meme spreadability than fundamentals."
+                        ]
+                    },
+                    "dataFramework": {
+                        "title": "MEMEPUMP's Data Framework",
+                        "description": "We restructure meme coin data into 5 core sections to provide useful information for traders, degens, and builders:",
+                        "sections": {
+                            "marketDashboard": {
+                                "title": "1. Meme Market Dashboard",
+                                "items": [
+                                    "Real-time trends: Pumping coins, volume spikes, social mentions (X, Telegram, 4chan).",
+                                    "Rug pull radar: AI-scanned contract risk factors (e.g., minting functions, LP lock status) and liquidity warnings.",
+                                    "New launches: Chain-filtered (Solana, Base, Ethereum), fair launch indicators."
+                                ]
+                            },
+                            "sectorIndex": {
+                                "title": "2. Meme Sectors & Indexes",
+                                "description": "Meme coins are not one type. We classify them by the following criteria:",
+                                "items": [
+                                    "Sub-categories: Doge family, political, celebrity, AI-generated, etc.",
+                                    "Chain ecosystems: Solana, Ethereum, Base comparisons.",
+                                    "Community strength: Holder count, influencer support."
+                                ],
+                                "example": "Example: Capture market rotation opportunities through \"Solana Doge Coin Index.\""
+                            },
+                            "tokenAnalysis": {
+                                "title": "3. Token and Project Deep Analysis",
+                                "description": "For each meme coin, MEMEPUMP tracks:",
+                                "items": [
+                                    "Tokenomics: Whether it's a fair launch, team allocation, tax structure, etc.",
+                                    "Viral potential: Social growth rate, meme template spreadability.",
+                                    "Whale activity monitoring: Major holders' buy/sell movements."
+                                ]
+                            },
+                            "alphaNews": {
+                                "title": "4. Alpha Leaks & News",
+                                "items": [
+                                    "Meme news integration: Major news collected from crypto Twitter, Substack, degen channels.",
+                                    "AI-aligned sentiment analysis: Bullish vs FUD trends by coin.",
+                                    "Event alerts: Major exchange listings, influencer promotions, meme contests, etc."
+                                ]
+                            },
+                            "onchainTrading": {
+                                "title": "5. On-chain and Simulation Trading",
+                                "items": [
+                                    "LP status monitoring: Detect fund outflows or suspicious withdrawals from liquidity pools",
+                                    "Paper trading laboratory: Test meme coin strategies risk-free before real investment"
+                                ]
+                            },
+                            "onchainUpdate": {
+                                "title": "5.1 On-chain Trading Update",
+                                "description": "MEMEPUMP's on-chain trading features are constantly evolving to provide the best trading experience. We've added:",
+                                "items": [
+                                    "Real-time market analysis: AI-powered insights for every coin",
+                                    "Personalized watchlists: Tailored to your trading style"
+                                ],
+                                "content": "This update enhances MEMEPUMP's on-chain trading features, making it more intuitive and efficient for traders."
+                            }
+                        }
+                    }
+                },
+                "aiEnabled": {
+                    "title": "3.2 AI Makes It Possible (MEMEPUMP Edition)",
+                    "description": "If meme coins symbolize the democratization of crypto speculation markets, AI is the equalizing device that transforms chaos into insights. MEMEPUMP uses AI to remove noise and provide real-time insights, fraud detection, and personalized trading strategies — available for free, unlike traditional platforms charging over $30,000 annually for Bloomberg-level data.",
+                    "howAIChanges": {
+                        "title": "How MEMEPUMP's AI Changes Meme Coin Trading",
+                        "sections": {
+                            "dataAnalysis": {
+                                "title": "1. AI-Based Data Analysis",
+                                "description": "Meme coin movements are at the speed of light. MEMEPUMP's AI scans the following in real-time:",
+                                "items": [
+                                    "Over 10,000 social mentions per hour (X, Telegram, 4chan) to detect hype cycles",
+                                    "Smart contract risk analysis (honeypots, mint functions, LP locks, etc.) – 98% accuracy",
+                                    "Cross-chain whale wallet tracking (Solana, Base, Ethereum) – pump/dump detection"
+                                ],
+                                "notification": "Real-time alerts: Push notifications for sudden volume spikes, influencer promotions, rug pull signs"
+                            },
+                            "marketPrediction": {
+                                "title": "2. Market Prediction Analysis",
+                                "description": "Traditional technical analysis (TA) doesn't fit meme coins well. MEMEPUMP's AI analyzes:",
+                                "items": [
+                                    "Meme viral scores (meme template spread, participation speed, etc.)",
+                                    "Past pump patterns (e.g., \"Doge coin pumps after Elon tweets\")",
+                                    "Community sentiment changes (FOMO vs FUD real-time analysis)"
+                                ],
+                                "briefing": "Daily AI briefing: Send TOP meme coin watchlist to inbox with 30-second voice summary"
+                            },
+                            "aiAssistant": {
+                                "title": "3. Your Personal Degenerate AI Assistant",
+                                "description": "Meet now — MEME-GPT, your 24-hour meme coin trading copilot:",
+                                "items": [
+                                    "Portfolio tracking: \"Why did $PEPE crash? Show me whale wallet movements.\"",
+                                    "Alpha leaks: \"Find meme coins under $1M market cap trending on crypto Twitter.\"",
+                                    "Paper trading simulation: Test strategies risk-free through AI-generated scenarios"
+                                ],
+                                "watchlist": "Custom watchlist reports: e.g., \"Among my watched coins, $WIF up 40%, $BONK trending in Vietnam\""
+                            },
+                            "aiAssistantUpdate": {
+                                "title": "3.3 AI Assistant Update",
+                                "description": "MEME-GPT is constantly evolving to provide the best trading experience. We've added:",
+                                "items": [
+                                    "Real-time market analysis: AI-powered insights for every coin",
+                                    "Personalized watchlists: Tailored to your trading style"
+                                ],
+                                "content": "This update enhances MEME-GPT's functionality, making it more intuitive and efficient for traders."
+                            }
+                        }
+                    }
+                }
+            },
+            "tokenomics": {
+                "title": "4. Tokenomics",
+                "memepumpToken": {
+                    "title": "4.1 MEMEPUMP Token",
+                    "governance": {
+                        "title": "Decentralized Governance",
+                        "description": "MEMEPUMP token holders can influence critical decisions in platform development. They can directly propose, discuss, and vote on various matters including protocol upgrades, parameter adjustments, and new feature launches. This decentralized governance model ensures complete transparency and aligns all changes with community interests."
+                    },
+                    "incentiveStructure": {
+                        "title": "Ecosystem Incentive Structure",
+                        "description": "MEMEPUMP tokens are the core incentive mechanism of the platform and activate the ecosystem in the following ways:",
+                        "items": [
+                            "Participation rewards: MEMEPUMP tokens are distributed daily to users actively engaging in trading, community activities, and content sharing.",
+                            "Liquidity & Simulation incentives: Users contributing to real trading liquidity pools or participating in simulation investment ecosystems receive rewards.",
+                            "Content and data accuracy bounties: Members who discover or fix data errors or contribute useful content are rewarded with MEMEPUMP tokens."
+                        ]
+                    },
+                    "incentiveStructureUpdate": {
+                        "title": "Ecosystem Incentive Structure Update",
+                        "description": "MEMEPUMP tokens are the core incentive mechanism of the platform and activate the ecosystem in the following ways:",
+                        "items": [
+                            "Participation rewards: MEMEPUMP tokens are distributed daily to users actively engaging in trading, community activities, and content sharing.",
+                            "Liquidity & Simulation incentives: Users contributing to real trading liquidity pools or participating in simulation investment ecosystems receive rewards.",
+                            "Content and data accuracy bounties: Members who discover or fix data errors or contribute useful content are rewarded with MEMEPUMP tokens."
+                        ]
+                    },
+                    "incentiveStructureUpdate2": {
+                        "title": "Staking for Premium Features",
+                        "items": [
+                            "In addition to basic incentives, users who stake MEMEPUMP tokens can access various premium features:",
+                            "Users who stake a certain amount of MEMEPUMP tokens will have access to advanced analytics tools, exclusive content, transaction fee discounts in SSI Protocol, and other additional services."
+                        ]
+                    }
+                },
+                "tokenomics": {
+                    "title": "4.2 Tokenomics",
+                    "sections": {
+                        "seedRound": {
+                            "title": "1. Seed Round (6%)",
+                            "description": "Allocated to strategic early investors who provided essential support in the project's initial stages.",
+                            "vesting": {
+                                "title": "Vesting Schedule:",
+                                "items": [
+                                    "Phase 1: 50% of total allocation is released sequentially starting 30 days before exchange listing.",
+                                    "Phase 2: Remaining 50% is released after 3 months post-listing."
+                                ]
+                            }
+                        },
+                        "communityRewards": {
+                            "title": "2. Community Rewards (55%)",
+                            "description": "The core of MEMEPUMP is a community-centered ecosystem. Over half of total issuance is allocated as rewards to encourage user participation.",
+                            "vesting": {
+                                "title": "Vesting Schedule:",
+                                "items": [
+                                    "Initial release: 15% is released at TGE (Token Generation Event).",
+                                    "Subsequent distribution: Remaining 85% is distributed linearly over 60 months, encouraging long-term holding and sustained community participation."
+                                ]
+                            }
+                        },
+                        "liquidityPool": {
+                            "title": "3. Ecosystem Liquidity & Simulation Pool (18%)",
+                            "description": "This allocation is set to simultaneously strengthen real trading liquidity and simulation ecosystems.",
+                            "vesting": "Vesting Schedule: Tokens are released progressively each month over 36 months in a linear manner."
+                        },
+                        "marketingPartnership": {
+                            "title": "4. Marketing & Partnerships (10%)",
+                            "description": "For global expansion and strategic partnership acquisition, 10% of total tokens are allocated to marketing activities, influencer collaborations, and various partnership-based initiatives.",
+                            "vesting": "Vesting Schedule: Tokens begin releasing after an 18-month cliff period. Thereafter, tokens are distributed progressively each month over 36 months."
+                        },
+                        "teamOperations": {
+                            "title": "5. Team & Operations (5%)",
+                            "description": "This allocation supports the core development team and ongoing platform development and operations.",
+                            "vesting": {
+                                "title": "Vesting Schedule:",
+                                "items": [
+                                    "Vesting begins 3 months after official platform launch.",
+                                    "Distributed monthly over 6 years in the following structure:",
+                                    "Years 1-2: Approximately 2.2% monthly",
+                                    "Years 3-4: Approximately 1.4% monthly",
+                                    "Years 5-6: Approximately 0.57% monthly"
+                                ]
+                            }
+                        },
+                        "reserveFund": {
+                            "title": "6. Foundation Reserve (6%)",
+                            "description": "This allocation is held as strategic emergency funds, supporting unexpected situation responses, future development, and smooth transition to DAO (Decentralized Autonomous Organization) governance systems.",
+                            "vesting": {
+                                "title": "Vesting Schedule:",
+                                "items": [
+                                    "Initial release: 15% released at TGE (Token Generation Event)",
+                                    "Ongoing release: Remaining tokens distributed linearly over 60 months"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "airdrop": {
+                    "title": "4.3 Airdrop Plan",
+                    "overview": {
+                        "title": "1. Overview",
+                        "description": "This whitepaper describes an airdrop program directly integrated into the main website. This program encourages community participation through various tasks and interactions, allowing users to accumulate Experience Points (EXP) and convert them to project tokens later."
+                    },
+                    "resources": {
+                        "title": "2. Connection Resources",
+                        "channels": {
+                            "title": "Main Channels",
+                            "description": "Users can log in through Gmail and Telegram. (Discord is optional and omitted if not supported.)"
+                        },
+                        "socialParticipation": {
+                            "title": "Required Social Participation",
+                            "description": "To receive rewards, users must join all designated social channels. This condition ensures complete integration with the community."
+                        }
+                    },
+                    "tasks": {
+                        "title": "3. Tasks and EXP Accumulation",
+                        "description": "The airdrop program is centered around daily tasks and SNS activities, encouraging active participation through EXP.",
+                        "items": [
+                            "Daily check-in: Users must visit the airdrop page on the website daily to check in.",
+                            "Social media participation: Liking, sharing, and commenting on latest Twitter posts earns predetermined EXP for each activity.",
+                            "Content sharing: Users upload posts to their social media, including username tags or designated hashtags: #memepump, #memepump_exchanges, #PumpWithMemePump."
+                        ]
+                    },
+                    "distribution": {
+                        "title": "4. Airdrop Distribution Criteria",
+                        "description": "Airdrop rewards are calculated based on total Experience Points (EXP) accumulated through tasks, and this EXP is converted to project tokens. To receive rewards, all of the following conditions must be met:",
+                        "requirements": [
+                            "Social network participation: Must join official Telegram channels. Must follow official Twitter channels.",
+                            "Sustained participation: Must complete 15 consecutive days of check-ins. Must be actively engaged for at least one month.",
+                            "Community contribution: Must achieve minimum referral count set by the project. Must connect all required social accounts."
+                        ],
+                        "conclusion": "Through these criteria, airdrop rewards are distributed only to community members who actively participate and are dedicated to the project."
+                    }
+                }
+            },
+            "staking": {
+                "title": "4.4 Staking Rewards",
+                "rewards": {
+                    "title": "1. APY and Reward Structure",
+                    "items": [
+                        "Premium APY rates",
+                        "Competitive high-yield APY:",
+                        "3 months: 20% per year",
+                        "6 months: 30% per year",
+                        "9 months: 40% per year",
+                        "12 months: 50% per year",
+                        "Flexible adjustment: APY may be adjusted dynamically depending on platform operation or TVL (Total Value Locked) to ensure stable ecosystem growth."
+                    ]
+                },
+                "mechanism": {
+                    "title": "2. Staking Mechanism",
+                    "items": [
+                        "Long-term and large stakers benefit: Users who stake for a long period or a large amount receive various benefits such as airdrops of newly listed tokens, extra rewards in USDT or other tokens.",
+                        "Staking procedure: Users deposit tokens in a 'lock-up' method according to the selected staking period and receive the set APY. The process is designed to ensure transparency and security of rewards.",
+                        "Various reward options",
+                        "Token and stablecoin rewards: Staking rewards can be paid in the platform's main token ($MMP) or stablecoins such as USDT/USDC.",
+                        "Dual reward mechanism: Through strategic partnerships, users can receive additional rewards besides regular staking income. For example, if user A refers user B to stake, A receives a referral fee. If A is also staking, they receive dual rewards.",
+                        "Early staking promotion: Early participants can receive an additional 10~30% bonus for a limited time."
+                    ]
+                },
+                "community": {
+                    "title": "3. Referral Program and Community Participation",
+                    "titlesub": "Referral Staking",
+                    "items": [
+                        "Referral staking: Friend referral bonus: If a user invites a friend to stake, the referrer receives an additional 5~10% of the referred user's rewards. This expands the user network and encourages community participation.",
+                        "Leaderboard and mini-games: Staker leaderboard: A ranking system based on staking amount and period is operated, and top stakers receive weekly or monthly rewards (e.g., 1st place staker receives 1,000 $MMP).",
+                        "Mini-game 'Lucky Spin': When staking or unlocking 1,000 tokens, users get a chance to spin a roulette for random rewards."
+                    ],
+                    "summary": "The staking program not only offers high APY rates but also creates a vibrant ecosystem through referrals and interactive activities. By combining various reward methods and innovative marketing strategies, it builds a loyal community and supports long-term platform growth."
+                }
+            },
+            "miningApp": {
+                "title": "4.5 Mining App",
+                "overview": {
+                    "title": "1. Overview",
+                    "content": "The MMPP token mining program is integrated into the project's official website and aims to create a fair and transparent token distribution environment within the community. The main goal is for users to earn points by performing various online activities and tasks, which can later be converted into MMPP tokens. This expands the ecosystem and promotes sustainable community participation and growth."
+                },
+                "mechanism": {
+                    "title": "2. MMPP Token Mining Mechanism",
+                    "mining": {
+                        "title": "2.1 Mining Methods",
+                        "items": [
+                            "Time-based mining: Users can earn MMPP tokens based on the time (minutes or hours) they are active on the website. The system records participation time and converts it into mining points.",
+                            "Mission-based mining: In addition to daily activities, users can earn points by completing specific missions such as:",
+                            "Daily check-in completed",
+                            "Participating in surveys, mini-games, and other interactive activities",
+                            "Sharing content on social media",
+                            "Referral mining: When a user invites a new user to the platform, the inviter receives additional mining points. This helps expand the community and increase overall engagement."
+                        ]
+                    },
+                    "points": {
+                        "title": "2.2 Point Calculation and Distribution",
+                        "items": [
+                            "Point system: Each user activity, mission, or interaction is converted into mining points according to a preset ratio. This system is designed to ensure fairness and encourage continuous participation.",
+                            "Conversion to MMPP tokens: Accumulated mining points are converted into MMPP tokens through a fixed exchange rate or an adjustable mechanism based on the project's governance model.",
+                            "Limits and balancing: To maintain token stability, a daily mining limit per user may be set. The exchange rate may also be adjusted based on the total points accumulated in the system."
+                        ]
+                    }
+                },
+                "security": {
+                    "title": "3. Security and Anti-Fraud System",
+                    "items": [
+                        "Monitoring and verification: The mining system uses advanced monitoring and verification tools to detect bots, abuse, and manipulation of mining points. These measures ensure fairness and transparency in token distribution.",
+                        "Data protection: The latest security technologies are applied to protect personal information and user activity data. All transactions and interactions are securely recorded and stored."
+                    ]
+                },
+                "roadmap": {
+                    "title": "4. Roadmap and Future Development Plan",
+                    "items": [
+                        "Integration of new missions and activities: Regular updates introduce new and interesting missions to continuously encourage user participation.",
+                        "UI/UX improvements: Website layout and interactive features are improved so users can easily check their progress and accumulated tokens.",
+                        "Multi-channel partnerships: Collaboration with other projects is expanded to increase the utility of MMPP tokens and provide more reward opportunities to the community."
+                    ],
+                    "summary": "This mining program is more than just a token distribution tool; it is a key driver for increasing user interaction and leading the ecosystem's sustainable growth."
+                }
+            },
+            "resources": {
+                "title": "5. Resources",
+                "tutorial": {
+                    "title": "5.1 Tutorial",
+                    "overview": "If you're having trouble purchasing MMPP tokens, please refer to this document. We solve common problems and guide you through a smooth purchase process with step-by-step instructions. To purchase MMPP tokens, you need USDC in your Solana wallet and SOL to pay for transaction fees.",
+                    "usdc": {
+                        "title": "2. How to obtain USDC on Solana Mainnet to purchase MMPP tokens",
+                        "items": [
+                            "USDC cross-network transfer (using DEX): Use a decentralized exchange (DEX) that supports bridges like Jupiter Aggregator. Connect your wallet and select the network of your current USDC as the 'departure network'. Select Solana Mainnet as the 'arrival network'. Enter the amount of USDC to transfer. Complete the transfer procedure according to the DEX screen instructions.",
+                            "Transfer USDC from centralized exchange (CEX) to on-chain wallet: Select 'Withdraw' option from your exchange. Copy your Solana wallet address and paste it in the withdrawal address field. Select Solana as the chain type. Enter the amount of USDC to transfer and complete the verification process. Once the transaction is confirmed, USDC will be sent directly to your wallet.",
+                            "Convert other coins to USDC on CEX: Select 'Convert' or 'Swap' function from the exchange. Choose your cryptocurrency and specify USDC as the target coin for conversion. Enter the amount to convert. Complete the conversion process according to the exchange instructions."
+                        ]
+                    },
+                    "sol": {
+                        "title": "3. How to obtain SOL for transaction fees on Solana Mainnet",
+                        "items": [
+                            "SOL transfer via DEX bridge: Connect your wallet to a DEX that supports SOL bridges (like Jupiter Aggregator). Set your current SOL network as the departure network and Solana Mainnet as the arrival network. Enter the amount of SOL to transfer. Complete the transfer procedure according to the screen instructions.",
+                            "Transfer SOL from CEX to on-chain wallet: Select 'Withdraw' from the exchange. Copy your Solana wallet address and paste it in the withdrawal address field. Select Solana as the chain type. Enter the amount of SOL to transfer and complete the verification process. Once the transaction is confirmed, SOL will be deposited into your wallet."
+                        ]
+                    },
+                    "staking": {
+                        "title": "4. How to stake MMPP tokens",
+                        "items": [
+                            "Access staking page: Log into the MEMEPUMP dashboard or launch the official MEMEPUMP app and navigate to the staking section.",
+                            "Enter amount: Enter the amount of MMPP tokens to stake. Detailed information such as expected rewards and duration will be displayed.",
+                            "Confirm transaction: Approve the staking transaction through your connected wallet. Be sure to review the terms and transaction details before final confirmation.",
+                            "Receive rewards: Once tokens are staked, you will receive rewards according to the platform's guidelines and unlock premium features."
+                        ]
+                    }
+                },
+                "roadmap": {
+                    "title": "5.2 Roadmap",
+                    "summary": "MEMEPUMP project operates based on a dynamic phased roadmap aimed at continuous expansion of the ecosystem, integrating community feedback and promoting innovation. Below are our key milestone plans:",
+                    "phases": [
+                        {
+                            "title": "Phase 1: Foundation Building and Launch Preparation (Q2 2025)",
+                            "items": [
+                                "Protocol final development: Complete protocol development, smart contract audit, and user interface testing.",
+                                "Whitepaper and community building: Publish whitepaper and establish official communication channels for early participants.",
+                                "Pre-token distribution: Distribute seed round tokens and prepare for mainnet entry."
+                            ]
+                        },
+                        {
+                            "title": "Phase 2: Official Launch and Initial Growth (Q3 2025)",
+                            "items": [
+                                "Mainnet launch: Officially launch MEMEPUMP platform on Solana mainnet.",
+                                "Token distribution start: Begin vesting schedule and activate community rewards.",
+                                "Initial market integration: List MMPP tokens on major DEXs and initiate strategic early partnerships."
+                            ]
+                        },
+                        {
+                            "title": "Phase 3: Ecosystem Expansion and Feature Enhancement (Q4 2025 ~ Q1 2026)",
+                            "items": [
+                                "Liquidity and simulation feature expansion: Launch advanced liquidity provision features and integrated simulation modules to strengthen market activity.",
+                                "Staking and premium service launch: Introduce staking features and open premium services and advanced analytics dashboard.",
+                                "Global expansion: Expand marketing activities and strengthen global influence through additional partnerships."
+                            ]
+                        },
+                        {
+                            "title": "Phase 4: Decentralized Governance and Long-term Innovation (Q2 2026 onwards)",
+                            "items": [
+                                "DAO transition: Gradually transition governance to a fully decentralized model enabling community-driven decision making.",
+                                "Cross-chain integration: Explore cross-chain interoperability to secure diverse liquidity and broaden user accessibility.",
+                                "Continuous feature enhancement: Periodically update cutting-edge features based on user feedback and market evolution.",
+                                "Community-driven projects: Support community-centered projects and incentives to continuously strengthen the MEMEPUMP ecosystem."
+                            ]
+                        }
+                    ],
+                    "note": "This roadmap may be adjusted based on market conditions, technological developments, and community opinions. We are always committed to building a safe, innovative, and user-centered platform."
+                },
+                "audit": {
+                    "title": "5.3 Audit",
+                    "content": "(※ This section will be updated when the audit results are completed.)"
+                },
+                "terms": {
+                    "title": "5.4 Terms of Service",
+                    "lastUpdate": "Last updated: June 7, 2025",
+                    "sections": [
+                        {
+                            "title": "1. Agreement to Terms",
+                            "content": "By accessing MEMEPUMP (hereinafter 'Platform'), you are considered to have legally agreed to these terms. If you do not agree, please do not use the platform."
+                        },
+                        {
+                            "title": "Eligibility",
+                            "items": [
+                                "Must be 18 years of age or older (or the age of majority in your jurisdiction).",
+                                "Usage is restricted if residing in prohibited countries (see item 4)."
+                            ]
+                        },
+                        {
+                            "title": "2. Platform Services",
+                            "content": "MEMEPUMP provides the following services:",
+                            "items": [
+                                "Meme coin trading: Token swaps through integrated DEXs like Uniswap, Jupiter",
+                                "Portfolio tracking: Blockchain-based asset holding status verification",
+                                "Staking: Deposit tokens and earn rewards (conditions may change)",
+                                "AI tools: Analysis, scam detection, trend alerts, etc."
+                            ],
+                            "disclaimer": "We only provide user interface. Actual interactions occur directly through smart contracts. We have no control over external protocols (wallets, DEXs, etc.)."
+                        },
+                        {
+                            "title": "3. Token (MMPP) Utility",
+                            "items": [
+                                "Governance participation: Exercise voting rights on platform upgrades",
+                                "Staking rewards: Earn fees and MMPP rewards when providing liquidity",
+                                "Premium features: Unlock advanced analytics tools and features by staking tokens"
+                            ]
+                        },
+                        {
+                            "title": "4. Restricted Regions and Users",
+                            "items": [
+                                "Restricted countries: United States, United Kingdom, China, Singapore, FATF blacklist countries",
+                                "Restricted entities: Sanctioned individuals, minors, organizations or individuals violating local laws"
+                            ]
+                        },
+                        {
+                            "title": "5. User Responsibilities",
+                            "items": [
+                                "Security: You must securely store your personal wallet keys. We cannot recover lost assets.",
+                                "Compliance: Must comply with all relevant laws in your country of residence, and tax reporting is your responsibility.",
+                                "Due diligence: Must conduct sufficient research before trading meme coins."
+                            ],
+                            "prohibited": "Prohibited activities: Fraud, market manipulation (e.g., pump and dump), illegal activities (money laundering, terrorist financing, etc.), exploiting platform vulnerabilities"
+                        },
+                        {
+                            "title": "6. Risk Factors and Disclaimers",
+                            "items": [
+                                "Market volatility: Meme coins can lose 100% of their value in a short period.",
+                                "No warranty: This platform is provided 'as is' and does not guarantee accuracy or uptime.",
+                                "Third-party risks: Possibility of errors or hacking of external services like wallets, DEXs, oracles"
+                            ],
+                            "liability": "We are not responsible for: Asset losses due to hacking, fraud, or user errors, indirect damages (e.g., loss of profits)"
+                        },
+                        {
+                            "title": "7. Intellectual Property",
+                            "content": "All content on the platform (logos, code, UI, etc.) is owned by MEMEPUMP. Limited usage permission is granted for personal, non-commercial purposes only."
+                        },
+                        {
+                            "title": "8. Service Termination",
+                            "content": "The platform may suspend service access or terminate accounts without prior notice for terms of service violations."
+                        },
+                        {
+                            "title": "9. Dispute Resolution",
+                            "items": [
+                                "Arbitration: All disputes are resolved through BVI (British Virgin Islands) arbitration procedures, and class action lawsuits are not allowed.",
+                                "Governing law: These terms are governed by BVI law."
+                            ]
+                        },
+                        {
+                            "title": "10. Terms Modification",
+                            "content": "The platform may modify terms at any time, and continued use after changes is considered agreement to the changes."
+                        },
+                        {
+                            "title": "Contact",
+                            "content": "For questions, please contact us at: memepump@gmail.com"
+                        }
+                    ],
+                    "improvements": {
+                        "title": "Improvements",
+                        "items": [
+                            "Concise structure: Clear sections and bullet point composition",
+                            "User-centered language: Minimized use of legal terminology",
+                            "Enhanced risk disclosure: Clearly explains meme coin-specific risks",
+                            "Regulatory compliance emphasis: Explicitly mentions DeFi-related legal issues"
+                        ]
+                    }
+                },
+                "privacy": {
+                    "title": "5.5 Privacy Policy",
+                    "overview": "MEMEPUMP prioritizes user privacy and data security. This policy explains how the platform complies with global data protection standards and how we collect, utilize, and protect user data.",
+                    "sections": [
+                        {
+                            "title": "1. Data Collection",
+                            "onchain": {
+                                "title": "On-chain data:",
+                                "content": "Transaction history, wallet addresses, and token balances are recorded on the blockchain. This data is public but exists in anonymized form and cannot be altered."
+                            },
+                            "offchain": {
+                                "title": "Off-chain data:",
+                                "content": "For users participating in activities requiring identity verification such as whitelisted liquidity providers, we may collect personal information including identification documents, contact information, and verification documents. This is to comply with KYC/AML (Know Your Customer/Anti-Money Laundering) regulations."
+                            },
+                            "analytics": {
+                                "title": "Usage analytics data:",
+                                "content": "To improve user experience and optimize services, we collect non-identifiable usage pattern data to enhance platform performance."
+                            }
+                        },
+                        {
+                            "title": "2. Data Utilization",
+                            "items": [
+                                "Platform security and regulatory compliance: Collected data is primarily used to maintain platform security, verify user identity when necessary, and comply with relevant regulatory requirements.",
+                                "Service improvement: Based on user data, services are customized, problems are resolved, and overall functionality is enhanced while protecting personal information.",
+                                "Communication: With user consent, collected contact information may be used to provide major updates, platform announcements, and customer support information."
+                            ]
+                        },
+                        {
+                            "title": "3. Data Protection Measures",
+                            "items": [
+                                "Encryption and secure storage: Sensitive off-chain data is encrypted and stored securely with access limited to authorized personnel only.",
+                                "Asset separation management: On-chain assets and off-chain data are managed through multi-signature wallets and strict access controls with strong protection measures against unauthorized access.",
+                                "Regulatory compliance: MEMEPUMP strictly complies with international data protection regulations such as GDPR and protects user rights and data integrity."
+                            ]
+                        },
+                        {
+                            "title": "4. User Rights and Data Retention",
+                            "items": [
+                                "Data access and modification: Users may request access to personal data we hold and request modifications if necessary.",
+                                "Data retention: Personal information is retained only for the period necessary to achieve the purposes stated in this policy or as legally required, and is safely disposed of when no longer needed.",
+                                "Policy changes: This privacy policy may be updated from time to time, and important changes will be announced through official channels."
+                            ]
+                        }
+                    ],
+                    "contact": "By using the MEMEPUMP platform, users are considered to have agreed to the contents stated in this privacy policy. For detailed information about data privacy or inquiries, please contact us at support@memepump.com"
+                },
+                "faq": {
+                    "title": "5.6 Frequently Asked Questions (FAQ)",
+                    "questions": [
+                        {
+                            "question": "Can anyone mint or burn MMPP tokens?",
+                            "answer": "No. MMPP token minting and burning can only be performed by **approved Whitelisted Liquidity Providers (WLP)**. These providers must complete KYC and KYB verification procedures, which is a measure to ensure the platform's compliance and integrity. General users can freely purchase and trade MMPP tokens 24/7 on official exchanges."
+                        },
+                        {
+                            "question": "I want to purchase MMPP tokens in large quantities. Are there methods other than official exchanges?",
+                            "answer": "Yes. For large-scale transactions, please contact us directly at the email below: 📧 vip@memepump.com Our team will guide you through customized trading options tailored to your requirements."
+                        },
+                        {
+                            "question": "How are the platform's underlying assets protected?",
+                            "answer": "All assets backing the MEMEPUMP ecosystem are protected through collaboration with **regulated licensed custodians** and top-tier MPC (Multi-Party Computation) wallet providers. These partners manage assets in isolated form completely separated from operating funds, equipped with multi-security structures meeting institutional-grade security standards."
+                        },
+                        {
+                            "question": "What happens when there are changes to the platform's underlying asset composition?",
+                            "answer": "Changes in underlying asset composition such as liquidity pool rebalancing or asset weight adjustments are automatically reflected in the MMPP token mechanism. These updates are typically performed regularly on a monthly basis, and users need not take any separate action. The platform responds flexibly to changes while maintaining stability."
+                        },
+                        {
+                            "question": "How are service fees calculated?",
+                            "answer": "The MEMEPUMP protocol charges a daily service fee of 0.01% based on underlying asset value. This fee is automatically calculated daily by smart contracts, maintaining complete transparency so users can verify and check the fee structure at any time."
+                        },
+                        {
+                            "question": "Where should I contact if I have additional questions or issues?",
+                            "answer": "For detailed information, please refer to the official MEMEPUMP documentation, and for additional inquiries, please contact us anytime at support@memepump.com"
+                        }
+                    ]
+                }
+            }
         }
     }
 }

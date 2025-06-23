@@ -301,7 +301,7 @@ export default function SwapInterface() {
     switch (activeTab) {
       case "swap":
         return (
-          <div className="flex flex-col gap-3 lg:gap-4 justify-between h-full">
+          <div className="flex flex-col gap-3 lg:gap-4 justify-between h-full ">
             <h2 className="bg-gradient-purple-cyan bg-clip-text text-xl lg:text-3xl font-bold leading-7  text-center mb-3 lg:mb-4">{t("swap.swapHistory")}</h2>
 
             <div className="overflow-hidden rounded-lg flex-1 flex flex-col">
@@ -364,8 +364,8 @@ export default function SwapInterface() {
                 </ul>
 
               </div>
-              <div className="">
-                <img src="/swap-guide.png" alt="swap-guide" className="w-full h-auto " />
+              <div className="rounded-xl overflow-hidden">
+                <img src="/okv.jpg" alt="swap-guide" className="w-full h-auto " />
               </div>
             </div>
           </div>
@@ -675,7 +675,7 @@ export default function SwapInterface() {
 
   const toggleHistory = () => {
     setShowHistory(!showHistory)
-  }
+  } 
 
   // Fetch Phantom balance when login method is phantom
   useEffect(() => {
@@ -686,7 +686,7 @@ export default function SwapInterface() {
 
 
   return (
-    <div className="flex-1 flex items-center justify-center p-4 md:p-4 z-20">
+    <div className="flex-1 flex items-center justify-center p-4 md:p-4 z-20 container mx-auto ">
 
       <div className="relative flex flex-col lg:flex-row  items-start justify-center gap-4 lg:gap-8 w-full">
         {/* History Panel */}

@@ -51,6 +51,7 @@ const config: Config = {
         blue: {
           DEFAULT: '#00B8F4',
           '100': '#028FBE',
+          '200': '#030620',
         },
         navy: {
           DEFAULT: '#112D60',

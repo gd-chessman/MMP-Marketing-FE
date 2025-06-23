@@ -10,6 +10,7 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import VideoBackground from "@/components/bg-video";
 import { NotifyProvider } from "@/components/notify";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
 
 const gothicA1 = Gothic_A1({
   subsets: ["latin"],
@@ -40,6 +41,8 @@ export default function RootLayout({
     },
   }));
 
+  const pathname = usePathname();
+
   return (
     <html suppressHydrationWarning className="dark">
       <head>
@@ -53,8 +56,8 @@ export default function RootLayout({
             <NotifyProvider>
               <div className="min-h-screen bg-[#747474] dark:bg-gray-950 transition-colors duration-300 font-gothic-a1 flex flex-col">
                 <Header />
-                <VideoBackground />
-                <main className="overflow-x-hidden flex-1 z-20 relative container mx-auto w-full flex flex-col">{children}</main>
+                {pathname !== '/overview' && <VideoBackground />}
+                <main className="overflow-x-hidden flex-1 z-30 relative w-full flex flex-col">{children}</main>
               </div>
               <ToastContainer theme="dark" />
             </NotifyProvider>

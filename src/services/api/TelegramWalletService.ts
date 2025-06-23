@@ -4,7 +4,7 @@ import { getCurrentLang } from '@/utils/getCurrentLang';
 
 export const login = async (item: any) => {
     try {
-        const temp = await axiosClient.post(`/auth/login-telegram`, item,);
+        const temp = await axiosClient.post(`/auth/login-telegram`, { ...item});
         return temp.data;
     } catch (e) {
         throw e;

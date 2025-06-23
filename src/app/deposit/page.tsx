@@ -122,7 +122,7 @@ const DepositPage = () => {
     }
 
     return (
-        <div className="flex-1 flex items-center justify-center z-20 p-4">
+        <div className="flex-1 flex items-center justify-center z-20 container lg:mx-auto px-10">
             <div className="w-full max-w-md sm:max-w-lg lg:max-w-xl bg-black/60 p-4 sm:p-6 rounded-xl">
                 {/* QR Code Section */}
                 <Card className="border-[#d7d7d7]/20 text-white">

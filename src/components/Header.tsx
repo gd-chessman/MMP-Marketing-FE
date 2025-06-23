@@ -12,6 +12,7 @@ import { truncateString } from '@/utils/format'
 import { ArrowDownIcon, ChevronDown, CopyIcon, LogOut, Globe, Menu, X, ArrowDownUp } from 'lucide-react'
 import { useLang } from '@/lang/useLang'
 import { toast } from 'react-toastify'
+import Cookies from 'js-cookie'
 
 const Header = () => {
   const [activeTab, setActiveTab] = useState('overview')
@@ -23,19 +24,22 @@ const Header = () => {
   const { t, lang, setLang, langConfig } = useLang();
 
   const tabs = [
-    // { id: 'overview', href: '/', label: t('header.overview'), icon: '📊' },
-    { id: 'swap', href: '/swap', label: t('header.swap'), icon: <ArrowDownUp className='w-3 h-3 sm:w-4 sm:h-4' /> },
-    { id: 'deposit', href: '/deposit', label: t('header.deposit'), icon: '💰' },
+    // { id: 'overview', href: '/overview', label: t('header.overview'), icon: '📊', isActive: true },
+    { id: 'swap', href: '/swap', label: t('header.swap'), icon: <ArrowDownUp className='w-3 h-3 sm:w-4 sm:h-4' />, isActive: true },
+    { id: 'deposit', href: '/deposit', label: t('header.deposit'), icon: '💰', isActive: isAuthenticated },
+    { id: 'withdraw', href: '/withdraw', label: t('header.withdraw'), icon: '💰', isActive: isAuthenticated },
     // { id: 'stake', href: '/stake', label: t('header.stake'), icon: '🔒' },
-    // { id: 'referral', href: '/referral', label: t('header.referral'), icon: '👥' },
+    { id: 'referral', href: '/referral', label: t('header.referral'), icon: '👥', isActive: isAuthenticated },
+    { id: 'white-paper', href: '/white-paper', label: t('header.whitePaper'), icon: '📄', isActive: true },
   ]
 
   
   const { data: myWallet } = useQuery({
     queryKey: ['myWallet'],
     queryFn: () => TelegramWalletService.getmyWallet(),
-    enabled: isAuthenticated && loginMethod === 'telegram',
+    enabled: isAuthenticated,
   })
+  console.log("myWallet", myWallet)
 
   const handleGoogleSignIn = async () => {
     window.open(`https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_GOOGLE_REDIRECT_URI}&response_type=code&scope=email%20profile&access_type=offline`)
@@ -145,7 +149,7 @@ const Header = () => {
 
           {/* Desktop Navigation Tabs */}
           <nav className="hidden md:flex flex-1 gap-4 lg:gap-8 xl:gap-[100px] justify-center items-center">
-            {tabs.map((tab) => (
+            {tabs.filter((tab) => tab.isActive).map((tab) => (
               <Link 
                 className={cn(
                   'text-xs sm:text-sm text-neutral font-medium cursor-pointer hover:opacity-80 transition-opacity rounded-lg px-2 py-1', 
@@ -233,7 +237,7 @@ const Header = () => {
             ) : (
               <div className='lg:flex gap-3 hidden'>
                 <span className="hidden sm:inline text-xs sm:text-sm text-neutral font-medium">{t('header.joinUs')}</span>
-                <div className='w-5 h-5 sm:w-6 sm:h-6 cursor-pointer flex items-center justify-center bg-neutral rounded-full' onClick={() => window.open(`${process.env.NEXT_PUBLIC_TELEGRAM_BOT_URL}=${sessionStorage.getItem('ref')}`, "_blank")} >
+                <div className='w-5 h-5 sm:w-6 sm:h-6 cursor-pointer flex items-center justify-center bg-neutral rounded-full' onClick={() => window.open(`${process.env.NEXT_PUBLIC_TELEGRAM_BOT_URL}=${Cookies.get("ref") || null}`, "_blank")} >
                   <img src="/tele-icon.png" alt="tele-icon" className='w-2.5 h-2.5 sm:w-3 sm:h-3' style={{ marginLeft: '-3px' }} />
                 </div>
                 <div className='w-5 h-5 sm:w-6 sm:h-6 cursor-pointer flex items-center justify-center bg-neutral rounded-full' onClick={handlePhantomSignIn}>
@@ -307,7 +311,7 @@ const Header = () => {
                 <div className="flex gap-2 justify-between">
                   <button 
                     className="flex items-center gap-2 px-4 py-2 bg-black/40 border-none rounded-lg text-xs text-white"
-                    onClick={() => window.open(`${process.env.NEXT_PUBLIC_TELEGRAM_BOT_URL}=${sessionStorage.getItem('ref')}`, "_blank")}
+                    onClick={() => window.open(`${process.env.NEXT_PUBLIC_TELEGRAM_BOT_URL}=${Cookies.get("ref") || null}`, "_blank")}
                   >
                     <img src="/tele-icon.png" alt="tele-icon" className="w-3 h-3" />
                     Telegram
