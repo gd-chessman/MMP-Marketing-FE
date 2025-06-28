@@ -9,10 +9,11 @@ import { TelegramWalletService, PhantomWalletService } from '@/services/api'
 import { useAuth } from '@/hooks/useAuth'
 import { useQuery } from '@tanstack/react-query'
 import { truncateString } from '@/utils/format'
-import { ArrowDownIcon, ChevronDown, CopyIcon, LogOut, Globe, Menu, X, ArrowDownUp } from 'lucide-react'
+import { ArrowDownIcon, ChevronDown, CopyIcon, LogOut, Globe, Menu, X, ArrowDownUp, Copy, Check } from 'lucide-react'
 import { useLang } from '@/lang/useLang'
 import { toast } from 'react-toastify'
 import Cookies from 'js-cookie'
+import { Button } from '@/ui/button'
 
 const Header = () => {
   const [activeTab, setActiveTab] = useState('overview')
@@ -22,28 +23,35 @@ const Header = () => {
   const pathname = usePathname()
   const { isAuthenticated, loginMethod, logout, login } = useAuth();
   const { t, lang, setLang, langConfig } = useLang();
+  const [copied, setCopied] = useState(false)
 
   const tabs = [
     // { id: 'overview', href: '/overview', label: t('header.overview'), icon: '📊', isActive: true },
     { id: 'swap', href: '/swap', label: t('header.swap'), icon: <ArrowDownUp className='w-3 h-3 sm:w-4 sm:h-4' />, isActive: true },
     { id: 'deposit', href: '/deposit', label: t('header.deposit'), icon: '💰', isActive: isAuthenticated },
-    { id: 'withdraw', href: '/withdraw', label: t('header.withdraw'), icon: '💰', isActive: isAuthenticated },
-    // { id: 'stake', href: '/stake', label: t('header.stake'), icon: '🔒' },
-    { id: 'referral', href: '/referral', label: t('header.referral'), icon: '👥', isActive: isAuthenticated },
+    { id: 'withdraw', href: '/withdraw', label: t('header.withdraw'), icon: '💰', isActive: isAuthenticated && loginMethod != "phantom" },
+    { id: 'stake', href: '/stake', label: t('header.stake'), icon: '🔒', isActive: isAuthenticated },
+    { id: 'referral', href: '/referral', label: t('header.referral'), icon: '👥', isActive: isAuthenticated && loginMethod != "phantom" },
     { id: 'white-paper', href: '/white-paper', label: t('header.whitePaper'), icon: '📄', isActive: true },
   ]
 
-  
-  const { data: myWallet } = useQuery({
+
+  const { data: myWallet, refetch: refetchMyWallet } = useQuery({
     queryKey: ['myWallet'],
-    queryFn: () => TelegramWalletService.getmyWallet(),
+    queryFn: async () => {
+      const res = await TelegramWalletService.getmyWallet();
+      if (res.status === 401) {
+        handleLogout()
+      } else {
+        return res
+      }
+    },
     enabled: isAuthenticated,
   })
-  console.log("myWallet", myWallet)
+
 
   const handleGoogleSignIn = async () => {
     window.open(`https://accounts.google.com/o/oauth2/v2/auth?client_id=${process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_GOOGLE_REDIRECT_URI}&response_type=code&scope=email%20profile&access_type=offline`)
-    console.log("handleGoogleSignIn")
   }
 
   const handleLogout = () => {
@@ -134,6 +142,18 @@ const Header = () => {
     return flags[code] || '🌐'
   }
 
+  const handleCopyAddress = async () => {
+    if (!myWallet?.sol_address) return
+
+    try {
+        await navigator.clipboard.writeText(myWallet?.sol_address)
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+        toast.error(t('deposit.failedToCopyAddress'))
+    }
+}
+
   return (
     <header className="w-full bg-overlay backdrop-blur-sm border-b border-gray-200 sticky top-0 z-50">
       <div className="px-3 sm:px-4 md:px-6 lg:px-[40px] flex flex-col gap-2 sm:gap-4 md:gap-6 relative mx-auto z-10">
@@ -150,12 +170,12 @@ const Header = () => {
           {/* Desktop Navigation Tabs */}
           <nav className="hidden md:flex flex-1 gap-4 lg:gap-8 xl:gap-[100px] justify-center items-center">
             {tabs.filter((tab) => tab.isActive).map((tab) => (
-              <Link 
+              <Link
                 className={cn(
-                  'text-xs sm:text-sm text-neutral font-medium cursor-pointer hover:opacity-80 transition-opacity rounded-lg px-2 py-1', 
+                  'text-xs sm:text-sm text-neutral font-medium cursor-pointer hover:opacity-80 transition-opacity rounded-lg px-2 py-1',
                   pathname === tab.href && 'bg-gradient-purple-cyan bg-clip-text'
-                )} 
-                href={tab.href} 
+                )}
+                href={tab.href}
                 key={tab.id}
               >
                 {tab.label}
@@ -188,9 +208,8 @@ const Header = () => {
                         setLang(language.code)
                         setShowLanguageDropdown(false)
                       }}
-                      className={`w-full flex items-center gap-2 sm:gap-3 bg-transparent border-none cursor-pointer px-3 py-2 text-xs sm:text-sm hover:bg-gray-100/10 transition-colors ${
-                        lang === language.code ? 'text-blue-600 bg-blue-50/10' : 'text-neutral'
-                      }`}
+                      className={`w-full flex items-center gap-2 sm:gap-3 bg-transparent border-none cursor-pointer px-3 py-2 text-xs sm:text-sm hover:bg-gray-100/10 transition-colors ${lang === language.code ? 'text-blue-600 bg-blue-50/10' : 'text-neutral'
+                        }`}
                     >
                       <img src={getLanguageFlag(language.code)} alt={language.code} className="w-4 h-3 sm:w-6 sm:h-4" />
                       <span>{t(`lang.${language.code}`)}</span>
@@ -222,6 +241,18 @@ const Header = () => {
                       <div className='flex items-center gap-1 mt-1'>
                         <span className="text-xs text-neutral">{t('header.walletAddress')} </span>
                         <span className="text-xs bg-gradient-purple-cyan bg-clip-text break-all">{truncateString(myWallet?.sol_address, 12)}</span>
+                        <Button
+                          onClick={handleCopyAddress}
+                          variant="ghost"
+                          size="sm"
+                          className="text-neutral hover:text-white bg-transparent border-none cursor-pointer p-1 sm:p-2"
+                        >
+                          {copied ? (
+                            <Check className="w-3 h-3 text-green-500" />
+                          ) : (
+                            <Copy className="w-3 h-3" />
+                          )}
+                        </Button>
                       </div>
                     </div>
                     <button
@@ -272,9 +303,8 @@ const Header = () => {
                     onClick={() => {
                       setLang(language.code)
                     }}
-                    className={`flex items-center flex-wrap lg:flex-nowrap justify-center lg:justify-start border-none bg-black/40 gap-2 px-3 py-2 lg:py-[6px] rounded text-xs ${
-                      lang === language.code ? 'text-primary' : 'text-neutral'
-                    }`}
+                    className={`flex items-center flex-wrap lg:flex-nowrap justify-center lg:justify-start border-none bg-black/40 gap-2 px-3 py-2 lg:py-[6px] rounded text-xs ${lang === language.code ? 'text-primary' : 'text-neutral'
+                      }`}
                   >
                     <img src={getLanguageFlag(language.code)} alt={language.code} className="w-4 h-3" />
                     <span>{t(`lang.${language.code}`)}</span>
@@ -287,13 +317,13 @@ const Header = () => {
             <div className="px-4 py-2">
               {/* <div className="text-xs text-gray-500 mb-2">{t('header.navigation')}</div> */}
               <div className="flex flex-col gap-1">
-                {tabs.map((tab) => (
-                  <Link 
+                {tabs.filter((tab) => tab.isActive).map((tab) => (
+                  <Link
                     className={cn(
-                      'flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-neutral hover:bg-gray-100/10 bg-black/40 transition-colors', 
+                      'flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-neutral hover:bg-gray-100/10 bg-black/40 transition-colors',
                       pathname === tab.href && 'text-primary font-medium'
-                    )} 
-                    href={tab.href} 
+                    )}
+                    href={tab.href}
                     key={tab.id}
                     onClick={() => setShowMobileMenu(false)}
                   >
@@ -309,21 +339,21 @@ const Header = () => {
               <div className="px-4 py-2 border-t border-gray-100">
                 <div className="text-xs text-neutral mb-2">{t('header.joinUs')}</div>
                 <div className="flex gap-2 justify-between">
-                  <button 
+                  <button
                     className="flex items-center gap-2 px-4 py-2 bg-black/40 border-none rounded-lg text-xs text-white"
                     onClick={() => window.open(`${process.env.NEXT_PUBLIC_TELEGRAM_BOT_URL}=${Cookies.get("ref") || null}`, "_blank")}
                   >
                     <img src="/tele-icon.png" alt="tele-icon" className="w-3 h-3" />
                     Telegram
                   </button>
-                  <button 
+                  <button
                     className="flex items-center gap-2 px-4 py-2 bg-black/40 border-none rounded-lg text-xs text-white"
                     onClick={handlePhantomSignIn}
                   >
                     <img src="/phantom.png" alt="phantom-icon" className="w-3 h-3" />
                     Phantom
                   </button>
-                  <button 
+                  <button
                     className="flex items-center gap-2 px-4 py-2 bg-black/40 border-none rounded-lg text-xs text-white"
                     onClick={handleGoogleSignIn}
                   >

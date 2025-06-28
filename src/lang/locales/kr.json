@@ -1,7 +1,12 @@
 {
     "home": {
         "title": "홈페이지",
-        "redirecting": "리디렉션 중..."
+        "redirecting": "리다이렉팅 중..."
+    },
+    "protectedRoute": {
+        "welcome": "MMP에 오신 것을 환영합니다",
+        "connectWalletRequired": "이 페이지에 접근하려면 지갑을 연결해 주세요",
+        "connectWallet": "지갑 연결"
     },
     "lang": {
         "en": "영어",
@@ -12,8 +17,8 @@
     "header": {
         "overview": "개요",
         "swap": "스왑",
-        "stake": "스테이크",
-        "referral": "레퍼럴",
+        "stake": "스테이킹",
+        "referral": "추천 리워드 이벤트",
         "joinUs": "참여하기",
         "telegramLogin": "텔레그램 로그인",
         "googleLogin": "구글 로그인",
@@ -24,7 +29,7 @@
         "language": "언어",
         "selectLanguage": "언어 선택",
         "deposit": "입금",
-        "withdraw": "보내기",
+        "withdraw": "출금",
         "whitePaper": "백서"
     },
     "withdraw_page": {
@@ -37,6 +42,10 @@
         "withdraw_failed": "출금 실패",
         "loading": "로딩 중...",
         "no_withdrawal_history": "출금 내역이 없습니다",
+        "insufficient_balance": "잔액이 부족합니다",
+        "minimum_withdrawal": "최소 출금액",
+        "transaction_fee": "거래 수수료",
+        "withdraw_fee_description": "SOL, USDT, USDC의 경우: ",
         "table": {
             "time": "시간",
             "type": "유형",
@@ -74,7 +83,15 @@
         "phantomConnectionFailed": "Phantom 지갑 연결에 실패했습니다",
         "phantomSignatureFailed": "Phantom 지갑으로 메시지 서명에 실패했습니다",
         "phantomAuthFailed": "Phantom 지갑 인증에 실패했습니다",
-        "processingPhantomLogin": "Phantom 로그인 처리 중..."
+        "processingPhantomLogin": "Phantom 로그인 처리 중...",
+        "phantomMobileWarning": "Phantom 지갑으로 로그인하려면 Phantom 앱 내의 브라우저를 통해 웹사이트에 접속하세요. 외부 브라우저를 사용하면 로그인이 제한될 수 있습니다.",
+        "phantomMobileGuide": {
+            "title": "✅ Phantom 지갑 로그인 안내",
+            "step1": "1.Phantom 지갑 앱을 켭니다.",
+            "step2": "2.Phantom 지갑 내에 아래쪽에 있는 돋보기 아이콘(🔍) 을 눌러 검색창으로 이동합니다.",
+            "step3": "3.상단 주소창에 ido.memepump.gg 를 입력하고 접속합니다.",
+            "step4": "4.웹사이트가 열리면 '지갑 연결' 또는 '로그인' 버튼을 눌러 로그인합니다."
+        }
     },
     "tglogin": {
         "title": "프로필 완성",
@@ -106,6 +123,7 @@
         "from": "보낼 자산",
         "to": "받을 자산",
         "swap": "스왑",
+        "max": "최대",
         "connectWallet": "지갑 연결",
         "processing": "처리 중...",
         "time": "시간",
@@ -273,7 +291,7 @@
         },
         "specialOpportunity": {
             "title": "특별 기회",
-            "message": "MMP/MPB 초기 판매 진행 중 <br/> 첫 번째 판매: 0.001 SOL (7월 31일까지) <br/> 두 번째 판매: 0.002 SOL (일정 발표 예정)"
+            "message": "MMP/MPB 초기 판매 진행 중 <br/> 첫 번째 판매: 0.001 $ (7월 31일까지) <br/> 두 번째 판매: 0.002 $ (일정 발표 예정)"
         }
     },
     "services": {
@@ -294,27 +312,40 @@
     },
     "referral": {
         "title": "레퍼럴 대시보드",
-        "yourReferralLink": "나의 레퍼럴 링크",
+        "yourReferralLink": "나의 추천 링크",
         "copied": "클립보드에 복사되었습니다!",
-        "totalReferrals": "총 레퍼럴 수",
+        "totalReferrals": "총 참여 인원",
         "totalEarnings": "총 수익",
         "activeReferrals": "활성 레퍼럴",
         "bjReferrals": "BJ 레퍼럴",
         "normalReferrals": "일반 레퍼럴",
         "withdraw": "출금",
         "referralStructure": "레퍼럴 구조",
-        "yourReferrals": "나의 레퍼럴",
+        "yourReferrals": "보상 내역",
         "referredUsers": "추천된 사용자",
         "levelReferral": "레벨별 레퍼럴",
         "normal": "일반",
-        "bj": "유명 인사",
+        "bj": "BG",
+        "history": "내역",
+        "txHash": "트랜잭션 해시",
+        "status": "상태",
+        "reward": "보상",
+        "token": "토큰",
         "user": "사용자",
         "joinDate": "가입일",
         "level": "레벨",
         "earnings": "수익",
         "hide": "숨기기",
         "show": "보이기",
+        "referralHistory": "레퍼럴 내역",
+        "referralDetail": "레퍼럴 상세",
+        "detail": "상세",
+        "userInfo": "사용자 정보",
+        "date": "날짜",
         "type": "유형",
+        "pending": "보류",
+        "completed": "완료",
+        "failed": "실패",
         "levels": {
             "all": "전체",
             "level1": "레벨 1",
@@ -328,8 +359,11 @@
         "structure": {
             "your_reward": "당신의 보상",
             "total_commission": "총 수수료",
-            "paid_in": "로 지급",
-            "note": "참고: 보상을 받으려면 최소 $5의 MMP 토큰 스왑을 수행해야 합니다. 스왑을 수행하지 않은 경우 보상 금액은 대기 상태가 됩니다."
+            "paid_in": "으로 지급",
+            "note": "참고: 보상을 받으려면 최소 5달러 상당의 MMP 토큰을 스왑해야 합니다. 스왑을 수행하지 않은 경우 보상 금액은 보류 상태가 됩니다.",
+            "when_downline_buys": "다운라인이 구매 시",
+            "when_downline_buys_mpb": "당신의 하위 유저가 MPB를 구매할 때",
+            "when_downline_buys_mmp": "당신의 하위 유저가 MMP를 구매할 때"
         },
         "noReferredUsers": "아직 추천된 사용자가 없습니다."
     },
@@ -675,10 +709,11 @@
                     "items": [
                         "프리미엄 APY 비율",
                         "경쟁력 있는 고수익 APY:",
-                        "3개월: 연 20%",
-                        "6개월: 연 30%",
-                        "9개월: 연 40%",
-                        "12개월: 연 50%",
+                        "3개월: 10%",
+                        "6개월: 22%",
+                        "9개월: 34%",
+                        "12개월: 48%",
+                        "24개월: 130%",
                         "유동적 조정 가능: 플랫폼의 운영 상황이나 TVL(Total Value Locked, 총 예치금)에 따라 APY는 유동적으로 조정될 수 있으며, 이는 생태계의 안정적 성장을 위한 조치입니다."
                     ]
                 },
@@ -993,5 +1028,76 @@
                 }
             }
         }
+    },
+    "stake": {
+        "title": "MMP 스테이킹",
+        "comingSoon": "스테이킹이 곧 출시됩니다!",
+        "description": "MMP 토큰을 스테이킹하여 보상을 받으세요. 스테이킹 기간이 길수록 더 많은 보상을 받습니다.",
+        "totalStaked": "총 스테이킹",
+        "myStaked": "내 스테이킹",
+        "rewards": "보상",
+        "stakeNow": "지금 스테이킹",
+        "unStake": "스테이킹 해제",
+        "claimRewards": "보상 받기",
+        "enterAmount": "스테이킹할 금액 입력",
+        "balance": "잔액",
+        "currentStake": "현재 스테이킹",
+        "totalMmpStaked": "총 MMP 스테이킹",
+        "totalInterestEarned": "총 획득 이자",
+        "peopleCurrentlyStaking": "현재 스테이킹 중인 사람들",
+        "mmpFromLastMonth": "지난달 대비 MMP",
+        "mmpThisMonth": "이번달 MMP",
+        "activeStakers": "활성 스테이커",
+        "friendReferralBonus": "친구 추천 보너스:",
+        "friendReferralDescription": "친구를 스테이킹에 소개하는 사용자는 추천받은 사용자의 보상에 추가로 5-10%를 받습니다. 이는 사용자 네트워크를 확장하고 커뮤니티 참여를 촉진합니다.",
+        "stakerLeaderboard": "스테이커 리더보드:",
+        "stakerLeaderboardDescription": "스테이킹 금액과 기간을 기준으로 한 랭킹 시스템으로 상위 스테이커에게 주간 또는 월간 상금을 제공합니다 (예: 1위 스테이커는 1,000 $MMP를 받습니다).",
+        "earlyStakingPromotion": "얼리 스테이킹 프로모션:",
+        "earlyStakingDescription": "얼리 어답터는 한정 시간 제공으로 10-30% 보너스를 받습니다.",
+        "miniGameLuckySpin": "미니게임 \"럭키 스핀\":",
+        "miniGameDescription": "1,000 토큰을 스테이킹하거나 스테이킹을 해제할 때 사용자는 랜덤 상품을 받기 위해 휠을 돌릴 기회를 얻습니다.",
+        "stakes": "스테이킹",
+        "allAmount": "총 금액",
+        "term": "기간",
+        "interestRate": "이자율",
+        "startDate": "시작일:",
+        "Term 3 Months": "3개월",
+        "Term 6 Months": "6개월",
+        "Term 9 Months": "9개월",
+        "Term 12 Months": "12개월",
+        "Term 24 Months": "24개월",
+        "3 Month": "3개월",
+        "6 Month": "6개월",
+        "9 Month": "9개월",
+        "12 Month": "12개월",
+        "24 Month": "24개월",
+        "dueDate": "만기일:",
+        "amount": "금액",
+        "profit": "수익",
+        "daysLeft": "남은 일수",
+        "withdraw": "출금",
+        "loading": "로딩 중...",
+        "errorLoadingStakingData": "스테이킹 데이터 로딩 오류",
+        "noStakingDataAvailable": "사용 가능한 스테이킹 데이터가 없습니다",
+        "depositMmp": "MMP를 구매하고",
+        "earnContinuously": "스테이킹으로 수익을 얻으세요",
+        "availableBalance": "사용 가능한 잔액:",
+        "deposit": "입금",
+        "depositTerm": "입금 기간",
+        "selectStakeMonths": "스테이킹 개월 선택",
+        "days": "일",
+        "apy": "APY",
+        "stake": "스테이킹",
+        "stakeProcessing": "처리 중...",
+        "usdApprox": "≈ {amount} USD",
+        "months": "개월",
+        "pleaseEnterValidAmount": "유효한 금액을 입력하세요",
+        "pleaseSelectStakePlan": "스테이크 플랜을 선택하세요",
+        "invalidAmount": "유효하지 않은 금액",
+        "insufficientBalance": "잔액 부족. 사용 가능: {balance} MMP",
+        "insufficientSolBalance": "스테이크를 초기화하려면 최소 0.002 SOL이 필요합니다",
+        "invalidStakePeriod": "유효하지 않은 스테이크 기간",
+        "stakeSuccess": "스테이크가 성공적으로 생성되었습니다!",
+        "stakeError": "스테이크 생성에 실패했습니다. 다시 시도해 주세요."
     }
 }

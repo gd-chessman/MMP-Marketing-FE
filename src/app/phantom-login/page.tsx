@@ -82,7 +82,7 @@ function PhantomLoginContent() {
         } catch (error: any) {
             console.log("error", error);
             toast.error(t('connectWalletModal.phantomAuthFailed'));
-            // window.location.href = '/';
+            window.location.href = '/';
         }
     }
 

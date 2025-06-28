@@ -3,6 +3,11 @@
         "title": "Home Page",
         "redirecting": "Redirecting..."
     },
+    "protectedRoute": {
+        "welcome": "Welcome to MMP",
+        "connectWalletRequired": "Please connect your wallet to access this page",
+        "connectWallet": "Connect Wallet"
+    },
     "lang": {
         "en": "English",
         "vi": "Vietnamese",
@@ -27,14 +32,6 @@
         "withdraw": "Withdraw",
         "whitePaper": "White Paper"
     },
-    "referral": {
-        "structure": {
-            "your_reward": "Your Reward",
-            "total_commission": "Total Commission",
-            "paid_in": "paid in",
-            "note": "Note: You need to perform a swap of MMP tokens with a minimum of $5 to be eligible for rewards. When you haven't performed the swap, your reward amount will be in pending status."
-        }
-    },
     "withdraw_page": {
         "withdraw_successful": "Withdrawal successful!",
         "withdraw_failed": "Withdrawal failed. Please try again.",
@@ -42,9 +39,14 @@
         "available_balance": "Available balance for transfer",
         "recipient_wallet_address": "Recipient wallet address",
         "enter_recipient_wallet_address": "Enter recipient wallet address...",
+        "transaction_history": "Transaction History",
         "send": "Send",
         "loading": "Loading...",
+        "insufficient_balance": "Insufficient balance",
+        "withdraw_fee_description": "For SOL, USDT, USDC: ",
         "no_withdrawal_history": "No withdrawal history",
+        "minimum_withdrawal": "Minimum withdrawal",
+        "transaction_fee": "Transaction fee",
         "table": {
             "time": "Time",
             "type": "Type",
@@ -79,7 +81,16 @@
         "phantomNotInstalled": "Phantom wallet is not installed. Please install it first.",
         "phantomConnectionFailed": "Failed to connect to Phantom wallet",
         "phantomSignatureFailed": "Failed to sign message with Phantom wallet",
-        "phantomAuthFailed": "Failed to authenticate with Phantom wallet"
+        "phantomAuthFailed": "Failed to authenticate with Phantom wallet",
+        "processingPhantomLogin": "Processing Phantom login...",
+        "phantomMobileWarning": "If you want to login with Phantom wallet, please access the website through the browser available in the Phantom app. Login may be restricted if using an external browser.",
+        "phantomMobileGuide": {
+            "title": "✅ Phantom Wallet Login Guide",
+            "step1": "1. Open the Phantom wallet app.",
+            "step2": "2. Click on the magnifying glass icon (🔍) at the bottom of the Phantom wallet to go to the search screen.",
+            "step3": "3. Enter ido.memepump.gg in the address bar at the top and access it.",
+            "step4": "4. When the website opens, click the 'Connect Wallet' or 'Login' button to log in."
+        }
     },
     "tglogin": {
         "title": "Complete Your Profile",
@@ -112,12 +123,18 @@
         "from": "From",
         "to": "To",
         "swap": "SWAP",
+        "max": "Max",
         "connectWallet": "Connect Wallet",
         "processing": "Processing...",
         "time": "Time",
         "sell": "Sell",
         "buy": "Buy",
         "noSwapHistory": "No swap history available",
+        "networkFee": {
+            "message": "When swapping, a Solana network fee ({fee}) will be incurred. <br /> It is recommended to purchase directly in SOL.",
+            "recommendation": "It is recommended to purchase directly in SOL.",
+            "firstTimeFee": "For the first IDO purchase, a network fee of approximately 0.0025 SOL is required for ATA creation. <br /> After additional purchases, the network fee per swap is reduced to approximately 0.00005 SOL."
+        },
         "guildMembership": "Guild Membership",
         "guildDescription": "Join our exclusive guild system to unlock premium features, earn rewards, and connect with other traders. Guild members enjoy reduced fees, priority support, and exclusive trading opportunities.",
         "joinGuild": "Join Guild",
@@ -131,6 +148,16 @@
             "If they choose not to stake, they can withdraw MMP/MPB from their exchange wallet back to their personal wallet, paying only the network fee.",
             "When withdrawing SOL, USDT, or USDC from the exchange wallet to a personal wallet, a flat $1 withdrawal fee applies."
         ],
+        "specialOpportunity": {
+            "title": "Special Opportunity",
+            "message": "MMP/MPB Initial Sale in Progress <br/> First Sale: 0.001 $ (July 31, 2025) <br/> Second Sale: 0.002 $ (Scheduled to be announced)"
+        },
+        "holdingBenefits": {
+            "title": "Holding Benefits",
+            "synergyProject": "Synergy Project Execution",
+            "airdropDistribution": "5% of Airdrop supply will be distributed to holders",
+            "earlyParticipants": "Early participants receive larger rewards"
+        },
         "errors": {
             "enterValidAmount": "Please enter a valid amount swap",
             "selectToken": "Please select a token to swap",
@@ -139,7 +166,7 @@
             "invalidRequest": "Invalid request. Please check your input.",
             "authenticationRequired": "Authentication required. Please connect your wallet.",
             "insufficientBalance": "Insufficient balance or permission denied.",
-            "insufficientSolBalance": "Insufficient SOL balance. Please check your wallet balance.",
+            "insufficientSolBalance": "Minimum SOL balance to initialize approximately 0.002",
             "ataCreationFee": "ATA creation fee is 0.0025 SOL. Please ensure you have enough SOL for the transaction.",
             "serviceUnavailable": "Service not available. Please try again later.",
             "tooManyRequests": "Too many requests. Please wait before trying again.",
@@ -270,7 +297,55 @@
         "unStake": "Unstake",
         "claimRewards": "Claim Rewards",
         "enterAmount": "Enter amount to stake",
-        "balance": "Balance"
+        "balance": "Balance",
+        "currentStake": "Current Stake",
+        "totalMmpStaked": "Total MMP Staked",
+        "totalInterestEarned": "Total Interest Earned",
+        "peopleCurrentlyStaking": "People Currently Staking",
+        "mmpFromLastMonth": "MMP from last month",
+        "mmpThisMonth": "MMP this month",
+        "activeStakers": "Active stakers",
+        "friendReferralBonus": "Friend Referral Bonus:",
+        "friendReferralDescription": "Users who introduce friends to stake will earn an additional 5-10% of the referred user's rewards. This approach expands the user network and promotes community engagement.",
+        "stakerLeaderboard": "Staker Leaderboard:",
+        "stakerLeaderboardDescription": "A ranking system based on staking amount and duration will reward top stakers with weekly or monthly prizes (e.g., the top staker receives 1,000 $MMP).",
+        "earlyStakingPromotion": "Early Staking Promotion:",
+        "earlyStakingDescription": "Early adopters receive a bonus of 10-30% as a limited-time offer.",
+        "miniGameLuckySpin": "Mini-Game \"Lucky Spin\":",
+        "miniGameDescription": "Upon staking 1,000 tokens or when unlocking a stake, users earn an opportunity to spin a wheel for random prizes.",
+        "stakes": "Stakes",
+        "allAmount": "All Amount",
+        "term": "Term",
+        "interestRate": "Interest Rate",
+        "startDate": "Start date:",
+        "dueDate": "Due date:",
+        "amount": "Amount",
+        "profit": "Profit",
+        "daysLeft": "Days Left",
+        "withdraw": "Withdraw",
+        "loading": "Loading...",
+        "errorLoadingStakingData": "Error loading staking data",
+        "noStakingDataAvailable": "No staking data available",
+        "depositMmp": "Deposit MMP",
+        "earnContinuously": "Earn Continuously",
+        "availableBalance": "Available Balance:",
+        "deposit": "Deposit",
+        "depositTerm": "Deposit Term",
+        "selectStakeMonths": "Select Stake Months",
+        "days": "days",
+        "apy": "APY",
+        "stake": "STAKE",
+        "stakeProcessing": "Processing...",
+        "usdApprox": "≈ {amount} USD",
+        "months": "months",
+        "pleaseEnterValidAmount": "Please enter a valid amount",
+        "pleaseSelectStakePlan": "Please select a stake plan",
+        "invalidAmount": "Invalid amount",
+        "insufficientBalance": "Insufficient balance. Available: {balance} MMP",
+        "insufficientSolBalance": "You need a minimum of 0.002 SOL to initialize stake",
+        "invalidStakePeriod": "Invalid stake period",
+        "stakeSuccess": "Stake created successfully!",
+        "stakeError": "Failed to create stake. Please try again."
     },
     "referral": {
         "title": "Referral Dashboard",
@@ -294,6 +369,19 @@
         "show": "Show",
         "type": "Type",
         "normal": "Normal",
+        "history": "History",
+        "txHash": "Tx Hash",
+        "status": "Status",
+        "reward": "Reward",
+        "token": "Token",
+        "pending": "Pending",
+        "completed": "Completed",
+        "detail": "Detail",
+        "referralHistory": "Referral History",
+        "referralDetail": "Referral Detail",
+        "userInfo": "User Information",
+        "date": "Date",
+        "failed": "Failed",
         "bj": "BJ",
         "levels": {
             "all": "All",
@@ -306,11 +394,15 @@
             "level7": "Level 7"
         },
         "structure": {
-            "regular_customer": "Regular Customer",
-            "bj_influencer": "BJ / Influencer",
+            "your_reward": "Your Reward",
             "total_commission": "Total Commission",
             "paid_in": "paid in",
-            "your_reward": "Your Reward"
+            "note": "Note: You need to perform a swap of MMP tokens with a minimum of $5 to be eligible for rewards. When you haven't performed the swap, your reward amount will be in pending status.",
+            "when_downline_buys": "When your downline buys",
+            "when_downline_buys_mpb": "When your downline buys MPB",
+            "when_downline_buys_mmp": "When your downline buys MMP",
+            "regular_customer": "Regular Customer",
+            "bj_influencer": "BJ / Influencer"
         },
         "noReferredUsers": "No referred users yet."
     },
@@ -652,10 +744,11 @@
                     "items": [
                         "Premium APY rates",
                         "Competitive high-yield APY:",
-                        "3 months: 20% per year",
-                        "6 months: 30% per year",
-                        "9 months: 40% per year",
-                        "12 months: 50% per year",
+                        "3 months: 10%",
+                        "6 months: 22%",
+                        "9 months: 34%",
+                        "12 months: 48%",
+                        "24 months: 130%",
                         "Flexible adjustment: APY may be adjusted dynamically depending on platform operation or TVL (Total Value Locked) to ensure stable ecosystem growth."
                     ]
                 },
@@ -969,6 +1062,22 @@
                     ]
                 }
             }
+        }
+    },
+    "services": {
+        "errors": {
+            "phantomNotInstalled": "Phantom wallet is not installed",
+            "phantomNotInstalledWithLink": "Phantom wallet is not installed. Please install from https://phantom.app/",
+            "phantomNotConnected": "Phantom wallet is not connected. Please connect first.",
+            "phantomConnectionRejected": "User rejected the connection request",
+            "phantomConnectionFailed": "Failed to connect to Phantom wallet",
+            "phantomSignatureRejected": "User rejected the signature request",
+            "phantomSignatureFailed": "Failed to sign message with Phantom wallet",
+            "phantomTransactionRejected": "User rejected the transaction request",
+            "phantomAuthFailed": "Failed to authenticate with Phantom wallet",
+            "failedToCreateTokenAccount": "Failed to create token account",
+            "errorGetMyWallet": "Error getting my wallet information",
+            "errorGetGoogleUserInfo": "Error getting Google user information"
         }
     }
 }

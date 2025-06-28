@@ -27,7 +27,7 @@ const BorderExchangeToken = ({ children }: { children: React.ReactNode }) => {
           </linearGradient>
         </defs>
       </svg>
-      <div className="flex text-neutral w-full items-center flex-col xl:gap-4 gap-1 justify-center h-full top-0 left-0 absolute z-10 xl:mx-6 mx-2 xl:px-4 px-2 xl:py-6 py-4">
+      <div className="flex text-neutral w-full items-center flex-col xl:gap-4 gap-1 justify-center h-full top-0 left-0 absolute z-10 ">
         {children}
       </div>
     </div>
@@ -107,37 +107,39 @@ const ExchangeToken = () => {
 
   return (
     <div className='bg-feature bg-[#020616BD]/60 z-50 w-full h-svh flex items-center justify-center relative pt-20 overflow-hidden'>
-      <div className='absolute top-0 right-0 w-full h-full bg-[#020616c2]' />
-      <div className='container mx-auto px-4 relative mb-[10%]'>
+      <div className='absolute top-0 right-0 w-full h-full bg-[#0f121ad6] backdrop-blur-lg' />
+      <div className='eclipse-box absolute bottom-[10%] left-[10%] w-[375px] h-[375px] z-20' style={{background: '#0090ff57'}}/>
+      <div className='eclipse-box absolute top-[10%] right-[10%] w-[254px] h-[254px] z-20' style={{background: '#15dffd63', filter: 'blur(50px)'}}/>
+      <div className='container mx-auto px-4 relative mb-[5%]'>
         <div className='flex flex-col items-center justify-center gap-4 relative h-[50px]'>
           <h2
             ref={titleRef}
-            className={`title-feature text-[36px] xl:text-[48px] bg-clip-text absolute top-0 left-0 w-full h-full text-center animate-fade-in-up ${titleInView ? 'in-view' : ''}`}
+            className={`title-feature text-[32px] xl:text-[40px] bg-clip-text absolute top-0 left-0 w-full h-full text-center animate-fade-in-up ${titleInView ? 'in-view' : ''}`}
           >
             Exchange token
           </h2>
-          <h3
+          {/* <h3
             ref={title2Ref}
-            className={`text-[#DFE0EF] text-[36px] xl:text-[48px] webkit-text-stroke-1 font-bold bg-black/60 xl:min-w-[440px] min-w-[300px] h-full text-center z-10 leading-none animate-fade-in-up-delayed ${title2InView ? 'in-view' : ''}`}
+            className={`text-[#DFE0EF] text-[32px] xl:text-[40px] webkit-text-stroke-1 font-bold bg-black/60 xl:min-w-[440px] min-w-[300px] h-full text-center z-10 leading-none animate-fade-in-up-delayed ${title2InView ? 'in-view' : ''}`}
           >
             Exchange token
-          </h3>
+          </h3> */}
         </div>
         <div className='flex flex-col items-center justify-center gap-4 relative h-[50px] mt-10'>
           <p
             ref={descRef}
-            className={`text-neutral text-center text-base  xl:max-w-[950px] max-w-[500px]  animate-fade-in-up-delayed ${descInView ? 'in-view' : ''}`}
+            className={`text-neutral text-center text-sm  xl:max-w-[950px] max-w-[500px]  animate-fade-in-up-delayed ${descInView ? 'in-view' : ''}`}
           >
             MMP and MPB are two pioneering exchange-issued coins that represent a breakthrough in the world of Web3 and decentralized platforms. Built on Solana, they are not just liquidity tokens but also tools for creating value and opportunities for the community, aiming to establish a sustainable and powerful ecosystem.
           </p>
         </div>
-        <div className='flex w-full items-center justify-evenly relative mt-20'>
-          <div className='w-1/2 max-w-[316px] flex flex-col items-center justify-center gap-10'>
+        <div className='flex w-full items-center justify-evenly relative mt-[5%]'>
+          <div className='w-1/2 max-w-[280px] flex flex-col items-center justify-center gap-10'>
             <img 
               ref={mmpImageRef}
               src="/MMP-hex.png" 
               alt="exchange-token" 
-              className={`w-full h-auto object-cover animate-fade-in-up ${mmpImageInView ? 'in-view' : ''}`} 
+              className={`w-full max-w-[280px] h-auto object-cover animate-fade-in-up ${mmpImageInView ? 'in-view' : ''}`} 
             />
             <div 
               ref={mmpTextRef}
@@ -158,12 +160,12 @@ const ExchangeToken = () => {
               </BorderExchangeToken>
             </div>
           </div>
-          <div className='w-1/2 max-w-[316px] flex flex-col items-center justify-center gap-10'>
+          <div className='w-1/2 max-w-[280px] flex flex-col items-center justify-center gap-10'>
             <img 
               ref={mpbImageRef}
               src="/MPB-hex.png" 
               alt="exchange-token" 
-              className={`w-full h-auto object-cover animate-fade-in-up ${mpbImageInView ? 'in-view' : ''}`} 
+              className={`w-full max-w-[280px] h-auto object-cover animate-fade-in-up ${mpbImageInView ? 'in-view' : ''}`} 
             />
             <div 
               ref={mpbTextRef}

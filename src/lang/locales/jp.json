@@ -3,6 +3,11 @@
         "title": "ホームページ",
         "redirecting": "リダイレクト中..."
     },
+    "protectedRoute": {
+        "welcome": "MMPへようこそ",
+        "connectWalletRequired": "このページにアクセスするにはウォレットを接続してください",
+        "connectWallet": "ウォレットを接続"
+    },
     "lang": {
         "en": "英語",
         "vi": "ベトナム語",
@@ -36,7 +41,11 @@
         "withdraw_successful": "出金に成功しました！",
         "withdraw_failed": "出金に失敗しました。もう一度お試しください。",
         "loading": "読み込み中...",
+        "transaction_history": "取引履歴",
         "no_withdrawal_history": "出金履歴はありません",
+        "minimum_withdrawal": "最低出金額",
+        "transaction_fee": "取引手数料",
+        "withdraw_fee_description": "SOL、USDT、USDCの場合: ",
         "table": {
             "time": "時間",
             "type": "タイプ",
@@ -72,7 +81,16 @@
         "phantomNotInstalled": "Phantomウォレットがインストールされていません。先にインストールしてください。",
         "phantomConnectionFailed": "Phantomウォレットへの接続に失敗しました",
         "phantomSignatureFailed": "Phantomウォレットでのメッセージ署名に失敗しました",
-        "phantomAuthFailed": "Phantomウォレットでの認証に失敗しました"
+        "phantomAuthFailed": "Phantomウォレットでの認証に失敗しました",
+        "processingPhantomLogin": "Phantomログインを処理中...",
+        "phantomMobileWarning": "Phantomウォレットでログインしたい場合は、Phantomアプリ内のブラウザを通じてウェブサイトにアクセスしてください。外部ブラウザを使用するとログインが制限される場合があります。",
+        "phantomMobileGuide": {
+            "title": "✅ Phantomウォレットログインガイド",
+            "step1": "1. Phantomウォレットアプリを開きます。",
+            "step2": "2. Phantomウォレット内の下部にある虫眼鏡アイコン（🔍）をクリックして検索画面に移動します。",
+            "step3": "3. 上部のアドレスバーにido.memepump.ggを入力してアクセスします。",
+            "step4": "4. ウェブサイトが開いたら、「ウォレット接続」または「ログイン」ボタンをクリックしてログインします。"
+        }
     },
     "tglogin": {
         "title": "プロフィールを完成させる",
@@ -104,6 +122,7 @@
         "myBalance": "残高",
         "from": "から",
         "to": "へ",
+        "max": "最大",
         "swap": "スワップ",
         "connectWallet": "ウォレット接続",
         "processing": "処理中...",
@@ -268,7 +287,7 @@
         },
         "specialOpportunity": {
             "title": "特別な機会",
-            "message": "MMP/MPB初期販売進行中 <br/> 第1回販売: 0.001 SOL (7月31日まで) <br/> 第2回販売: 0.002 SOL (スケジュールは後日発表)"
+            "message": "MMP/MPB初期販売進行中 <br/> 第1回販売: 0.001 $ (7月31日まで) <br/> 第2回販売: 0.002 $ (スケジュールは後日発表)"
         }
     },
     "services": {
@@ -301,6 +320,11 @@
         "yourReferrals": "あなたの紹介",
         "referredUsers": "紹介されたユーザー",
         "levelReferral": "レベル紹介",
+        "history": "履歴",
+        "txHash": "トランザクションハッシュ",
+        "status": "ステータス",
+        "reward": "報酬",
+        "token": "トークン",
         "user": "ユーザー",
         "joinDate": "参加日",
         "level": "レベル",
@@ -309,7 +333,15 @@
         "show": "表示",
         "type": "タイプ",
         "normal": "普通",
+        "referralHistory": "紹介履歴",
+        "referralDetail": "紹介詳細",
+        "userInfo": "ユーザー情報",
+        "detail": "詳細",
+        "date": "日付",
         "BJ": "有名人",
+        "pending": "保留中",
+        "completed": "完了",
+        "failed": "失敗",
         "levels": {
             "all": "すべて",
             "level1": "レベル1",
@@ -326,7 +358,10 @@
             "total_commission": "総手数料",
             "paid_in": "で支払われる",
             "your_reward": "あなたの報酬",
-            "note": "注意：報酬を受けるには、最低5ドルのMMPトークンのスワップを実行する必要があります。スワップを実行していない場合、報酬額は保留状態になります。"
+            "note": "注意：報酬を受け取る資格を得るには、最低5ドル相当のMMPトークンのスワップを実行する必要があります。スワップを実行していない場合、報酬額は保留状態になります。",
+            "when_downline_buys": "ダウンラインが購入する場合",
+            "when_downline_buys_mpb": "ダウンラインがMPBを購入する場合",
+            "when_downline_buys_mmp": "ダウンラインがMMPを購入する場合"
         },
         "noReferredUsers": "まだ紹介されたユーザーがいません。"
     },
@@ -674,10 +709,11 @@
                     "items": [
                         "プレミアムAPYレート",
                         "競争力のある高利回りAPY:",
-                        "3ヶ月: 年20%",
-                        "6ヶ月: 年30%",
-                        "9ヶ月: 年40%",
-                        "12ヶ月: 年50%",
+                        "3ヶ月: 10%",
+                        "6ヶ月: 22%",
+                        "9ヶ月: 34%",
+                        "12ヶ月: 48%",
+                        "24ヶ月: 130%",
                         "柔軟な調整: プラットフォームの運用状況やTVL（Total Value Locked）に応じてAPYは柔軟に調整され、生態系の安定成長を図ります。"
                     ]
                 },
@@ -992,5 +1028,76 @@
                 }
             }
         }
+    },
+    "stake": {
+        "Term 3 Months": "3ヶ月",
+        "Term 6 Months": "6ヶ月",
+        "Term 9 Months": "9ヶ月",
+        "Term 12 Months": "12ヶ月",
+        "Term 24 Months": "24ヶ月",
+        "3 Month": "3ヶ月",
+        "6 Month": "6ヶ月",
+        "9 Month": "9ヶ月",
+        "12 Month": "12ヶ月",
+        "24 Month": "24ヶ月",
+        "title": "MMPステーキング",
+        "comingSoon": "ステーキングがまもなく開始されます！",
+        "description": "MMPトークンをステーキングして報酬を獲得しましょう。ステーキング期間が長いほど、より多くの報酬を獲得できます。",
+        "totalStaked": "総ステーキング",
+        "myStaked": "私のステーキング",
+        "rewards": "報酬",
+        "stakeNow": "今すぐステーキング",
+        "unStake": "ステーキング解除",
+        "claimRewards": "報酬を受け取る",
+        "enterAmount": "ステーキングする金額を入力",
+        "balance": "残高",
+        "currentStake": "現在のステーキング",
+        "totalMmpStaked": "総MMPステーキング",
+        "totalInterestEarned": "総獲得利息",
+        "peopleCurrentlyStaking": "現在ステーキング中の人々",
+        "mmpFromLastMonth": "先月比MMP",
+        "mmpThisMonth": "今月のMMP",
+        "activeStakers": "アクティブなステーカー",
+        "friendReferralBonus": "友達紹介ボーナス:",
+        "friendReferralDescription": "友達をステーキングに紹介するユーザーは、紹介されたユーザーの報酬に追加で5-10%を獲得します。このアプローチはユーザーネットワークを拡大し、コミュニティ参加を促進します。",
+        "stakerLeaderboard": "ステーカーレーダーボード:",
+        "stakerLeaderboardDescription": "ステーキング金額と期間に基づくランキングシステムで、トップステーカーに週間または月間賞金を提供します（例：トップステーカーは1,000 $MMPを獲得）。",
+        "earlyStakingPromotion": "早期ステーキングプロモーション:",
+        "earlyStakingDescription": "早期採用者は期間限定オファーとして10-30%のボーナスを受け取ります。",
+        "miniGameLuckySpin": "ミニゲーム「ラッキースピン」:",
+        "miniGameDescription": "1,000トークンをステーキングするか、ステーキングを解除する際、ユーザーはランダムな賞品を獲得するためにホイールを回す機会を得ます。",
+        "stakes": "ステーキング",
+        "allAmount": "総額",
+        "term": "期間",
+        "interestRate": "金利",
+        "startDate": "開始日:",
+        "dueDate": "満期日:",
+        "amount": "金額",
+        "profit": "利益",
+        "daysLeft": "残り日数",
+        "withdraw": "出金",
+        "loading": "読み込み中...",
+        "errorLoadingStakingData": "ステーキングデータの読み込みエラー",
+        "noStakingDataAvailable": "利用可能なステーキングデータがありません",
+        "depositMmp": "MMP入金",
+        "earnContinuously": "継続的に収益を創出",
+        "availableBalance": "利用可能残高:",
+        "deposit": "入金",
+        "depositTerm": "入金期間",
+        "selectStakeMonths": "ステーキング月数選択",
+        "days": "日",
+        "apy": "APY",
+        "stake": "ステーキング",
+        "stakeProcessing": "処理中...",
+        "usdApprox": "≈ {amount} USD",
+        "months": "ヶ月",
+        "pleaseEnterValidAmount": "有効な金額を入力してください",
+        "pleaseSelectStakePlan": "ステークプランを選択してください",
+        "invalidAmount": "無効な金額",
+        "insufficientBalance": "残高不足。利用可能: {balance} MMP",
+        "insufficientSolBalance": "ステークを初期化するには最低0.002 SOLが必要です",
+        "invalidStakePeriod": "無効なステーク期間",
+        "stakeSuccess": "ステークが正常に作成されました！",
+        "stakeError": "ステークの作成に失敗しました。もう一度お試しください。"
     }
 }

@@ -159,6 +159,38 @@ export class Web3WalletService {
     }
   }
 
+  // Ký transaction và serialize lại (chuẩn Phantom)
+  static async signTransactionAndSerialize(serializedTx: string): Promise<string> {
+    try {
+      const { solana } = window as any;
+      if (!solana || !solana.isPhantom) {
+        const currentLang = getCurrentLang();
+        throw createLocalizedError(currentLang, SERVICE_ERROR_KEYS.PHANTOM_NOT_INSTALLED);
+      }
+      
+      // Deserialize transaction từ base64
+      const transaction = Transaction.from(Buffer.from(serializedTx, 'base64'));
+      
+      // Ký transaction
+      const signedTransaction = await solana.signTransaction(transaction);
+      
+      // Serialize lại transaction đã ký thành base64
+      return Buffer.from(signedTransaction.serialize()).toString('base64');
+    } catch (error) {
+      console.error('Error signing and serializing transaction:', error);
+      if (error instanceof Error) {
+        const currentLang = getCurrentLang();
+        if (error.message.includes('User rejected') || error.message.includes('User cancelled')) {
+          throw createLocalizedError(currentLang, SERVICE_ERROR_KEYS.PHANTOM_TRANSACTION_REJECTED);
+        }
+        if (error.message.includes('Wallet not connected')) {
+          throw createLocalizedError(currentLang, SERVICE_ERROR_KEYS.PHANTOM_NOT_CONNECTED);
+        }
+      }
+      throw error;
+    }
+  }
+
   // Sign and send transaction
   static async signAndSendTransaction(serializedTx: string): Promise<string> {
     try {

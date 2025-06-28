@@ -1,9 +1,26 @@
+import React, { useState, useEffect } from 'react';
+
 const BoxFeauture = ({children}: {children: React.ReactNode}) => {
+    const [windowWidth, setWindowWidth] = useState(0);
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+        setWindowWidth(window.innerWidth);
+        
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+        
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
-        <div className="relative w-full xl:max-w-[417px] max-w-[300px] h-auto xl:min-h-[261px] min-h-[180px] aspect-[417/261]">
+        <div className="relative w-[90%] h-auto aspect-[417/261]">
             {/* Top decorative SVG - responsive positioning */}
             <svg 
-                className="absolute top-0 right-[8%] z-10 w-[35%] max-w-[146px] h-auto" 
+                className={`absolute top-0 right-[8%] z-10 w-[35%] max-w-[146px] h-auto ${isClient && windowWidth < 1280 ? 'w-[20%] max-w-[80px]' : ''}`} 
                 xmlns="http://www.w3.org/2000/svg" 
                 viewBox="0 0 146 14" 
                 fill="none"
@@ -57,10 +74,11 @@ const BoxFeauture = ({children}: {children: React.ReactNode}) => {
             <svg 
                 className="w-full h-full" 
                 xmlns="http://www.w3.org/2000/svg" 
-                viewBox="0 0 417 261" 
+                viewBox={`0 0 ${isClient && windowWidth < 1280 ? 300 : 417} ${isClient && windowWidth < 1280 ? 200 : 261}`} 
                 fill="none"
                 preserveAspectRatio="xMidYMid meet"
             >
+                
                 <foreignObject x="-24" y="-24" width="465" height="309">
                     <div style={{ backdropFilter: 'blur(12px)', clipPath: 'url(#bgblur_0_391_1181_clip_path)', height: '100%', width: '100%' }}></div>
                 </foreignObject>
@@ -92,7 +110,7 @@ const BoxFeauture = ({children}: {children: React.ReactNode}) => {
             </svg>
             
             {/* Content container - responsive padding */}
-            <div className="flex flex-col xl:gap-4 gap-1 justify-center h-full top-0 left-0 absolute z-10 xl:mx-6 mx-2 xl:px-4 px-2 xl:py-6 py-4">
+            <div className="flex flex-col xl:gap-4 gap-1 justify-center h-full top-0 left-0 absolute z-10 xl:mx-6 mx-2 px-2 py-4">
                 {children}
             </div>
         </div>

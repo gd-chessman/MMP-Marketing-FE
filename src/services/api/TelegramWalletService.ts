@@ -18,6 +18,7 @@ export const getmyWallet = async () => {
     } catch (e) {
         console.log(e)
         const currentLang = getCurrentLang();
+        return e
         throw createLocalizedError(currentLang, SERVICE_ERROR_KEYS.ERROR_GET_MY_WALLET);
     }
 }

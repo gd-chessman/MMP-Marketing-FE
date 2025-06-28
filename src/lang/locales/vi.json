@@ -3,6 +3,11 @@
         "title": "Trang chủ",
         "redirecting": "Đang chuyển hướng..."
     },
+    "protectedRoute": {
+        "welcome": "Chào mừng đến với MMP",
+        "connectWalletRequired": "Vui lòng kết nối ví để truy cập trang này",
+        "connectWallet": "Kết nối ví"
+    },
     "lang": {
         "en": "Tiếng Anh",
         "vi": "Tiếng Việt",
@@ -38,6 +43,9 @@
         "loading": "Đang tải...",
         "transaction_history": "Lịch sử giao dịch",
         "no_withdrawal_history": "Không có lịch sử rút tiền",
+        "minimum_withdrawal": "Số tiền rút tối thiểu",
+        "transaction_fee": "Phí giao dịch",
+        "withdraw_fee_description": "Đối với SOL, USDT, USDC: ",
         "table": {
             "time": "Thời gian",
             "type": "Loại",
@@ -74,7 +82,16 @@
         "phantomNotInstalled": "Ví Phantom chưa được cài đặt. Vui lòng cài đặt trước.",
         "phantomConnectionFailed": "Không thể kết nối với ví Phantom",
         "phantomSignatureFailed": "Không thể ký tin nhắn với ví Phantom",
-        "phantomAuthFailed": "Không thể xác thực với ví Phantom"
+        "phantomAuthFailed": "Không thể xác thực với ví Phantom",
+        "processingPhantomLogin": "Đang xử lý đăng nhập với ví Phantom...",
+        "phantomMobileWarning": "Nếu bạn muốn đăng nhập bằng ví Phantom, vui lòng truy cập website thông qua trình duyệt có sẵn trong ứng dụng Phantom. Việc đăng nhập có thể bị hạn chế nếu sử dụng trình duyệt bên ngoài.",
+        "phantomMobileGuide": {
+            "title": "✅ Hướng dẫn đăng nhập ví Phantom",
+            "step1": "1. Mở ứng dụng ví Phantom.",
+            "step2": "2. Nhấp vào biểu tượng kính lúp (🔍) ở phía dưới ví Phantom để chuyển đến màn hình tìm kiếm.",
+            "step3": "3. Nhập ido.memepump.gg vào thanh địa chỉ ở trên cùng và truy cập.",
+            "step4": "4. Khi website mở ra, nhấp vào nút 'Kết nối ví' hoặc 'Đăng nhập' để đăng nhập."
+        }
     },
     "tglogin": {
         "title": "Hoàn thành Hồ sơ",
@@ -106,6 +123,7 @@
         "myBalance": "Số dư của tôi",
         "from": "Từ",
         "to": "Đến",
+        "max": "Max",
         "swap": "HOÁN ĐỔI",
         "connectWallet": "Kết nối ví",
         "processing": "Đang xử lý...",
@@ -270,7 +288,7 @@
         },
         "specialOpportunity": {
             "title": "Cơ hội đặc biệt",
-            "message": "Đợt bán đầu tiên MMP/MPB đang diễn ra <br/> Đợt bán đầu tiên: 0.001 SOL (Đến ngày 31 tháng 7) <br/> Đợt bán thứ hai: 0.002 SOL (Lịch trình sẽ được thông báo)"
+            "message": "Đợt bán đầu tiên MMP/MPB đang diễn ra <br/> Đợt bán đầu tiên: 0.001 $ (Đến ngày 31 tháng 7) <br/> Đợt bán thứ hai: 0.002 $ (Lịch trình sẽ được thông báo)"
         }
     },
     "services": {
@@ -307,6 +325,19 @@
         "bj": "BJ",
         "user": "Người dùng",
         "joinDate": "Ngày tham gia",
+        "history": "Lịch sử",
+        "txHash": "Tx Hash",
+        "status": "Trạng thái",
+        "pending": "Chờ xử lý",
+        "completed": "Đã hoàn thành",
+        "failed": "Thất bại",
+        "referralHistory": "Lịch sử giới thiệu",
+        "referralDetail": "Chi tiết giới thiệu",
+        "userInfo": "Thông tin người dùng",
+        "detail": "Chi tiết",
+        "date": "Ngày",
+        "reward": "Phần thưởng",
+        "token": "Token",
         "level": "Cấp độ",
         "earnings": "Thu nhập",
         "hide": "Ẩn",
@@ -326,9 +357,12 @@
             "regular_customer": "Khách hàng thông thường",
             "bj_influencer": "BJ / Người có ảnh hưởng",
             "total_commission": "Tổng hoa hồng",
-            "paid_in": "trả bằng",
+            "paid_in": "thanh toán bằng",
             "your_reward": "Phần thưởng của bạn",
-            "note": "Lưu ý: Bạn cần thực hiện swap đồng MMP với tối thiểu 5$ thì mới có thể được trả thưởng, khi bạn chưa thực hiện thì số phần thưởng của bạn sẽ ở trạng thái chờ."
+            "note": "Lưu ý: Bạn cần thực hiện một giao dịch hoán đổi token MMP với giá trị tối thiểu là 5$ để đủ điều kiện nhận phần thưởng. Khi bạn chưa thực hiện giao dịch hoán đổi, số tiền thưởng của bạn sẽ ở trạng thái chờ xử lý.",
+            "when_downline_buys": "Khi cấp dưới của bạn mua",
+            "when_downline_buys_mpb": "Khi cấp dưới của bạn mua MPB",
+            "when_downline_buys_mmp": "Khi cấp dưới của bạn mua MMP"
         },
         "noReferredUsers": "Chưa có người dùng nào được giới thiệu."
     },
@@ -673,10 +707,11 @@
                     "items": [
                         "Tỷ lệ APY cao cấp",
                         "APY cạnh tranh, lợi suất cao:",
-                        "3 tháng: 20%/năm",
-                        "6 tháng: 30%/năm",
-                        "9 tháng: 40%/năm",
-                        "12 tháng: 50%/năm",
+                        "3 tháng: 10%",
+                        "6 tháng: 22%",
+                        "9 tháng: 34%",
+                        "12 tháng: 48%",
+                        "24 tháng: 130%",
                         "Điều chỉnh linh hoạt: APY có thể được điều chỉnh linh hoạt tùy theo hoạt động nền tảng hoặc TVL (Tổng giá trị khóa) để đảm bảo tăng trưởng hệ sinh thái ổn định."
                     ]
                 },
@@ -986,5 +1021,76 @@
                 }
             }
         }
+    },
+    "stake": {
+        "title": "Đặt cọc MMP",
+        "comingSoon": "Staking sẽ sớm ra mắt!",
+        "description": "Đặt cọc token MMP của bạn để kiếm phần thưởng. Càng đặt cọc lâu, bạn càng kiếm được nhiều.",
+        "totalStaked": "Tổng số đã đặt cọc",
+        "myStaked": "Số đã đặt cọc của tôi",
+        "rewards": "Phần thưởng",
+        "stakeNow": "Đặt cọc ngay",
+        "unStake": "Rút cọc",
+        "Term 3 Months": "3 tháng",
+        "Term 6 Months": "6 tháng",
+        "Term 9 Months": "9 tháng",
+        "Term 12 Months": "12 tháng",
+        "Term 24 Months": "24 tháng",
+        "3 Month": "3 tháng",
+        "6 Month": "6 tháng",
+        "9 Month": "9 tháng",
+        "12 Month": "12 tháng",
+        "24 Month": "24 tháng",
+        "claimRewards": "Nhận phần thưởng",
+        "enterAmount": "Nhập số lượng để đặt cọc",
+        "balance": "Số dư",
+        "currentStake": "Đặt cọc hiện tại",
+        "totalMmpStaked": "Tổng MMP đã đặt cọc",
+        "totalInterestEarned": "Tổng lãi suất đã kiếm được",
+        "peopleCurrentlyStaking": "Người đang đặt cọc hiện tại",
+        "mmpFromLastMonth": "MMP từ tháng trước",
+        "mmpThisMonth": "MMP tháng này",
+        "activeStakers": "Người đặt cọc đang hoạt động",
+        "friendReferralBonus": "Thưởng giới thiệu bạn bè:",
+        "friendReferralDescription": "Người dùng giới thiệu bạn bè để đặt cọc sẽ kiếm thêm 5-10% phần thưởng của người được giới thiệu. Cách tiếp cận này mở rộng mạng lưới người dùng và thúc đẩy sự tham gia cộng đồng.",
+        "stakerLeaderboard": "Bảng xếp hạng người đặt cọc:",
+        "stakerLeaderboardDescription": "Hệ thống xếp hạng dựa trên số lượng và thời gian đặt cọc sẽ thưởng cho những người đặt cọc hàng đầu với giải thưởng hàng tuần hoặc hàng tháng (ví dụ: người đặt cọc hàng đầu nhận 1.000 $MMP).",
+        "earlyStakingPromotion": "Khuyến mãi đặt cọc sớm:",
+        "earlyStakingDescription": "Những người áp dụng sớm nhận thưởng 10-30% như một ưu đãi có thời hạn.",
+        "miniGameLuckySpin": "Mini-Game \"Vòng quay may mắn\":",
+        "miniGameDescription": "Khi đặt cọc 1.000 token hoặc khi mở khóa stake, người dùng có cơ hội quay vòng quay để nhận giải thưởng ngẫu nhiên.",
+        "stakes": "Lượt đặt cọc",
+        "allAmount": "Tổng số tiền",
+        "term": "Kỳ hạn",
+        "interestRate": "Lãi suất",
+        "startDate": "Ngày bắt đầu:",
+        "dueDate": "Ngày đáo hạn:",
+        "amount": "Số tiền",
+        "profit": "Lợi nhuận",
+        "daysLeft": "Số ngày còn lại",
+        "withdraw": "Rút tiền",
+        "loading": "Đang tải...",
+        "errorLoadingStakingData": "Lỗi tải dữ liệu đặt cọc",
+        "noStakingDataAvailable": "Không có dữ liệu đặt cọc",
+        "depositMmp": "Nạp tiền MMP",
+        "earnContinuously": "Kiếm tiền liên tục",
+        "availableBalance": "Số dư khả dụng:",
+        "deposit": "Nạp tiền",
+        "depositTerm": "Kỳ hạn nạp tiền",
+        "selectStakeMonths": "Chọn tháng đặt cọc",
+        "days": "ngày",
+        "apy": "APY",
+        "stake": "ĐẶT CỌC",
+        "stakeProcessing": "Đang xử lý...",
+        "usdApprox": "≈ {amount} USD",
+        "months": "tháng",
+        "pleaseEnterValidAmount": "Vui lòng nhập số tiền hợp lệ",
+        "pleaseSelectStakePlan": "Vui lòng chọn kế hoạch stake",
+        "invalidAmount": "Số tiền không hợp lệ",
+        "insufficientBalance": "Số dư không đủ. Có sẵn: {balance} MMP",
+        "insufficientSolBalance": "Bạn cần tối thiếu 0.002 SOL để khởi tạo stake",
+        "invalidStakePeriod": "Thời gian stake không hợp lệ",
+        "stakeSuccess": "Tạo stake thành công!",
+        "stakeError": "Không thể tạo stake. Vui lòng thử lại."
     }
 }

@@ -9,3 +9,21 @@ export const getReferralStatistics = async () => {
   }
 };
 
+export const getHistoryReferral = async () => {
+  try {
+    const response = await axiosClient.get('/referral-rewards');
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getReferralDetail = async (walletAddress: string) => {
+  try {
+    const response = await axiosClient.get(`/referral-rewards/by-address/${walletAddress}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
